@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-page-node-id="ZRzdRNp75ujatr2fOH0HBy">
+<head data-page-node-id="hJriPO6BZa1k6Z88MkgkAX">
+<meta charset="UTF-8" data-page-node-id="gTIbeez0JxVDAlN14YmjSI">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="OooDicj9GUzwLYXkjkAh2d">
+<title>MicroLED × ABC 全解｜錼創三條技術路徑與專利競爭力</title>
+<style>
+:root{
+  --bg:#f3f6fb;
+  --bg-2:#ffffff;
+  --bg-3:#eef3fa;
+  --fg:#14213d;
+  --fg-dim:#506078;
+  --fg-mute:#728199;
+  --cyan:#007fa3;
+  --amber:#b66a00;
+  --purple:#7047c8;
+  --green:#16835c;
+  --red:#c83f4d;
+  --line:#dbe3ef;
+  --line-2:#b9c7da;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--fg);font-family:Inter,'Noto Sans TC','PingFang TC','Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{max-width:1240px;margin:0 auto;padding:48px 32px 96px;font-size:14px}
+
+/* ---------- HEADER ---------- */
+.hdr{border:1px solid var(--line);background:linear-gradient(135deg,var(--bg-2) 0%,var(--bg-3) 100%);padding:32px 28px;position:relative;overflow:hidden}
+.hdr::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--amber))}
+.hdr-tag{display:inline-block;font-size:11px;color:var(--cyan);border:1px solid var(--cyan);padding:2px 10px;border-radius:2px;letter-spacing:1.5px;margin-bottom:14px}
+.hdr h1{font-size:28px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px;color:var(--fg)}
+.hdr h1 span.c1{color:var(--cyan)}
+.hdr h1 span.c2{color:var(--purple)}
+.hdr h1 span.c3{color:var(--amber)}
+.hdr .sub{font-size:13px;color:var(--fg-dim);letter-spacing:.5px}
+.hdr-meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:24px;font-size:12px;color:var(--fg-mute)}
+.hdr-meta b{color:var(--fg);font-weight:600}
+
+/* ---------- SECTION ---------- */
+sec{display:block;margin-top:56px}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sec-h h2{flex:1;font-size:18px;font-weight:700;color:var(--fg);letter-spacing:.3px}
+.sec-h .num{font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:1.5px}
+.sec-h .tag{font-size:11px;color:var(--fg-mute);letter-spacing:1px;border:1px solid var(--line-2);padding:2px 8px;border-radius:2px}
+
+/* ---------- DUAL-AXIS MAP ---------- */
+.dual-map{border:1px solid var(--line);background:var(--bg-2);padding:0;overflow:hidden}
+.dual-map svg{display:block;width:100%;height:auto}
+
+/* ---------- PATH CARDS ---------- */
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.path-card{border:1px solid var(--line);background:var(--bg-2);padding:18px 18px 16px;position:relative;transition:all .2s}
+.path-card:hover{border-color:var(--cyan)}
+.path-card[data-c="B"]:hover{border-color:var(--amber)}
+.path-card[data-c="C"]:hover{border-color:var(--purple)}
+.path-card .label{font-size:10px;letter-spacing:1.5px;color:var(--fg-mute);margin-bottom:6px}
+.path-card[data-c="A"] .label{color:var(--cyan)}
+.path-card[data-c="B"] .label{color:var(--amber)}
+.path-card[data-c="C"] .label{color:var(--purple)}
+.path-card h3{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--fg)}
+.path-card .tl{font-size:11px;color:var(--fg-dim);margin-bottom:14px;line-height:1.7;border-left:2px solid var(--line-2);padding-left:10px}
+.path-card[data-c="C"] .tl{border-left-color:var(--purple)}
+.path-card .stat{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.path-card .stat div{font-size:11px;color:var(--fg-mute)}
+.path-card .stat div b{display:block;color:var(--fg);font-size:14px;font-weight:700;margin-top:2px}
+.path-card.new{position:relative}
+.path-card.new::after{content:"NEW · 2026";position:absolute;top:10px;right:10px;font-size:9px;color:var(--purple);border:1px solid var(--purple);padding:1px 6px;letter-spacing:1px}
+
+/* ---------- BLOCK ---------- */
+.block{border:1px solid var(--line);background:var(--bg-2);padding:22px;margin-top:14px}
+.block h4{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--fg);letter-spacing:.3px;display:flex;align-items:center;gap:10px}
+.block h4 .dot{width:8px;height:8px;border-radius:50%}
+.block .desc{font-size:13px;color:var(--fg-dim);line-height:1.8}
+.block .desc b{color:var(--fg);font-weight:600}
+
+/* ---------- NODE TABLE ---------- */
+table.nodes{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+table.nodes th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--fg-mute);font-weight:600;font-size:11px;letter-spacing:.8px;text-transform:uppercase}
+table.nodes td{padding:12px;border-bottom:1px solid var(--line);color:var(--fg-dim);vertical-align:top}
+table.nodes td.id{color:var(--cyan);font-weight:700;font-size:12px;width:60px}
+table.nodes td.id.b{color:var(--amber)}
+table.nodes td.id.c{color:var(--purple)}
+table.nodes td.layer{font-size:11px;color:var(--fg-mute)}
+table.nodes td.tech b{color:var(--fg);font-weight:600;display:block;margin-bottom:4px;font-size:12px}
+table.nodes td.tech{font-size:11px}
+table.nodes td.feat{color:var(--cyan);font-size:11px}
+table.nodes tr:hover td{background:rgba(255,255,255,.02)}
+
+/* ---------- SVG BLOCK ---------- */
+.svg-wrap{border:1px solid var(--line);background:var(--bg-2);padding:20px;margin-top:14px}
+.svg-wrap svg{display:block;width:100%;height:auto}
+.svg-cap{font-size:11px;color:var(--fg-mute);margin-top:10px;letter-spacing:.5px}
+
+/* ---------- CPO HERO ---------- */
+.cpo-hero{border:1px solid var(--purple);background:radial-gradient(ellipse at top left,rgba(168,85,247,.08),transparent 60%),var(--bg-2);padding:28px;margin-top:14px;position:relative;overflow:hidden}
+.cpo-hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent)}
+.cpo-hero .badge{display:inline-block;font-size:10px;color:var(--purple);border:1px solid var(--purple);padding:2px 8px;letter-spacing:1.5px;margin-bottom:10px}
+.cpo-hero h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--fg)}
+.cpo-hero .lede{font-size:13px;color:var(--fg-dim);line-height:1.8;margin-bottom:14px}
+.cpo-hero .lede b{color:var(--purple);font-weight:600}
+.cpo-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.cpo-metrics div{font-size:11px;color:var(--fg-mute)}
+.cpo-metrics div b{display:block;color:var(--purple);font-size:20px;font-weight:700;margin-top:2px;font-family:'JetBrains Mono',monospace}
+.cpo-metrics div span{font-size:10px;color:var(--fg-mute)}
+
+/* ---------- COMPARISON ---------- */
+.cmp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.cmp-item{border:1px solid var(--line);background:var(--bg-2);padding:16px}
+.cmp-item h5{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--fg);display:flex;align-items:center;justify-content:space-between}
+.cmp-item .scope{font-size:10px;color:var(--fg-mute);letter-spacing:1px;font-weight:400}
+.cmp-item ul{list-style:none;font-size:12px;color:var(--fg-dim);line-height:1.9}
+.cmp-item ul li::before{content:"› ";color:var(--cyan);margin-right:6px;font-weight:700}
+.cmp-item.cpo{border-color:var(--purple)}
+.cmp-item.cpo h5{color:var(--purple)}
+.cmp-item.cpo ul li::before{content:"› ";color:var(--purple)}
+
+/* ---------- TIMELINE ---------- */
+.timeline{border:1px solid var(--line);background:var(--bg-2);padding:24px;margin-top:14px}
+.timeline svg{display:block;width:100%;height:auto}
+
+/* ---------- RISK ---------- */
+.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.risk{border:1px solid var(--line);background:var(--bg-2);padding:14px 16px}
+.risk .lv{font-size:10px;letter-spacing:1.5px;margin-bottom:8px;font-weight:700}
+.risk.high .lv{color:var(--red)}
+.risk.med .lv{color:var(--amber)}
+.risk.low .lv{color:var(--green)}
+.risk h5{font-size:12px;font-weight:600;margin-bottom:6px;color:var(--fg)}
+.risk p{font-size:11px;color:var(--fg-dim);line-height:1.7}
+
+/* ---------- CALLOUT ---------- */
+.callout{border-left:3px solid var(--cyan);background:rgba(0,212,255,.04);padding:14px 18px;margin-top:18px;font-size:12px;color:var(--fg-dim)}
+.callout b{color:var(--cyan);font-weight:600}
+.callout.purple{border-left-color:var(--purple);background:rgba(168,85,247,.04)}
+.callout.purple b{color:var(--purple)}
+.callout.amber{border-left-color:var(--amber);background:rgba(251,191,36,.04)}
+.callout.amber b{color:var(--amber)}
+.callout.green{border-left-color:var(--green);background:rgba(63,185,80,.05)}
+.callout.green b{color:var(--green)}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:11px;color:var(--fg-mute)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend span::before{content:"";width:10px;height:10px;border-radius:2px}
+.legend .a::before{background:var(--cyan)}
+.legend .b::before{background:var(--amber)}
+.legend .c::before{background:var(--purple)}
+
+@media(max-width:780px){
+  .paths,.cpo-metrics,.risks,.cmp-grid{grid-template-columns:1fr}
+}
+
+/* ================= INTERACTIVE LAYER (REV.3) ================= */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--amber));box-shadow:0 0 10px rgba(168,85,247,.5);transition:width .1s linear}
+#nav{position:sticky;top:0;z-index:150;margin:0 -32px;padding:0 32px;background:rgba(10,14,20,.88);border-bottom:1px solid var(--line);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px)}
+.nav-in{display:flex;align-items:center;gap:6px;height:52px;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap}
+.nav-in::-webkit-scrollbar{display:none}
+.nav-sep{flex:none;width:1px;height:18px;background:var(--line);margin:0 8px}
+.nav-lbl{flex:none;font-size:9.5px;letter-spacing:1.4px;color:var(--fg-mute);margin-right:2px}
+.nchip,.fchip,.rchip{flex:none;background:transparent;border:1px solid var(--line);color:var(--fg-mute);font-family:inherit;font-size:11px;padding:5px 9px;cursor:pointer;border-radius:2px;transition:all .18s;white-space:nowrap;letter-spacing:.5px}
+.nchip:hover,.fchip:hover,.rchip:hover{color:var(--fg);border-color:var(--line-2);background:var(--bg-2)}
+.nchip.on{color:var(--cyan);border-color:var(--cyan);background:rgba(0,212,255,.08)}
+.jumpchip.active{color:#fff;border-color:var(--cyan);background:var(--cyan);box-shadow:0 5px 14px rgba(0,127,163,.2)}
+.fchip{font-weight:600}
+.fchip[data-p="A"].on{color:var(--cyan);border-color:var(--cyan);background:rgba(0,212,255,.1)}
+.fchip[data-p="B"].on{color:var(--amber);border-color:var(--amber);background:rgba(251,191,36,.1)}
+.fchip[data-p="C"].on{color:var(--purple);border-color:var(--purple);background:rgba(168,85,247,.12)}
+.kbd{font-size:10.5px;color:var(--fg-mute);margin:12px 0 22px;letter-spacing:.3px;line-height:1.9}
+.kbd b{display:inline-block;color:var(--fg-dim);border:1px solid var(--line-2);border-radius:2px;padding:0 5px;font-weight:600;margin:0 1px;background:var(--bg-2)}
+
+sec{scroll-margin-top:64px}
+.rv{opacity:0;transform:translateY(18px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.22,.7,.3,1),transform .6s cubic-bezier(.22,.7,.3,1);transition-delay:var(--d,0ms)}
+body[data-motion="off"] .rv{opacity:1!important;transform:none!important;transition:none!important}
+
+.path-card{transition:opacity .3s,filter .3s,transform .3s,box-shadow .3s,border-color .2s}
+body[data-filter="A"] .path-card:not([data-c="A"]),body[data-filter="B"] .path-card:not([data-c="B"]),body[data-filter="C"] .path-card:not([data-c="C"]){opacity:.18;filter:grayscale(.8)}
+body[data-filter="A"] .path-card[data-c="A"],body[data-filter="B"] .path-card[data-c="B"],body[data-filter="C"] .path-card[data-c="C"]{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.55)}
+tr.rowhide{display:none}
+
+.nodeinfo{margin-top:14px;border:1px solid var(--line);background:var(--bg-2);padding:14px 16px;min-height:98px;transition:border-color .2s,background .2s}
+.nodeinfo.hot{border-color:var(--cyan);background:var(--bg-3)}
+.ni-hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.ni-n{flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0a0e14;background:var(--cyan)}
+.ni-n.b{background:var(--amber)}
+.ni-n.c{background:var(--purple)}
+.ni-t{font-size:13px;font-weight:700;color:var(--fg)}
+.ni-ly{font-size:10px;color:var(--fg-mute);border:1px solid var(--line-2);padding:1px 6px}
+.ni-p{font-size:10px;font-weight:700;letter-spacing:1px}
+.ni-d{font-size:12px;color:var(--fg-dim);line-height:1.85}
+.ni-e{font-size:10.5px;color:var(--cyan);margin-top:8px;letter-spacing:.3px}
+.ni-empty{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:var(--fg-mute);min-height:70px;line-height:1.8}
+.ni-empty::before{content:"\25C9";color:var(--cyan);font-size:13px;line-height:1.5}
+.dual-map svg rect[data-node]{cursor:pointer}
+.dual-map svg text{pointer-events:none}
+.dual-map svg g[data-path]{transition:opacity .3s}
+
+.tlbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line);background:var(--bg-2);padding:12px 16px;margin-top:14px}
+.tl-l{font-size:9.5px;letter-spacing:1.5px;color:var(--fg-mute)}
+#yr{-webkit-appearance:none;appearance:none;flex:1 1 200px;min-width:150px;height:4px;border-radius:2px;background:var(--line-2);outline:none;cursor:pointer}
+#yr::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--cyan);border:2px solid #0a0e14;box-shadow:0 0 0 1px var(--cyan),0 0 12px rgba(0,212,255,.55)}
+#yr::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--cyan);border:2px solid #0a0e14;box-shadow:0 0 0 1px var(--cyan)}
+#yrout{font-size:19px;font-weight:700;color:var(--cyan);min-width:58px;letter-spacing:-.5px}
+#yrnote{font-size:11px;color:var(--fg-dim);line-height:1.75;flex:1 1 260px}
+.tl-ticks{flex-basis:100%;display:flex;font-size:9px;color:var(--fg-mute);letter-spacing:.5px}
+.tl-ticks span{flex:1;text-align:center}
+.tl-ticks span:first-child{text-align:left}
+.tl-ticks span:last-child{text-align:right}
+
+.pbar{height:3px;background:var(--line);margin-top:7px;max-width:130px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--cyan);transition:width 1s cubic-bezier(.2,.75,.3,1)}
+tr[data-pn="1"] .pbar i{background:var(--purple);box-shadow:0 0 8px rgba(168,85,247,.55)}
+table.nodes th.sortable{cursor:pointer;user-select:none;transition:color .15s}
+table.nodes th.sortable:hover{color:var(--fg)}
+table.nodes th.sortable::after{content:" \2195";opacity:.3;font-size:9px}
+table.nodes th.sortable.asc::after{content:" \25B2";opacity:1;color:var(--cyan);font-size:8px}
+table.nodes th.sortable.desc::after{content:" \25BC";opacity:1;color:var(--cyan);font-size:8px}
+table.nodes tbody tr{cursor:pointer;transition:background .15s}
+tbody tr.pinned td{background:rgba(168,85,247,.12)!important;box-shadow:inset 3px 0 0 var(--purple)}
+.shint{font-size:10px;color:var(--fg-mute);margin-top:9px;letter-spacing:.3px;line-height:1.7}
+
+.riskbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.rchip.on{color:var(--fg);border-color:var(--fg);background:var(--bg-3)}
+.rchip[data-r="high"].on{color:var(--red);border-color:var(--red);background:rgba(248,81,73,.08)}
+.rchip[data-r="med"].on{color:var(--amber);border-color:var(--amber);background:rgba(251,191,36,.08)}
+.rchip[data-r="low"].on{color:var(--green);border-color:var(--green);background:rgba(63,185,80,.08)}
+.risk.gone{display:none}
+.risk{transition:opacity .25s,transform .25s}
+
+.fab{position:fixed;right:22px;bottom:22px;z-index:160;display:flex;flex-direction:column;gap:8px}
+.fab button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:rgba(15,20,27,.94);color:var(--fg-dim);font-family:inherit;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .18s;box-shadow:0 4px 14px rgba(0,0,0,.5);backdrop-filter:blur(8px)}
+.fab button:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-2px)}
+.fab button.act{color:var(--purple);border-color:var(--purple)}
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,16px);opacity:0;pointer-events:none;z-index:300;background:var(--bg-3);border:1px solid var(--cyan);color:var(--cyan);font-size:12px;padding:9px 18px;transition:all .25s;letter-spacing:.3px}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+
+@keyframes glowpulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes dashflow{to{stroke-dashoffset:-12}}
+@keyframes noderipple{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.6);opacity:0}}
+@keyframes fadeup{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+.flow{stroke-dasharray:6 6;animation:dashflow .9s linear infinite}
+body[data-motion="off"] .flow{animation:none;stroke-dasharray:none!important}
+
+/* ---------- TOP NAV / PROGRESS / NODE INFO ---------- */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--amber));z-index:300;transition:width .08s linear;box-shadow:0 0 8px rgba(0,212,255,.6)}
+#nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin:0 -28px 24px;padding:10px 28px}
+.nav-in{display:flex;align-items:center;flex-wrap:nowrap;gap:8px;font-size:11px;letter-spacing:.5px}
+.nav-lbl{color:var(--fg-mute);font-weight:700;font-size:10px;letter-spacing:1.5px}
+.nav-sep{width:1px;height:14px;background:var(--line-2);margin:0 2px}
+.fchip{border:1px solid var(--line-2);background:var(--bg-3);color:var(--fg-dim);padding:5px 10px;border-radius:3px;cursor:pointer;font-family:inherit;font-size:11px;letter-spacing:.5px;transition:all .15s}
+.fchip:hover{color:var(--fg);border-color:var(--fg)}
+.fchip[data-p="A"]:hover,.fchip[data-p="A"].on{color:var(--cyan);border-color:var(--cyan);background:rgba(0,212,255,.08)}
+.fchip[data-p="B"]:hover,.fchip[data-p="B"].on{color:var(--amber);border-color:var(--amber);background:rgba(251,191,36,.08)}
+.fchip[data-p="C"]:hover,.fchip[data-p="C"].on{color:var(--purple);border-color:var(--purple);background:rgba(168,85,247,.08)}
+.fchip.on{font-weight:700}
+.nchip{font-weight:700}
+.kbd{font-size:11px;color:var(--fg-mute);margin:-12px 0 24px;padding:10px 14px;border-left:2px solid var(--cyan);background:rgba(0,212,255,.04);line-height:1.7}
+.kbd b{color:var(--fg);font-weight:700;background:var(--bg-3);padding:1px 5px;border-radius:2px;border:1px solid var(--line-2);font-family:'JetBrains Mono',monospace;font-size:10px}
+
+/* ---------- DUAL MAP HOVER ---------- */
+.dual-map rect[stroke="#00d4ff"],.dual-map rect[stroke="#fbbf24"],.dual-map rect[stroke="#a855f7"]{cursor:pointer;transition:filter .18s,stroke-width .18s}
+.dual-map rect[stroke="#00d4ff"]:hover{filter:drop-shadow(0 0 8px rgba(0,212,255,.7));stroke-width:2.2}
+.dual-map rect[stroke="#fbbf24"]:hover{filter:drop-shadow(0 0 8px rgba(251,191,36,.7));stroke-width:2.2}
+.dual-map rect[stroke="#a855f7"]:hover{filter:drop-shadow(0 0 8px rgba(168,85,247,.7));stroke-width:2.2}
+.dual-map .ripple{fill:none;stroke-width:1.4;opacity:0;transform-origin:center;transform-box:fill-box}
+body[data-motion="on"] .dual-map .ripple{animation:noderipple 1.6s ease-out infinite}
+
+/* ---------- NODE INFO PANEL ---------- */
+.nodeinfo{border:1px solid var(--line);border-left:3px solid var(--cyan);background:var(--bg-2);padding:14px 18px;margin-top:14px;font-size:12px;color:var(--fg-dim);line-height:1.8;min-height:54px;transition:border-color .2s,padding .2s}
+.nodeinfo[data-c="A"]{border-left-color:var(--cyan)}
+.nodeinfo[data-c="B"]{border-left-color:var(--amber)}
+.nodeinfo[data-c="C"]{border-left-color:var(--purple)}
+.nodeinfo .ni-title{font-size:13px;font-weight:700;color:var(--fg);margin-bottom:6px;letter-spacing:.3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nodeinfo .ni-title .ni-id{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);border:1px solid var(--cyan);padding:1px 6px;border-radius:2px}
+.nodeinfo[data-c="B"] .ni-title .ni-id{color:var(--amber);border-color:var(--amber)}
+.nodeinfo[data-c="C"] .ni-title .ni-id{color:var(--purple);border-color:var(--purple)}
+.nodeinfo .ni-tag{display:inline-block;font-size:10px;letter-spacing:1px;color:var(--fg-mute);border:1px solid var(--line-2);padding:1px 6px;border-radius:2px;margin-left:auto}
+.nodeinfo .ni-empty{color:var(--fg-mute);font-style:italic}
+.nodeinfo .ni-feat{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--fg-mute);letter-spacing:.3px}
+.nodeinfo .ni-feat b{color:var(--fg);font-weight:600}
+
+/* ---------- TABLE HOVER HIGHLIGHT ---------- */
+.nodes tbody tr{transition:background .15s,box-shadow .15s;cursor:default}
+.nodes tbody tr:hover{background:rgba(0,212,255,.06);box-shadow:inset 3px 0 0 var(--cyan)}
+.nodes tbody tr[data-c="B"]:hover{background:rgba(251,191,36,.06);box-shadow:inset 3px 0 0 var(--amber)}
+.nodes tbody tr[data-c="C"]:hover{background:rgba(168,85,247,.06);box-shadow:inset 3px 0 0 var(--purple)}
+.nodes tbody tr.hi{background:rgba(0,212,255,.1);box-shadow:inset 3px 0 0 var(--cyan)}
+.nodes tbody tr.hi[data-c="B"]{background:rgba(251,191,36,.1);box-shadow:inset 3px 0 0 var(--amber)}
+.nodes tbody tr.hi[data-c="C"]{background:rgba(168,85,247,.1);box-shadow:inset 3px 0 0 var(--purple)}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* ---------- FILTER FADE ---------- */
+.path-card,.dual-map,sec[id]{transition:opacity .25s,filter .25s}
+body[data-p="A"] sec .path-card[data-c="B"],body[data-p="A"] sec .path-card[data-c="C"],
+body[data-p="B"] sec .path-card[data-c="A"],body[data-p="B"] sec .path-card[data-c="C"],
+body[data-p="C"] sec .path-card[data-c="A"],body[data-p="C"] sec .path-card[data-c="B"]{opacity:.22;filter:grayscale(.6)}
+body[data-p="A"] .dual-map svg [data-c="B"],body[data-p="A"] .dual-map svg [data-c="C"],
+body[data-p="B"] .dual-map svg [data-c="A"],body[data-p="B"] .dual-map svg [data-c="C"],
+body[data-p="C"] .dual-map svg [data-c="A"],body[data-p="C"] .dual-map svg [data-c="B"]{opacity:.18}
+body[data-p="A"] .nodes tbody tr[data-c="B"],body[data-p="A"] .nodes tbody tr[data-c="C"],
+body[data-p="B"] .nodes tbody tr[data-c="A"],body[data-p="B"] .nodes tbody tr[data-c="C"],
+body[data-p="C"] .nodes tbody tr[data-c="A"],body[data-p="C"] .nodes tbody tr[data-c="B"]{opacity:.32}
+
+@media(max-width:780px){
+  body{padding:24px 16px 80px}
+  #nav{margin:0 -16px;padding:0 16px}
+  .fab{right:12px;bottom:12px}
+  .nav-in{gap:4px}
+  .fchip{padding:4px 7px;font-size:10px}
+  .kbd{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important}
+  .flow{animation:none}
+  .dual-map .ripple{animation:none}
+}
+
+/* ================= LIGHT EDITORIAL THEME · REV.4 ================= */
+html{scroll-behavior:smooth;background:#eaf0f8}
+body{
+  background:
+    radial-gradient(circle at 7% 2%,rgba(0,127,163,.13),transparent 24rem),
+    radial-gradient(circle at 96% 10%,rgba(112,71,200,.10),transparent 28rem),
+    linear-gradient(180deg,#f8fbff 0%,#eef3fa 100%);
+  box-shadow:0 0 0 100vmax #eef3fa;
+  clip-path:inset(0 -100vmax);
+}
+.hdr,.block,.path-card,.cmp-item,.risk,.timeline,.tlbar,.nodeinfo,.svg-wrap,.dual-map,.cpo-hero{
+  border-radius:14px;
+  box-shadow:0 12px 34px rgba(41,61,89,.08);
+}
+.hdr{padding:42px 38px;background:linear-gradient(120deg,rgba(255,255,255,.96),rgba(237,246,255,.95));isolation:isolate}
+.hdr::after{content:"";position:absolute;right:-80px;top:-120px;width:390px;height:390px;border-radius:50%;z-index:-1;background:repeating-radial-gradient(circle,rgba(0,127,163,.13) 0 2px,transparent 2px 19px);animation:orbit 24s linear infinite}
+.hdr h1{font-family:Inter,'Noto Sans TC','PingFang TC',sans-serif;font-size:clamp(30px,4.4vw,54px);line-height:1.08;letter-spacing:-1.8px;max-width:850px}
+.hdr .sub{font-size:14px;max-width:820px}
+#nav{background:rgba(248,251,255,.86);border-color:rgba(185,199,218,.85);box-shadow:0 8px 26px rgba(41,61,89,.07)}
+.nchip,.fchip,.rchip{background:rgba(255,255,255,.78)}
+.fab button{background:rgba(255,255,255,.94);box-shadow:0 8px 24px rgba(41,61,89,.15)}
+#toast{background:#fff;box-shadow:0 10px 30px rgba(41,61,89,.18)}
+.path-card:hover,.cmp-item:hover,.risk:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(41,61,89,.14)}
+.cpo-hero{background:radial-gradient(ellipse at top left,rgba(112,71,200,.10),transparent 64%),#fff}
+.callout{border-radius:0 12px 12px 0}
+table.nodes{border-collapse:separate;border-spacing:0}
+table.nodes th{background:#f4f7fb;position:sticky;top:45px;z-index:2}
+table.nodes tr:hover td{background:#f4f8fd}
+.dual-map,.svg-wrap,.timeline{overflow:hidden}
+.dual-map svg,.svg-wrap svg,.timeline svg{background:#101a28!important}
+
+.evidence-key{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ev{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:6px 10px;font-size:10.5px;color:var(--fg-dim)}
+.ev::before{content:"";width:8px;height:8px;border-radius:50%}
+.ev.fact::before{background:var(--green)}
+.ev.partner::before{background:var(--amber)}
+.ev.inference::before{background:var(--purple)}
+.ev.warning::before{background:var(--red)}
+
+.patent-lab{margin-top:14px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#fff,#f3f7fc);padding:22px;box-shadow:0 14px 34px rgba(41,61,89,.08)}
+.patent-lab-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.patent-lab h3{font-size:15px;margin-bottom:4px}
+.patent-lab p{font-size:11px;color:var(--fg-mute)}
+.lens-tabs{display:flex;gap:6px}
+.lens-btn{border:1px solid var(--line-2);background:#fff;color:var(--fg-dim);border-radius:999px;padding:7px 11px;font:600 11px inherit;cursor:pointer}
+.lens-btn.on{color:#fff;background:var(--fg);border-color:var(--fg)}
+.patent-bars{display:grid;gap:10px;margin-top:20px}
+.patent-bar{display:grid;grid-template-columns:150px 1fr 76px;align-items:center;gap:12px;font-size:11px}
+.patent-bar .track{height:10px;border-radius:999px;background:#e7edf5;overflow:hidden}
+.patent-bar .fill{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),#2cbcd3);transition:width .9s cubic-bezier(.2,.8,.2,1),background .3s}
+.patent-bar.play .fill{background:linear-gradient(90deg,var(--purple),#ad7cf4)}
+.patent-bar .value{text-align:right;font-weight:800;color:var(--fg)}
+.patent-bar.neg .fill{background:linear-gradient(90deg,#ef7b86,var(--red))}
+.patent-bar.pos .fill{background:linear-gradient(90deg,#4bc08d,var(--green))}
+.patent-lab-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:10.5px;color:var(--fg-mute);line-height:1.7}
+.source-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.source-links a{color:var(--cyan);text-decoration:none;border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 9px}
+.source-links a:hover{border-color:var(--cyan);box-shadow:0 6px 16px rgba(0,127,163,.12)}
+.stock-portal{margin-top:58px;border:1px solid rgba(112,71,200,.25);border-radius:20px;background:linear-gradient(125deg,#fff,rgba(240,234,253,.9));padding:30px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 18px 46px rgba(53,48,100,.11)}
+.stock-portal .eyebrow{font-size:10px;letter-spacing:1.7px;color:var(--purple);font-weight:800}.stock-portal h2{font-size:25px;margin:4px 0}.stock-portal p{font-size:12px;color:var(--fg-dim);max-width:720px}.stock-portal a{flex:none;text-decoration:none;color:#fff;background:var(--purple);border-radius:999px;padding:11px 17px;font-size:12px;font-weight:800;box-shadow:0 10px 24px rgba(112,71,200,.24);transition:transform .2s,box-shadow .2s}.stock-portal a:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(112,71,200,.3)}
+.modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.on{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(20,33,61,.42);backdrop-filter:blur(7px)}
+.modal-card{position:relative;width:min(680px,100%);max-height:82vh;overflow:auto;border:1px solid var(--line);border-top:4px solid var(--cyan);border-radius:18px;background:#fff;padding:26px;box-shadow:0 28px 80px rgba(20,33,61,.28);animation:modalIn .24s ease-out}
+.modal-card[data-c="B"]{border-top-color:var(--amber)}
+.modal-card[data-c="C"]{border-top-color:var(--purple)}
+.modal-close{position:absolute;right:14px;top:12px;width:34px;height:34px;border:0;border-radius:50%;background:var(--bg-3);color:var(--fg);font-size:22px;cursor:pointer}
+.modal-h{display:flex;align-items:center;gap:10px;padding-right:38px;flex-wrap:wrap}
+.modal-h .mid{font-size:20px;color:var(--cyan);font-weight:800}.modal-h .ttl{font-size:16px;font-weight:800}.modal-h .ptag{font-size:10px;color:var(--fg-mute);border:1px solid var(--line);border-radius:999px;padding:3px 7px}
+.m-section{margin-top:18px;padding-top:15px;border-top:1px solid var(--line)}
+.m-section .lbl{font-size:10px;letter-spacing:1.4px;color:var(--fg-mute);margin-bottom:5px}.m-section .val,.m-evidence{font-size:12px;color:var(--fg-dim);line-height:1.85}
+.m-foot{display:flex;justify-content:space-between;gap:12px;margin-top:20px;color:var(--fg-mute);font-size:10px}
+.node-flash{filter:drop-shadow(0 0 12px #fff);stroke-width:3!important}
+@keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@media(max-width:700px){
+  .hdr{padding:30px 22px}
+  .patent-bar{grid-template-columns:100px 1fr 58px;gap:8px}
+  table.nodes{display:block;overflow-x:auto;white-space:nowrap}
+  .stock-portal{align-items:flex-start;flex-direction:column}.stock-portal a{width:100%;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.hdr::after{animation:none}.patent-bar .fill{transition:none}}
+</style>
+</head>
+<body data-page-node-id="cr5bcvp7IRUai7IQHIzso8">
+
+<div id="prog"></div>
+<nav id="nav">
+  <div class="nav-in">
+    <span class="nav-lbl">JUMP</span>
+    <button class="nchip jumpchip" type="button" data-target="sec1" title="跳到專利競爭力">01 專利</button>
+    <button class="nchip jumpchip" type="button" data-target="sec2" title="跳到技術地圖">02 地圖</button>
+    <button class="nchip jumpchip" type="button" data-target="sec3" title="跳到三條技術路徑">03 路徑</button>
+    <button class="nchip jumpchip" type="button" data-target="sec4" title="跳到製程節點表">04 節點</button>
+    <button class="nchip jumpchip" type="button" data-target="sec5" title="跳到光互連分析">05 光互連</button>
+    <button class="nchip jumpchip" type="button" data-target="sec6" title="跳到里程碑時間軸">06 時程</button>
+    <button class="nchip jumpchip" type="button" data-target="sec7" title="跳到風險清單">07 風險</button>
+    <span class="nav-sep" id="navAnchor"></span>
+    <span class="nav-lbl">PATH</span>
+    <button class="fchip" type="button" data-p="A" data-jump="sec3" title="篩選 Path A 並跳到微顯示路徑（快捷鍵 A）">A · AR</button>
+    <button class="fchip" type="button" data-p="B" data-jump="sec3" title="篩選 Path B 並跳到大尺寸路徑（快捷鍵 B）">B · 大尺寸</button>
+    <button class="fchip" type="button" data-p="C" data-jump="sec5" title="篩選 Path C 並跳到光互連分析（快捷鍵 C）">C · 光互連</button>
+    <button class="fchip on" type="button" data-p="all" data-jump="sec2" title="顯示全部並跳到技術地圖（快捷鍵 0）">ALL</button>
+    <span class="nav-sep"></span>
+    <button class="nchip act" type="button" id="btnMotion" title="開關動畫（快捷鍵 M）">◍ 動畫</button>
+  </div>
+</nav>
+<div class="kbd">互動提示：滑過雙軸地圖的節點方塊或 §04 表格的列 → 下方顯示該製程細節 · 拖動 §06 年份滑桿 → 時間軸跟著跑 · 專利表格可排序 / 釘選<br data-page-node-id="kbd-br">快捷鍵：<b>1</b>–<b>7</b> 跳章節 · <b>A</b>/<b>B</b>/<b>C</b> 篩選路徑 · <b>0</b> 清除篩選 · <b>T</b> 回到頂部 · <b>M</b> 動畫開關</div>
+
+<div class="fab">
+  <button type="button" id="btnTop" title="回到頂部（T）">↑</button>
+  <button type="button" id="btnMotion2" title="開關動畫（M）">◍</button>
+  <button type="button" id="btnCopy" title="複製引用資訊">⧉</button>
+</div>
+<div id="toast"></div>
+
+<!-- ============ HEADER ============ -->
+<div class="hdr" data-page-node-id="t8fONVZlbYpBRx2Ocky3GE">
+  <span class="hdr-tag" data-page-node-id="DhjRScNv20ADo92j7R32bv">INTERACTIVE TECHNOTE · v2026.09 (REV.2)</span>
+  <h1 data-page-node-id="LoIm7WQKDUr9qMMlSz7G5B">MicroLED × <span class="c1" data-page-node-id="xaZBGXNHYubSCjI9V1ewi9">A</span><span class="c3" data-page-node-id="o5BVMfGX7isCrONP6XPpvw">B</span><span class="c2" data-page-node-id="abc-c2">C</span> <span style="color:var(--fg-dim)" data-page-node-id="8yUmw6nnY8agkvaY6rqjig">全解</span></h1>
+  <div class="sub" data-page-node-id="GKuCiNkouq6qcCEwMCsPYO"><b style="color:var(--cyan)">A</b> 微顯示 · <b style="color:var(--amber)">B</b> 大尺寸/車載 · <b style="color:var(--purple)">C</b> 光互連 — 從磊晶、雷射巨量轉移到專利競爭力的完整解碼</div>
+  <div class="hdr-meta" data-page-node-id="CwXJgUwxYS0TcVfctSX4u0">
+    <span data-page-node-id="ZQfovBL4sRo4AQSU9u9f0J"><b data-page-node-id="t8z7cB7HK7ghZ3CLzPps83">對象</b> PlayNitride Display (6854.TWO)</span>
+    <span data-page-node-id="zv0i70rGqtpMcburQWiaFo"><b data-page-node-id="CxtPBhqWGZMcgUZETmzuph">公開規劃</b> 8"/12" Epi、COW、CoC 設備</span>
+    <span data-page-node-id="83JvDl4wzZGxc3qv3hQ1is"><b data-page-node-id="oxC9xxMGgZCLKsCGy6837O">專利排名</b> 全球第 6 · 345 家族</span>
+    <span data-page-node-id="7XVaovwRiqbkD0AkNaEI6T"><b data-page-node-id="wkSAk6Q1bJDBJpTCxKg2kx">路徑 C 進展</b> 2026/01 Brillink 光互連合作</span>
+  </div>
+  <div class="evidence-key" aria-label="證據分級">
+    <span class="ev fact">公司／原始資料已揭露</span>
+    <span class="ev partner">合作方目標或市場預估</span>
+    <span class="ev inference">研究推演情境</span>
+    <span class="ev warning">尚待驗證或不可直接推論</span>
+  </div>
+</div>
+
+<!-- ============ §1 專利競爭力總覽 ============ -->
+<sec id="sec1" data-page-node-id="Qnxlsn0b5pNv1bQygPxJDD">
+  <div class="sec-h" data-page-node-id="grqe48K50Rnhorr5tNU4dU">
+    <span class="num" data-page-node-id="3ui5SKa58e9cyDvjPyGOmP">§01</span>
+    <h2 data-page-node-id="s7f79MOCZmJcLu5YgXuMP3">專利競爭力總覽：錼創在同業中的位置</h2>
+    <span class="tag" data-page-node-id="WMGbDKDNWuVfcj7d6LVY41">PATENT LANDSCAPE</span>
+  </div>
+
+  <div class="block" data-page-node-id="MFbaVTr74EJtGGIYkvIG3X">
+    <h4 data-page-node-id="FBxzMopKpJv1BtOESYrpu8"><span class="dot" style="background:var(--cyan)" data-page-node-id="RsqnAKUyBKwwisUZWHtJfs"></span>TL;DR</h4>
+    <div class="desc" data-page-node-id="Ejwiea5jE2ks24QBM47nDR">
+      依 PatSnap 2026/07《MicroLED Displays Patent Landscape》（全領域 <b data-page-node-id="DTppOKkBUM4179cImQxSBY">12,238 個專利家族</b>），錼創以 <b data-page-node-id="g605ik1CWiMC9A6cK6MFUN">345 個專利家族排名全球第 6</b>——
+      不是「中段班」，而是<b data-page-node-id="MnyiaDwuLYvwTo9Pj2smKR">前 5 名全為面板／LED 大廠之下，唯一的純 MicroLED 專業廠</b>。
+      組合是<b data-page-node-id="Ywcgo6saJpYDg9XbyKJRC2">縱深型全製程覆蓋</b>：H01L33（LED 元件）241 件、H01L25（多晶片組裝）152 件皆為 Strong，
+      且 <b data-page-node-id="pat-tldr-pure">H10K（有機／OLED）完全缺席</b>——對比三星顯示在 H10K-59 有 963 件，錼創是沒有 OLED 包袱的純 MicroLED 賭注。<br data-page-node-id="pat-tldr-br">
+      <b style="color:var(--red)">最大警訊：</b>近三年申請動能 <b data-page-node-id="pat-tldr-mom">-52%</b>（僅 90 家族，全表最弱），對比三星顯示 +164%、LG Display 4.7 倍。
+      存量仍在、<b data-page-node-id="pat-tldr-fire">增量正在熄火</b>——這是比「件數排第幾」更值得盯的指標。
+    </div>
+  </div>
+
+  <div class="cpo-metrics" style="margin-top:14px" data-page-node-id="rCbMpmK1MWG4OE44dVWHv9">
+    <div data-page-node-id="pat-metric-01"><span>Patent Family</span><b data-page-node-id="pat-metric-01b">345</b><span>全球第 6 · PatSnap 2026/07</span></div>
+    <div data-page-node-id="pat-metric-02"><span>近 3 年申請動能</span><b data-page-node-id="pat-metric-02b" style="color:var(--red)">-52%</b><span>90 族 · 全表最弱</span></div>
+    <div data-page-node-id="pat-metric-03"><span>全領域總量</span><b data-page-node-id="pat-metric-03b">12,238</b><span>個專利家族</span></div>
+    <div data-page-node-id="pat-metric-04"><span>H01L33 元件專利</span><b data-page-node-id="pat-metric-04b">241</b><span>Strong · 全製程縱深</span></div>
+  </div>
+
+  <div class="patent-lab" id="patentLab">
+    <div class="patent-lab-head">
+      <div>
+        <h3>互動專利透鏡</h3>
+        <p id="lensExplain">目前顯示專利家族存量；點右側按鈕即可切換。</p>
+      </div>
+      <div class="lens-tabs" role="group" aria-label="專利圖表指標">
+        <button class="lens-btn on" type="button" data-lens="families" aria-pressed="true">專利家族</button>
+        <button class="lens-btn" type="button" data-lens="momentum" aria-pressed="false">近三年動能</button>
+      </div>
+    </div>
+    <div class="patent-bars" aria-live="polite"></div>
+    <div class="patent-lab-note">資料：PatSnap 2026/07/09。近年資料受 18–24 個月公開延遲影響；此圖適合比較方向，不應直接用來判斷專利品質、可執行性或自由實施（FTO）。</div>
+  </div>
+
+  <div class="block" style="margin-top:14px" data-page-node-id="pat-block-table">
+    <h4 data-page-node-id="pat-block-table-h"><span class="dot" style="background:var(--amber)" data-page-node-id="pat-dot-amber"></span>同業專利家族對照</h4>
+    <table class="nodes" data-page-node-id="pat-table">
+      <thead data-page-node-id="pat-thead">
+        <tr data-page-node-id="pat-tr-h"><th data-page-node-id="pat-th-comp">#</th><th data-page-node-id="pat-th-comp2">公司</th><th data-page-node-id="pat-th-fam">專利家族</th><th data-page-node-id="pat-th-mom">近 3 年動能</th><th data-page-node-id="pat-th-tech">技術重心 (IPC)</th><th data-page-node-id="pat-th-lit">訴訟紀錄</th><th data-page-node-id="pat-th-stage">商業化階段</th></tr>
+      </thead>
+      <tbody data-page-node-id="pat-tbody">
+        <tr data-page-node-id="pat-tr-01"><td class="id" data-page-node-id="pat-rk-01">1</td><td class="tech" data-page-node-id="pat-td-sdc"><b data-page-node-id="pat-b-sdc">Samsung Display</b></td><td data-page-node-id="pat-td-sdc-f">1,331</td><td class="feat" style="color:var(--green)" data-page-node-id="pat-td-sdc-m">▲ +164%</td><td data-page-node-id="pat-td-sdc-t">H10K 963 · H01L27 217</td><td data-page-node-id="pat-td-sdc-l">vs BOE (ITC + Texas)</td><td data-page-node-id="pat-td-sdc-s">The Wall 量產中</td></tr>
+        <tr data-page-node-id="pat-tr-02"><td class="id" data-page-node-id="pat-rk-02">2</td><td class="tech" data-page-node-id="pat-td-boe"><b data-page-node-id="pat-b-boe">BOE 京東方</b></td><td data-page-node-id="pat-td-boe-f">1,208</td><td class="feat" data-page-node-id="pat-td-boe-m">▬ +2%</td><td data-page-node-id="pat-td-boe-t">H10K 522 · H01L33 507</td><td data-page-node-id="pat-td-boe-l">被 SDC 告 + 反訴</td><td data-page-node-id="pat-td-boe-s">G6 重慶線量產</td></tr>
+        <tr data-page-node-id="pat-tr-03"><td class="id" data-page-node-id="pat-rk-03">3</td><td class="tech" data-page-node-id="pat-td-lg"><b data-page-node-id="pat-b-lg">LG Display</b></td><td data-page-node-id="pat-td-lg-f">520</td><td class="feat" style="color:var(--green)" data-page-node-id="pat-td-lg-m">▲ 4.7×</td><td data-page-node-id="pat-td-lg-t">H01L25 227 · H01L33 206</td><td data-page-node-id="pat-td-lg-l">vs Tianma (7 件)</td><td data-page-node-id="pat-td-lg-s">0.13" 微顯示開發</td></tr>
+        <tr data-page-node-id="pat-tr-04"><td class="id" data-page-node-id="pat-rk-04">4</td><td class="tech" data-page-node-id="pat-td-inn"><b data-page-node-id="pat-b-inn">Innolux 群創</b></td><td data-page-node-id="pat-td-inn-f">474</td><td class="feat" data-page-node-id="pat-td-inn-m">▼ -7%</td><td data-page-node-id="pat-td-inn-t">H01L25 252 · H01L33 204</td><td data-page-node-id="pat-td-inn-l">—</td><td data-page-node-id="pat-td-inn-s">早期佈局</td></tr>
+        <tr data-page-node-id="pat-tr-05"><td class="id" data-page-node-id="pat-rk-05">5</td><td class="tech" data-page-node-id="pat-td-lum"><b data-page-node-id="pat-b-lum">Lumileds</b></td><td data-page-node-id="pat-td-lum-f">351</td><td class="feat" style="color:var(--green)" data-page-node-id="pat-td-lum-m">▲ +56%</td><td data-page-node-id="pat-td-lum-t">H01L33 468 · H01L25 263</td><td data-page-node-id="pat-td-lum-l">—</td><td data-page-node-id="pat-td-lum-s">車用 / 特殊照明量產</td></tr>
+        <tr data-page-node-id="pat-tr-06" style="background:rgba(168,85,247,.10)"><td class="id c" data-page-node-id="pat-rk-06">6</td><td class="tech" data-page-node-id="pat-td-play"><b data-page-node-id="pat-b-play">PlayNitride 錼創</b></td><td data-page-node-id="pat-td-play-f"><b>345</b></td><td class="feat" style="color:var(--red)" data-page-node-id="pat-td-play-m">▼ -52%</td><td data-page-node-id="pat-td-play-t">H01L33 241 · H01L25 152 · <b>H10K 缺席</b></td><td data-page-node-id="pat-td-play-l">本次未查到重大案件</td><td data-page-node-id="pat-td-play-s">顯示已商用；光互連共同開發</td></tr>
+        <tr data-page-node-id="pat-tr-07"><td class="id" data-page-node-id="pat-rk-07">7</td><td class="tech" data-page-node-id="pat-td-lge"><b data-page-node-id="pat-b-lge">LG Electronics</b></td><td data-page-node-id="pat-td-lge-f">292</td><td class="feat" data-page-node-id="pat-td-lge-m">▼ -10%</td><td data-page-node-id="pat-td-lge-t">H01L33 232 · H01L25 220</td><td data-page-node-id="pat-td-lge-l">—</td><td data-page-node-id="pat-td-lge-s">—</td></tr>
+        <tr data-page-node-id="pat-tr-08"><td class="id" data-page-node-id="pat-rk-08">8</td><td class="tech" data-page-node-id="pat-td-sam"><b data-page-node-id="pat-b-sam">Samsung Electronics</b></td><td data-page-node-id="pat-td-sam-f">274</td><td class="feat" data-page-node-id="pat-td-sam-m">▬ +4%</td><td data-page-node-id="pat-td-sam-t">—</td><td data-page-node-id="pat-td-sam-l">—</td><td data-page-node-id="pat-td-sam-s">—</td></tr>
+        <tr data-page-node-id="pat-tr-09"><td class="id" data-page-node-id="pat-rk-09">9</td><td class="tech" data-page-node-id="pat-td-meta"><b data-page-node-id="pat-b-meta">Meta Platforms</b></td><td data-page-node-id="pat-td-meta-f">264</td><td class="feat" data-page-node-id="pat-td-meta-m">—</td><td data-page-node-id="pat-td-meta-t">AR 終端系統整合</td><td data-page-node-id="pat-td-meta-l">—</td><td data-page-node-id="pat-td-meta-s">Orion AR 原型</td></tr>
+        <tr data-page-node-id="pat-tr-10"><td class="id" data-page-node-id="pat-rk-10">10</td><td class="tech" data-page-node-id="pat-td-csot"><b data-page-node-id="pat-b-csot">深圳華星光電</b></td><td data-page-node-id="pat-td-csot-f">257</td><td class="feat" data-page-node-id="pat-td-csot-m">—</td><td data-page-node-id="pat-td-csot-t">—</td><td data-page-node-id="pat-td-csot-l">—</td><td data-page-node-id="pat-td-csot-s">—</td></tr>
+        <tr data-page-node-id="pat-tr-11"><td class="id" data-page-node-id="pat-rk-11">14</td><td class="tech" data-page-node-id="pat-td-jbd"><b data-page-node-id="pat-b-jbd">JBD 上海顯耀</b> <span style="font-size:10px;color:var(--fg-mute);letter-spacing:.5px" data-page-node-id="pat-jbd-tag">AR 直接對手</span></td><td data-page-node-id="pat-td-jbd-f">216</td><td class="feat" data-page-node-id="pat-td-jbd-m">—</td><td data-page-node-id="pat-td-jbd-t">CMOS 鍵合微顯示</td><td data-page-node-id="pat-td-jbd-l">—</td><td data-page-node-id="pat-td-jbd-s">Hummingbird 光引擎量產</td></tr>
+        <tr data-page-node-id="pat-tr-12"><td class="id" data-page-node-id="pat-rk-12">15</td><td class="tech" data-page-node-id="pat-td-auo"><b data-page-node-id="pat-b-auo">AUO 友達</b><span class="scope" data-page-node-id="pat-auo-tag">股東 + 客戶</span></td><td data-page-node-id="pat-td-auo-f">212</td><td class="feat" data-page-node-id="pat-td-auo-m">—</td><td data-page-node-id="pat-td-auo-t">μPCB、ALD 封裝、汽車座艙</td><td data-page-node-id="pat-td-auo-l">—</td><td data-page-node-id="pat-td-auo-s">MicroLED 手錶量產中</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px;font-size:10.5px;color:var(--fg-mute);line-height:1.7" data-page-node-id="pat-src-note">
+      資料來源：PatSnap Eureka《MicroLED Displays Patent Landscape 2026》（2026/07/09 發布），全領域 12,238 個專利家族；# 為原始榜單排名（11–13 名為重慶康佳 252、成都京東方 249、TCL 華星 237，此表省略）。<br data-page-node-id="pat-src-br">
+      <b style="color:var(--amber)">查證修正：</b>前一版誤植「錼創 290 族、AUO 474 族」——474 實為群創（Innolux）數字，AUO 正確為 212 族；錼創正確為 <b>345 族（全球第 6）</b>。<br data-page-node-id="pat-src-br2">
+      <b style="color:var(--amber)">解讀限制：</b>① 2024 年後的申請受公開延遲影響會被低估，故「近 3 年動能」應視為趨勢參考而非精確值；② 不同申請人間專利家族可能重複計算，故各欄數字相加不等於 12,238。
+    </div>
+  </div>
+
+  <div class="cmp-grid" style="margin-top:14px" data-page-node-id="pat-cmp-grid">
+    <div class="cmp-item" data-page-node-id="pat-cmp-str">
+      <h5 data-page-node-id="pat-cmp-str-h">強項 <span class="scope" data-page-node-id="pat-cmp-str-tag">STRENGTHS</span></h5>
+      <ul data-page-node-id="pat-cmp-str-ul">
+        <li data-page-node-id="pat-str-01">全製程縱深：磊晶 → 雷射轉移 → 修補 → CoC → 模組</li>
+        <li data-page-node-id="pat-str-02">純 MicroLED 組合：H10K（OLED）完全缺席，無舊技術包袱</li>
+        <li data-page-node-id="pat-str-03">股東 = 客戶：SVIC（三星）、康利（友達）、晶電、光寶</li>
+        <li data-page-node-id="pat-str-04">精準併購：Lumiode 補強 AR 主動驅動與美國專利</li>
+        <li data-page-node-id="pat-str-05">件數贏過 AR 直接對手 JBD（345 vs 216）與股東友達（212）</li>
+      </ul>
+    </div>
+    <div class="cmp-item cpo" data-page-node-id="pat-cmp-weak">
+      <h5 data-page-node-id="pat-cmp-weak-h">罩門 <span class="scope" data-page-node-id="pat-cmp-weak-tag">WEAKNESSES</span></h5>
+      <ul data-page-node-id="pat-cmp-weak-ul">
+        <li data-page-node-id="pat-weak-01"><b style="color:var(--red)">近 3 年動能 -52%，全表最弱</b>——存量第 6，但增量掉隊</li>
+        <li data-page-node-id="pat-weak-02">頭兩名差距擴大中：三星 +164% 加速、錼創減半</li>
+        <li data-page-node-id="pat-weak-03">無訴訟紀錄 = 無判例資產，專利變現未經實戰驗證</li>
+        <li data-page-node-id="pat-weak-04">量產毛利惡化：2026 上半年營收年減 43.1%，毛利率轉為 -30.35%</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout purple" style="margin-top:14px" data-page-node-id="pat-callout">
+    <b data-page-node-id="pat-callout-b">商業化訊號：</b>錼創的專利是「<b>縱深型全製程覆蓋</b>」勝過「橫向件數」——
+    345 族排全球第 6 已屬前段，真正的問題不是量，而是<b>近三年減半的申請速度</b>，
+    這通常反映兩種可能：研發資源收縮（財務壓力），或技術方向轉向未公開的新領域（如光通訊）。<br data-page-node-id="pat-callout-br">
+    因此觀察重點是「<b>專利成長是否與新應用同步重啟</b>」：2026/01 Brillink 光互連合作若成立，
+    理應在 2027–2028 看到光通訊相關申請回升——那是比財報更早的領先指標。
+  </div>
+</sec>
+
+<!-- ============ §2 雙軸節點地圖 ============ -->
+<sec id="sec2" data-page-node-id="xhQ0yCePpgCLrLelI7ot2Q">
+  <div class="sec-h" data-page-node-id="2ebY3Iydjw8iB0KfmAi8wv">
+    <span class="num" data-page-node-id="4nOl0KBFPissYET2TsJLQr">§02</span>
+    <h2 data-page-node-id="myrmk9j21YrTbyot4WMySe">雙軸節點地圖：製程節點 × 應用路徑</h2>
+    <span class="tag" data-page-node-id="K9PidZOiR0dcBhzxuII3WT">CROSS-AXIS MAP</span>
+  </div>
+  <div class="block" data-page-node-id="uvWCoT1WNyhLE6dirG6jLG">
+    <h4 data-page-node-id="CrLS8DX2SOwvRaiGMZi88T"><span class="dot" style="background:var(--cyan)" data-page-node-id="d77krMQKHS4JzdDYvvTpGo"></span>本圖讀法</h4>
+    <div class="desc" data-page-node-id="Kq83OVk9VKN91xMAuN6p4w">
+      <b data-page-node-id="wUOPzmCv8ogK8Fxmwr11Un">縱軸</b>是製程節點（封裝級 → 模組級 → 系統級），<b data-page-node-id="LliACpTMlKVnNdLg4GEhCp">橫軸</b>是三條應用路徑（A=AR、 B=大尺寸/車載、 C=CPO）。
+      任意交會點（●）=「該製程節點在該應用路徑下被採用的具體技術」。
+      沿任一橫軸走完 = 一條從磊晶到終端產品的完整技術鏈。
+    </div>
+  </div>
+
+  <div class="dual-map" data-page-node-id="dZSC95WnGnE7IZlTvDdrS6">
+<svg viewBox="0 0 1180 540" xmlns="http://www.w3.org/2000/svg" style="background:#0f141b" data-page-node-id="LrXcfTZCaRsJ6vHkK9Yimi">
+  <defs data-page-node-id="hj2CtDU15xkyy1XKGpe3p8">
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto" data-page-node-id="oQInmGFzAnCvEbT1mZnfdf">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5d6573" data-page-node-id="tF8ReJsHFToB5NvV3IDk4J"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse" data-page-node-id="DgiMEvmmYNwQSyz2xfnrEG">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#161b22" stroke-width="1" data-page-node-id="RcN5AQWEn2Mjhq5oBYE1xm"/>
+    </pattern>
+  </defs>
+
+  <rect width="1180" height="540" fill="url(#grid)" data-page-node-id="Zoby0B9iuUhJiHwzVejZV4"/>
+
+  <g font-family="JetBrains Mono,monospace" font-size="11" fill="#5d6573" data-page-node-id="RsAoGnguVWlqDuMX34d4qV">
+    <text x="20" y="30" data-page-node-id="uB3tESAkmAaykk1XA2AIqJ">製程</text>
+    <text x="20" y="44" data-page-node-id="vJBLh3W0L5ZvGNsSHF2wSe">節點</text>
+  </g>
+
+  <g font-family="JetBrains Mono,monospace" font-size="10" fill="#8b95a4" data-page-node-id="gGcGKVktFzgAc9kujeOuiz">
+    <text x="60" y="115" data-page-node-id="nIWKgAzFi6oUYgi3T9A3Eg">L1</text><text x="84" y="115" fill="#5d6573" data-page-node-id="bR6gBahCmMstW8hQWlW95e">封裝級 / Epi</text>
+    <text x="60" y="225" data-page-node-id="nCt1AqUzAXNESEjiwo3vEN">L2</text><text x="84" y="225" fill="#5d6573" data-page-node-id="dKWUjR8q3PGOiFmPCWKspA">模組級 / Module</text>
+    <text x="60" y="345" data-page-node-id="hD8veW6tnboEFXJwpKzEnx">L3</text><text x="84" y="345" fill="#5d6573" data-page-node-id="wrsdCQ1zBSjNjYkIgG1VuT">系統級 / System</text>
+    <text x="60" y="465" data-page-node-id="49534Oqc4x1AK2kt8asfEU">L4</text><text x="84" y="465" fill="#5d6573" data-page-node-id="4WpCUcqaoCTn91kmGUyjiX">終端 / Product</text>
+  </g>
+
+  <g font-family="JetBrains Mono,monospace" font-size="10" fill="#8b95a4" data-page-node-id="Fz7BKtXS7PY0uPb2sD7ZJm">
+    <text x="240" y="500" fill="#00d4ff" data-page-node-id="5WfymDGCUZZDvOAqEi4FTi">Path A · AR/MR</text>
+    <text x="600" y="500" fill="#fbbf24" data-page-node-id="p6z9Rv4kH4f6JqrorIQG1J">Path B · 大尺寸 / 車載</text>
+    <text x="950" y="500" fill="#a855f7" data-page-node-id="YCxND0HFBExSx8zCdFXvvO">Path C · CPO 光引擎</text>
+  </g>
+
+  <line x1="40" y1="100" x2="40" y2="480" stroke="#30363d" stroke-dasharray="2,4" data-page-node-id="c8Dfr2Estdnqn3WsVptjWb"/>
+  <line x1="60" y1="490" x2="1140" y2="490" stroke="#30363d" stroke-dasharray="2,4" data-page-node-id="0vGWBdLZhPnbRYOzMc5GUh"/>
+
+  <!-- ============ Path A (AR/MR) ============ -->
+  <g data-page-node-id="wEeOHU0DgY4ml1g12x0xfu">
+    <rect data-c="A" data-node="A1" x="220" y="90" width="120" height="50" rx="3" fill="#0f141b" stroke="#00d4ff" stroke-width="1.2" data-page-node-id="0HzyCaQLqyEudy0L49LOEb"/>
+    <text x="280" y="108" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="uaOBz6HcxBQjDFrARFLtGk">GaN-on-Sapphire</text>
+    <text x="280" y="122" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="lVSQE6o3LEM1tN4tlCaDGQ">MOCVD 磊晶</text>
+    <text x="280" y="134" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="9Bj5316VCHK85aEHSZTuml">4" / 6" 主力</text>
+
+    <rect data-c="A" data-node="A2" x="220" y="200" width="120" height="50" rx="3" fill="#0f141b" stroke="#00d4ff" stroke-width="1.2" data-page-node-id="VCWFDYWWSaoRsDVqFTpZKL"/>
+    <text x="280" y="218" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="QtULo1UF19NzWv9Sl0itBa">巨量轉移</text>
+    <text x="280" y="232" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="UHL6braIkyz5NFZCpMXUVw">Laser LIFT 自研設備</text>
+    <text x="280" y="244" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="Sd3Rtr8LC5OV1J9UCYTvvF">75 μm &gt;99.95% 良率</text>
+
+    <rect data-c="A" data-node="A3" x="220" y="320" width="120" height="50" rx="3" fill="#0f141b" stroke="#00d4ff" stroke-width="1.2" data-page-node-id="Tbs21JenjWDjamqfFFBmFl"/>
+    <text x="280" y="338" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="jeeKW3HxsQIkAlSK5FLHN7">CMOS 鍵合</text>
+    <text x="280" y="352" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="7VQncsef4OneenEk62xuF3">Hybrid Bonding</text>
+    <text x="280" y="364" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="G69EHXqZRBiYFQZVHclo2q">0.18" 5644 PPI</text>
+
+    <rect data-c="A" data-node="A4" x="220" y="430" width="120" height="50" rx="3" fill="#0f141b" stroke="#00d4ff" stroke-width="1.2" data-page-node-id="REkEoyMNq4lcWe3YoJlnl9"/>
+    <text x="280" y="448" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="xqD76o5CoHLs2MVtGV9Oan">AR 眼鏡</text>
+    <text x="280" y="462" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="1jTAb2a6m4UtXXRYW5SfJk">光波導 + MicroLED</text>
+
+    <line x1="280" y1="140" x2="280" y2="200" stroke="#00d4ff" stroke-width="1" marker-end="arr" data-page-node-id="s0o4CUAjlc0fUn7kCZdNmQ"/>
+    <line x1="280" y1="250" x2="280" y2="320" stroke="#00d4ff" stroke-width="1" marker-end="arr" data-page-node-id="gst4K94oViRiPz84L3Qjaa"/>
+    <line x1="280" y1="370" x2="280" y2="430" stroke="#00d4ff" stroke-width="1" marker-end="arr" data-page-node-id="MulYviXAApXQUzVLDFiIpo"/>
+  </g>
+
+  <!-- ============ Path B (大尺寸/車載) ============ -->
+  <g data-page-node-id="kjFa9ZscsBDFcPfGMLaOW6">
+    <rect data-c="B" data-node="B1" x="580" y="90" width="120" height="50" rx="3" fill="#0f141b" stroke="#fbbf24" stroke-width="1.2" data-page-node-id="p5x76oKLJ7uC9TZTMlzrL5"/>
+    <text x="640" y="108" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="Ijykte1qHXSqYUKOCJk0E6">GaN-on-Sapphire</text>
+    <text x="640" y="122" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="5zLqc5MHYlzZTuGkgnzotv">MOCVD 磊晶</text>
+    <text x="640" y="134" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="QIJede0WzrFXMWawvqeJcB">4" / 6" 主力</text>
+
+    <rect data-c="B" data-node="B2" x="580" y="200" width="120" height="50" rx="3" fill="#0f141b" stroke="#fbbf24" stroke-width="1.2" data-page-node-id="zJHi6dUOBLmwUb6pLaUQN7"/>
+    <text x="640" y="218" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="J1iB3acUH5j6WGyWjhCsud">巨量轉移</text>
+    <text x="640" y="232" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="mhnLD86CyevovHlgCHmsDu">Laser LIFT 同一平台</text>
+    <text x="640" y="244" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="OXXhA1Iw53kUhv5uAPZNuj">6" 晶圓 → 各尺寸背板</text>
+
+    <rect data-c="B" data-node="B3" x="580" y="320" width="120" height="50" rx="3" fill="#0f141b" stroke="#fbbf24" stroke-width="1.2" data-page-node-id="4zZz1iUrW639hMuKYoBoAM"/>
+    <text x="640" y="338" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="7Hdyz6G2odbsZ7z7mJ1N9w">LTPS 背板</text>
+    <text x="640" y="352" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="CptxnxO8PvgOL2cFhTGySH">PM 主動驅動</text>
+    <text x="640" y="364" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="SDdMoj191x5HU8oW4JsePF">友達供應</text>
+
+    <rect data-c="B" data-node="B4" x="580" y="430" width="120" height="50" rx="3" fill="#0f141b" stroke="#fbbf24" stroke-width="1.2" data-page-node-id="qCGORrzAVbtt4UALncwlm5"/>
+    <text x="640" y="448" font-family="JetBrains Mono,monospace" font-size="10" fill="#e6edf3" text-anchor="middle" data-page-node-id="qHoPi0nmvEDntptcJ5zU1K">TV / 車載面板</text>
+    <text x="640" y="462" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="p9HAHPcBlyZQTeoWkh9KjO">三星 / 友達</text>
+
+    <line x1="640" y1="140" x2="640" y2="200" stroke="#fbbf24" stroke-width="1" marker-end="arr" data-page-node-id="yoHzXNELvHmquOyUxCUwer"/>
+    <line x1="640" y1="250" x2="640" y2="320" stroke="#fbbf24" stroke-width="1" marker-end="arr" data-page-node-id="2kljSinsrKEfUx4f6PKAW5"/>
+    <line x1="640" y1="370" x2="640" y2="430" stroke="#fbbf24" stroke-width="1" marker-end="arr" data-page-node-id="o573GnpiY15WPBnSDcsxLY"/>
+  </g>
+
+  <!-- ============ Path C (CPO) - 新進軍 ============ -->
+  <g data-page-node-id="XmbsF5nJliT60r6K2sqIg8">
+    <rect data-c="C" data-node="C1" x="940" y="90" width="120" height="50" rx="3" fill="#0f141b" stroke="#a855f7" stroke-width="1.6" stroke-dasharray="4,3" data-page-node-id="Y1GFBWppCoJRsul3ti7J3o"/>
+    <text x="1000" y="108" font-family="JetBrains Mono,monospace" font-size="10" fill="#a855f7" text-anchor="middle" data-page-node-id="nBqR4K4QyJEGWB4ZnVtmpM">大尺寸 Epi</text>
+    <text x="1000" y="122" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="sMGvVkyNhBsD1Xfh963Jy7">8"/12" 設備規劃</text>
+    <text x="1000" y="134" font-family="JetBrains Mono,monospace" font-size="8" fill="#a855f7" text-anchor="middle" data-page-node-id="Vldm3ut1zFAgwIyPHi2x98">2025 法說會揭露</text>
+
+    <rect data-c="C" data-node="C2" x="940" y="200" width="120" height="50" rx="3" fill="#0f141b" stroke="#a855f7" stroke-width="1.6" data-page-node-id="0caHCZPurV4rgnXSr5xG0e"/>
+    <text x="1000" y="218" font-family="JetBrains Mono,monospace" font-size="10" fill="#a855f7" text-anchor="middle" data-page-node-id="Hg2OcKcA3xBQXd6GXuno0T">MicroLED 陣列</text>
+    <text x="1000" y="232" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="Vnp9zr75iUVn4tfdgrHiOC">高效率綠光</text>
+    <text x="1000" y="244" font-family="JetBrains Mono,monospace" font-size="8" fill="#a855f7" text-anchor="middle" data-page-node-id="M7h5Qq6hPGVHiRvsZ9LH1Z">GHz 調變</text>
+
+    <rect data-c="C" data-node="C3" x="940" y="320" width="120" height="50" rx="3" fill="#0f141b" stroke="#a855f7" stroke-width="1.6" data-page-node-id="zzJnWkuaXLiWChTvABtlCn"/>
+    <text x="1000" y="338" font-family="JetBrains Mono,monospace" font-size="10" fill="#a855f7" text-anchor="middle" data-page-node-id="X7AKAc7hhaEeKHyBvP2BHP">SiPh 晶片</text>
+    <text x="1000" y="352" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="1kkaPdBYk2xH5zPhFnByi3">Hybrid Bonding</text>
+    <text x="1000" y="364" font-family="JetBrains Mono,monospace" font-size="8" fill="#a855f7" text-anchor="middle" data-page-node-id="BR9DuskyqLYNVmbyynzOYP">3.2T 光引擎</text>
+
+    <rect data-c="C" data-node="C4" x="940" y="430" width="120" height="50" rx="3" fill="#0f141b" stroke="#a855f7" stroke-width="1.6" data-page-node-id="xkFl5oTXFLh0QrWCrsZ0ox"/>
+    <text x="1000" y="448" font-family="JetBrains Mono,monospace" font-size="10" fill="#a855f7" text-anchor="middle" data-page-node-id="aOtUnFEo3FPB0TIs0xMGmE">Switch ASIC</text>
+    <text x="1000" y="462" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="GxKeYUWxNwBXBADrbpQ4Hs">Co-Packaged</text>
+
+    <line x1="1000" y1="140" x2="1000" y2="200" stroke="#a855f7" stroke-width="1.2" marker-end="arr" stroke-dasharray="4,3" data-page-node-id="NB8kGMOITX5ST5bkPUiaIc"/>
+    <line x1="1000" y1="250" x2="1000" y2="320" stroke="#a855f7" stroke-width="1.2" marker-end="arr" data-page-node-id="ycR4J4WkSJhnw8ZkMM3sAz"/>
+    <line x1="1000" y1="370" x2="1000" y2="430" stroke="#a855f7" stroke-width="1.2" marker-end="arr" data-page-node-id="SsDXFGu2HWxEPCfmgpERSj"/>
+
+    <rect x="1065" y="92" width="44" height="16" rx="2" fill="#a855f7" data-page-node-id="oE7r19VWHSk5rN9ETpGz2f"/>
+    <text x="1087" y="103" font-family="JetBrains Mono,monospace" font-size="8" fill="#0a0e14" text-anchor="middle" font-weight="700" data-page-node-id="1NpwQZdlxuNZVVE639JMEp">NEW</text>
+  </g>
+
+  <!-- 標號節點圓圈 -->
+  <g font-family="JetBrains Mono,monospace" font-size="10" fill="#0a0e14" font-weight="700" data-page-node-id="oFBCXxJ2eHR9xSFddwcLHw">
+    <circle cx="240" cy="100" r="9" fill="#00d4ff" data-page-node-id="i2LUmtllN01fV8TJtTEI6G"/><text x="240" y="103" text-anchor="middle" data-page-node-id="cee9kgVFpPNszdEdL7vrrH">1</text>
+    <circle cx="240" cy="210" r="9" fill="#00d4ff" data-page-node-id="7Ko5Gcdzkw82aCHEk9GtFQ"/><text x="240" y="213" text-anchor="middle" data-page-node-id="K34exxErRy6ALGU66QoTUj">2</text>
+    <circle cx="240" cy="330" r="9" fill="#00d4ff" data-page-node-id="Vf7LisoBgqHGig1yspwDy5"/><text x="240" y="333" text-anchor="middle" data-page-node-id="O5WEtKX2AF08E4qpHPgcb6">3</text>
+    <circle cx="240" cy="440" r="9" fill="#00d4ff" data-page-node-id="1Lhzg2ZbYyGWEVWlYCylup"/><text x="240" y="443" text-anchor="middle" data-page-node-id="PvnnYmWNxp8dcvYwfagD59">4</text>
+
+    <circle cx="600" cy="100" r="9" fill="#fbbf24" data-page-node-id="WWKsBeDqa2B0Xv2at9DspO"/><text x="600" y="103" text-anchor="middle" data-page-node-id="QzrxTjRnCXKyCVQWJYAdHe">5</text>
+    <circle cx="600" cy="210" r="9" fill="#fbbf24" data-page-node-id="ljbzRR8yOIdujiFx8auvTi"/><text x="600" y="213" text-anchor="middle" data-page-node-id="V5xOPhsPqMTSGG9VDjCCAx">6</text>
+    <circle cx="600" cy="330" r="9" fill="#fbbf24" data-page-node-id="jmUkyQV00fHsRCBBWaaSrH"/><text x="600" y="333" text-anchor="middle" data-page-node-id="4nmBEYccl9uyg41COn3pZZ">7</text>
+    <circle cx="600" cy="440" r="9" fill="#fbbf24" data-page-node-id="edIpLe0CtzKFr2RqYVaP0H"/><text x="600" y="443" text-anchor="middle" data-page-node-id="5ehrVztO9RaUsWh7IpNs6l">8</text>
+
+    <circle cx="960" cy="100" r="9" fill="#a855f7" data-page-node-id="M2GnyvkzdNM9QphyweQMMH"/><text x="960" y="103" text-anchor="middle" data-page-node-id="7xNkIBbGiOYIJggYyhr55a">9</text>
+    <circle cx="960" cy="210" r="9" fill="#a855f7" data-page-node-id="5TpJ38OqAmPIcUb9tDyXYo"/><text x="960" y="213" text-anchor="middle" data-page-node-id="7BXy5bKjMjhmDTTbATc3z8">10</text>
+    <circle cx="960" cy="330" r="9" fill="#a855f7" data-page-node-id="YygKTs921dtDUMRxhuc0O7"/><text x="960" y="333" text-anchor="middle" data-page-node-id="ZXAxnzWzXZqEK2GemzhlKd">11</text>
+    <circle cx="960" cy="440" r="9" fill="#a855f7" data-page-node-id="L8Ik4K14vonZ0ykQmWtMcS"/><text x="960" y="443" text-anchor="middle" data-page-node-id="Ulf4rv3uToDXqya5hbSzCJ">12</text>
+  </g>
+
+  <g font-family="JetBrains Mono,monospace" font-size="10" fill="#5d6573" data-page-node-id="BR6QXsQFLMB2BpMUmjqTVP">
+    <text x="20" y="525" data-page-node-id="JjEOSFzq0jsABNeq4XfeQy">圖例 / LEGEND</text>
+    <line x1="120" y1="521" x2="150" y2="521" stroke="#00d4ff" stroke-width="1.2" data-page-node-id="P2pmc0WrN6xLRVelZMtEkj"/>
+    <text x="156" y="525" fill="#8b95a4" data-page-node-id="1JlsB0mcIsrW4IVGFGYA7q">A · AR/MR</text>
+    <line x1="260" y1="521" x2="290" y2="521" stroke="#fbbf24" stroke-width="1.2" data-page-node-id="fsHWsXmWDe3gb9BxmUbSzx"/>
+    <text x="296" y="525" fill="#8b95a4" data-page-node-id="2wgjzL5jHtKeeeIXN4pYTZ">B · 大尺寸/車載</text>
+    <line x1="430" y1="521" x2="460" y2="521" stroke="#a855f7" stroke-width="1.6" data-page-node-id="vK57EyACZFrBPn5CI4CD9w"/>
+    <text x="466" y="525" fill="#a855f7" data-page-node-id="dOhdWYpUzm5wfgxuksmjzw">C · CPO 光引擎 [NEW]</text>
+  </g>
+</svg>
+  </div>
+
+  <div class="legend" data-page-node-id="WNkNQYqdsTU05CvmrxIpiU">
+    <span class="a" data-page-node-id="yFlN2FxUeEQnLQETXd9xy8">Path A · AR/MR 微顯示器 (Sapphire)</span>
+    <span class="b" data-page-node-id="DC2Y26YQL84FviXyAerSqf">Path B · 大尺寸/車載 (Sapphire)</span>
+    <span class="c" data-page-node-id="nhe61iah5HVDoehMqaxFmI">Path C · 陣列式光互連（合作開發）</span>
+  </div>
+
+  <div class="nodeinfo" id="nodeinfo">
+    <div class="ni-empty">滑過或點擊上方任一個<b>節點方塊</b>（也可以滑 §04 對照表的任一列），這裡會顯示該製程節點的技術細節與競爭對照。</div>
+  </div>
+</sec>
+
+<!-- ============ §3 三條路徑卡片 ============ -->
+<sec id="sec3" data-page-node-id="ZxkCZioCd68EKjiaV8drbS">
+  <div class="sec-h" data-page-node-id="FvJbAMGQkHyKe4LUH3jka7">
+    <span class="num" data-page-node-id="d61AnQ6y4b0AKNazjVXbgV">§03</span>
+    <h2 data-page-node-id="Xd2BzCm4fgzkPIumCMQK4Z">三條技術路徑總覽</h2>
+    <span class="tag" data-page-node-id="aMZaUFWs9qXuoMsFSTE8KU">PATH OVERVIEW</span>
+  </div>
+
+  <div class="paths" data-page-node-id="cKzriwEOTHwoQXslT67UdS">
+    <div class="path-card" data-c="A" data-page-node-id="gwnGHdEGLk31BgCqu3VJ9z">
+      <div class="label" data-page-node-id="fhTon6SUrug2GVA3qCU0JM">PATH A · 既有</div>
+      <h3 data-page-node-id="euMYsXjn9TtA212BfWUXlw">MicroLED → AR/MR 微顯示器</h3>
+      <div class="tl" data-page-node-id="L0hSjtfRS6FdDwXrF6xHlo">GaN-on-Sapphire 磊晶，0.18" 5644 PPI 全彩樣品，Apple Watch 取消後轉攻 AR 眼鏡與抬頭顯示器。CMOS 鍵合 + Lumiode Active TFT 雙路線並進。</div>
+      <div class="stat" data-page-node-id="HSXn48fJs4oyjnm0Yc7KD9">
+        <div data-page-node-id="AtYDMX6sKTGIryYSQKasko">PPI<b data-page-node-id="6gQhWWDtKlsIHcdkUvDEfM">5644</b></div>
+        <div data-page-node-id="QktsAAijsmtezD0Jbkpxwd">節點數<b data-page-node-id="KKap6DVO1ZI6T3NPkCjFmB">4</b></div>
+        <div data-page-node-id="UDYj7odRsEy3pPwiAUGCaE">磊晶<b data-page-node-id="jZHtHBBSbcyMFCafiVOH3d">Sapphire</b></div>
+        <div data-page-node-id="4mP2KvjGQNkuQcCM2UlGCF">進度<b data-page-node-id="4sZrk01LSwfkY2PuVuiiUO">樣品 → 小量</b></div>
+      </div>
+    </div>
+
+    <div class="path-card" data-c="B" data-page-node-id="kjXE3kKnR1IujStGCCsqIx">
+      <div class="label" data-page-node-id="kWGPulZ2GAVmoXid6PS6At">PATH B · 既有</div>
+      <h3 data-page-node-id="BwwC9MAtNzbxrKCtHVDXhX">MicroLED → 大尺寸 / 車載</h3>
+      <div class="tl" data-page-node-id="kBtqml4U4x3cIkhnUsHEvR">同樣採 GaN-on-Sapphire 磊晶，驅動三星 89"–140" MicroLED TV、友達車用透明顯示。LTPS 背板由友達供應，PM 驅動架構，是目前營收主力。</div>
+      <div class="stat" data-page-node-id="nPTTQrbYOUeJPV9dYQVwu9">
+        <div data-page-node-id="wrGrY4IckwUugjFKScW6ZR">尺寸<b data-page-node-id="pPzswPmDS22ZlD46sHv7o8">89"–140"</b></div>
+        <div data-page-node-id="2ftw4oVAXVvHSHjWRJqCJR">節點數<b data-page-node-id="GkC1zIuf4ai2ZW6yByRAwp">4</b></div>
+        <div data-page-node-id="YxAIEDyRTW3D4IfyXcQcHx">磊晶<b data-page-node-id="mARCjMRLo6aROwmjh5XMNw">Sapphire</b></div>
+        <div data-page-node-id="zamtV8uHq0x0LdoCRj5e33">進度<b data-page-node-id="k7RA4WPTHBDgNu0AVUSmdS">量產中</b></div>
+      </div>
+    </div>
+
+    <div class="path-card new" data-c="C" data-page-node-id="2x1jmNJryBRPAnVhLd5vG1">
+      <div class="label" data-page-node-id="x2qpjlc9uFyFh6Xs7ixSBo">PATH C · 開發中</div>
+      <h3 data-page-node-id="UD95wtOmy04hOmsSIHV2Tg">MicroLED → CPO 光電共封裝</h3>
+      <div class="tl" data-page-node-id="SMc20ExLOg6QAI2XFGE8yT">已確認的是 8"/12" Epi、COW、CoC 設備規劃，以及與 Brillink 以綠光 MicroLED 開發 &lt;50 m 陣列式光互連；基板材料與量產規格尚未公開。TrendForce 預估 MicroLED CPO 市場 2030 達 $848M。</div>
+      <div class="stat" data-page-node-id="QLdLAZHpX3d0pvvOyZAa0Q">
+        <div data-page-node-id="W4yss62k7q8qAgubV9LV67">速率<b data-page-node-id="mkJNvBchIjCnPOMrNA3yoS">3.2 T</b></div>
+        <div data-page-node-id="wLWK2ZEAeE0p4A7AIIWtxo">節點數<b data-page-node-id="EAAZWP6EP3O7AO2ReDNoAU">4</b></div>
+        <div data-page-node-id="msnl1v0z8szHI178l9Cpza">光源<b data-page-node-id="VA3OZGyujSNYQUlrwBPhYp">綠光 MicroLED</b></div>
+        <div data-page-node-id="hMfUdU7Pho4L20MX7PbJUp">進度<b data-page-node-id="Z6bREGaAWmGnwxcHNp5uB8">共同開發</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout purple" data-page-node-id="8BrImnIAnczJ4B4t8rNgr8">
+    <b data-page-node-id="tSi1Ax0R5TDgDlL2zXG9yC">證據邊界：</b>2025/05/29 法說只確認 8"/12" Epi、COW、CoC 設備投資，未寫明 GaN-on-Si 或 CPO；2026/01 Brillink 新聞稿才確認綠光 MicroLED 光互連合作。Lumiode 併購主要補強 Active TFT 與近眼顯示，不應直接解讀為 SiPh/CPO 能力。
+  </div>
+</sec>
+
+<!-- ============ §4 製程節點 × 應用路徑 對照表 ============ -->
+<sec id="sec4" data-page-node-id="frGzfuYcRhDvjix5bF64dL">
+  <div class="sec-h" data-page-node-id="nBPA5MtqNeyZpyxMJLSpA0">
+    <span class="num" data-page-node-id="jOS68dQMiLE98NDYVled94">§04</span>
+    <h2 data-page-node-id="s3oVrSexubl50U9N95FZp2">節點 × 路徑對照表（12 個關鍵節點）</h2>
+    <span class="tag" data-page-node-id="CobYBWNnHYzkDQVuAahlRu">NODE MATRIX</span>
+  </div>
+
+  <table class="nodes" data-page-node-id="ydAayStvqJfm3R1zK1CD4r">
+    <thead data-page-node-id="1diKPreycEfdQGNMTycZ5r">
+      <tr data-page-node-id="ChnImM5aGrZ2fEqCVcEEFv"><th data-page-node-id="iQa7ug5MRTdEmqudnvLj7H">ID</th><th data-page-node-id="ARDHrNc4bDyUjlFpyCDZ3a">層級</th><th data-page-node-id="GjGARidfSdrPtK0SQlG7HP">節點</th><th data-page-node-id="1dYhJk2cKADLaApvOxbV5e">路徑</th><th data-page-node-id="MCj3j78D4pNJ46R8usgrMH">技術細節</th><th data-page-node-id="7bpTJCDTa4PJY05vL0lF5m">證據 / 來源</th></tr>
+    </thead>
+    <tbody data-page-node-id="0JI6GSYqxe76RFXTD2NnpF">
+      <tr data-c="A" data-node="A1" data-page-node-id="ebtYHnJVsAAAuIFhUAoBDX"><td class="id" data-page-node-id="nohUShYx5ttu8iiCY4pPHD">①</td><td class="layer" data-page-node-id="UbyynA8c7POggpd1mFXHkH">L1 封裝級</td><td class="tech" data-page-node-id="o162mwuSFLgzbKgXauUKCC"><b data-page-node-id="XPSf5r3CVHOE1o3Bb9SBq1">GaN-on-Sapphire 磊晶</b>MOCVD 4"/6"</td><td data-page-node-id="WcmmXrEW1d6FJSoIAp0p1E">A · AR</td><td data-page-node-id="koltC8aAjPVtTF4s9VJsEs">藍綠光 InGaN，藍寶石基板；錼創主力，USPTO 9,670,592 專利原文確認。</td><td class="feat" data-page-node-id="dlJFuh3WpG987NsC9lOCyt">US 專利 / 法說會</td></tr>
+      <tr data-c="A" data-node="A2" data-page-node-id="cJ0EYRIJ5xj11emltUP2sa"><td class="id" data-page-node-id="6GiXAAsmFYql853D5vOYzN">②</td><td class="layer" data-page-node-id="sQGo4dps86KPJuTBtHCuAG">L2 模組級</td><td class="tech" data-page-node-id="HSFxFGnwfXRVmbIS6NBHhS"><b data-page-node-id="kBnRv3YxhRvI3VKld27oQb">巨量轉移</b>Laser LIFT（自研設備）</td><td data-page-node-id="XwfY293sCOZSNJ9xfjLztk">A · AR</td><td data-page-node-id="tzwJfC5AgIVtFOXcpmmiQP">雷射誘導前向轉移（LIFT），非接觸、不受晶片微縮限制。2025/09 SEMICON Taiwan 展出自主研發設備（約 10 噸），75 μm 晶片轉移良率 &gt;99.95%。無 stamp、無流體自組裝。</td><td class="feat" data-page-node-id="vo8F5INgIw98iGVR1QsYdI">vs X-Celeprint µTP / eLux 流體</td></tr>
+      <tr data-c="A" data-node="A3" data-page-node-id="WuBQoL47PRCozwHF6TWXyv"><td class="id" data-page-node-id="NqlDiZt946QQJf05HOgDaE">③</td><td class="layer" data-page-node-id="rkn5Ws4oj2okWA1HzlqHOu">L3 系統級</td><td class="tech" data-page-node-id="G8wbc4ax1qFs1dCdPli7OB"><b data-page-node-id="jeUDB4Cfd0CLfcZ7jGweta">CMOS 鍵合</b>Hybrid Bonding</td><td data-page-node-id="RD6OvKMgyi1o5I38urtOZE">A · AR</td><td data-page-node-id="480hDgK9XFp1WlBM94pheX">0.18" 5644 PPI 樣品；TSV 互連、單片化。</td><td class="feat" data-page-node-id="aHxj16NvzykMNwljg5Xx4y">vs JBD (CMOS 路線)</td></tr>
+      <tr data-c="A" data-node="A4" data-page-node-id="uTtzk1FIFKGCQrAa0DbC2F"><td class="id" data-page-node-id="v9xLGK1Aye9OJNAeE4GDAE">④</td><td class="layer" data-page-node-id="2WLeBAO0wHD3ouG3JEyzOa">L4 終端</td><td class="tech" data-page-node-id="Tx1NFWt4NElFF0p2rQMDhX"><b data-page-node-id="BFdCBuILNy6zlsGJbPB4qF">AR 眼鏡</b>光波導</td><td data-page-node-id="xunGc1r0oNp3ggFjJYVyO3">A · AR</td><td data-page-node-id="YFzjgJmFUe4HBDTOSFP0Vu">搭配 Birdbath / 陣列光波導，PPI 要求高。</td><td class="feat" data-page-node-id="LGLcRc7PCJwvY1KCwIRovV">Apple / Meta / Sony</td></tr>
+
+      <tr data-c="B" data-node="B1" data-page-node-id="TeBwdBXk8y8IS9ssIGwyyH"><td class="id b" data-page-node-id="p21bAnElZVFJUMeeMfQunN">⑤</td><td class="layer" data-page-node-id="RSow5o2QOpN2IGmQziLG79">L1 封裝級</td><td class="tech" data-page-node-id="TvXgio10AJIxmuKfglhlwP"><b data-page-node-id="jYUzsIumfDaCaVAf1sjI4u">GaN-on-Sapphire 磊晶</b>4"/6"</td><td data-page-node-id="dFHzH0KVGMgQKp8LCBT7fM">B · 大尺寸</td><td data-page-node-id="nZLsSRYyU0xx8eCwcVSNBO">成本低、缺陷密度容忍度較高；與 Path A 共用產線。</td><td class="feat" data-page-node-id="xQAkl7iXMcaGikdH4eOH2B">年報 / 三星 SDC</td></tr>
+      <tr data-c="B" data-node="B2" data-page-node-id="41eXwDr89wIfl9Dlg4lmbV"><td class="id b" data-page-node-id="jHimUeuWH7F3FzaUuMmGnw">⑥</td><td class="layer" data-page-node-id="JCxUvMMSmuFNkifoXKOZQk">L2 模組級</td><td class="tech" data-page-node-id="bveykE76cCA2pYGGIE9drH"><b data-page-node-id="gqlgrLcP3cDFrMzNm2ePvI">巨量轉移</b>Laser LIFT（共用產線）</td><td data-page-node-id="fzBfbEfCKZWOuvT9VSw6Tz">B · 大尺寸</td><td data-page-node-id="OeAYe3dqaMEPUYuc8HKyaP">與 Path A 同一套雷射轉移平台：自 6 吋晶圓將 RGB MicroLED 轉移至各種尺寸背板，精度對標半導體設備。非流體自組裝路線。</td><td class="feat" data-page-node-id="eVcYiHMc5aJ30AdlDySyxN">SEMICON Taiwan 2025</td></tr>
+      <tr data-c="B" data-node="B3" data-page-node-id="Gq6nRWOFMC39D7wrwJouoE"><td class="id b" data-page-node-id="Io1pZgGlurEGjqldnjIsFE">⑦</td><td class="layer" data-page-node-id="IGxuX0TgPkFVFp2NJzxDMi">L3 系統級</td><td class="tech" data-page-node-id="7sJ3zfznMWlWWPWGbwdRo8"><b data-page-node-id="VTj9EKyTf6bFeBhIe97NBO">LTPS 背板</b>PM 驅動</td><td data-page-node-id="Yo1tViCtbwvNG21rDz4pu9">B · 大尺寸</td><td data-page-node-id="Y8PE1bIUCfo4s6ywMXgNB1">友達供應、被動矩陣驅動，簡化製程。</td><td class="feat" data-page-node-id="GEeeIVyIMhkfyDH0xgGNmL">友達 / JBD</td></tr>
+      <tr data-c="B" data-node="B4" data-page-node-id="aHlQrb0KEJFqu0wgkEkASw"><td class="id b" data-page-node-id="eQtcXNwS7xiZBfHGCZDkch">⑧</td><td class="layer" data-page-node-id="NKtD9jyOWXcZlVJJHjkktC">L4 終端</td><td class="tech" data-page-node-id="MIix2L9CwxCd9ysNnnz7ob"><b data-page-node-id="jKn7qjNAZdZdoOsAw49OOw">89"–140" TV</b>車載 HUD</td><td data-page-node-id="0FEiQnV2xxSnpwBn1mtqgg">B · 大尺寸</td><td data-page-node-id="JBqVXkG2M1hNyHsH0qBRG4">三星 MicroLED TV 量產中、友達車用透明顯示。</td><td class="feat" data-page-node-id="3AoooMvRe7d90Lhrb2RQ19">Samsung / LG / BOE</td></tr>
+
+      <tr data-c="C" data-node="C1" data-page-node-id="13TOGx4Mp0dY6gQjhhVDES"><td class="id c" data-page-node-id="7TkTYxSQNjZVfH4mNV7M93">⑨</td><td class="layer" data-page-node-id="MTBBkknbgPrEtKH693wocU">L1 元件級</td><td class="tech" data-page-node-id="6GOGCEOT9AnoQq8xl5EFru"><b data-page-node-id="RE9Tlfk5WG8xaxCrmhFpGL">綠光 MicroLED</b>高效率發光元件</td><td data-page-node-id="mkfMKwqQkvDeniHXefDy4P">C · 光互連</td><td data-page-node-id="Mh9rvGcmKBj9wqvsHuDjsD">錼創提供綠光 MicroLED；Brillink 稱其相較藍光在標準光纖中可降低損耗與色散。8"/12" 設備規劃未公開基板材料。</td><td class="feat" data-page-node-id="W606YbIiKjBIluA72ragyO">Brillink 聯合新聞稿</td></tr>
+      <tr data-c="C" data-node="C2" data-page-node-id="h7iT42yJCVCt7kqG0OngUn"><td class="id c" data-page-node-id="OqKc0xVDcYWxdEHb8R8DZ1">⑩</td><td class="layer" data-page-node-id="SxswRanuTmAUXHoLBjLACa">L2 模組級</td><td class="tech" data-page-node-id="IegDXdhl5imwEoNuLCXQQm"><b data-page-node-id="1wAoVzj2Ayq0x6UjatgdRK">MicroLED 陣列</b>2D-AVC 耦合</td><td data-page-node-id="7nMWBvAS1Cotk5IZlEDDUz">C · 光互連</td><td data-page-node-id="du3oVEGlKGP7IatKOyUcql">Brillink 將綠光 MicroLED 與 GeSi APD 陣列、meta-optics、2D-AVC 整合；目標是 &lt;50 m、&lt;1 pJ/bit 的 AEC 替代方案。</td><td class="feat" data-page-node-id="ItPJlgMf7botUYMRHVAzwT">合作方目標，尚待量產驗證</td></tr>
+      <tr data-c="C" data-node="C3" data-page-node-id="sC6TCSL6UDUjNYmNkmqR5U"><td class="id c" data-page-node-id="bgi1eyluG1NhM6xveoyzRU">⑪</td><td class="layer" data-page-node-id="HdnDo4zoxsTXrFuApGbdh9">L3 系統級</td><td class="tech" data-page-node-id="zyhGru6nEm0aSqDHtB9iW7"><b data-page-node-id="ymdMFHxAqI3S2DkAS183ku">接收與耦合</b>GeSi APD + meta-optics</td><td data-page-node-id="EI6S9L9L3yb89MmWarpYTn">C · 光互連</td><td data-page-node-id="hFeyxZJ0XRchJhmBNNq3KS">已公布的合作架構不是「已整合 TSMC COUPE」。與 SiPh/CPO 平台整合屬後續可能情境，需以設計導入或客戶驗證佐證。</td><td class="feat" data-page-node-id="TfC9VR0cJfUMMEIV7jn0Ab">已揭露架構／分析情境分開</td></tr>
+      <tr data-c="C" data-node="C4" data-page-node-id="cG3l1X3ERI6oaYbXvgRQ3g"><td class="id c" data-page-node-id="CsnqWdOrVntNYWr92zD9VY">⑫</td><td class="layer" data-page-node-id="b8tiFEPwHRyw1kJWVPqvNC">L4 終端</td><td class="tech" data-page-node-id="hInjRlpHNwbZgcxpV6qKOE"><b data-page-node-id="gehtvCX64ykP9yyZdfnU0Z">AI Scale-up</b>短距互連</td><td data-page-node-id="Qz40QjZqs11ccVhMyARocj">C · 光互連</td><td data-page-node-id="GOp2qpvqHVSa2bwhLoIuXb">目前定位為 &lt;50 m 陣列式光互連與 AEC 替代；直接進入 switch ASIC 共封裝仍是研究情境，不是已宣布產品。</td><td class="feat" data-page-node-id="XzxBleZSXwVj0kGBVOVaFI">Brillink 2026/01／TrendForce</td></tr>
+    </tbody>
+  </table>
+</sec>
+
+<!-- ============ §5 CPO 深度解 ============ -->
+<sec id="sec5" data-page-node-id="IF56wsIin3RHlwaO9X58zR">
+  <div class="sec-h" data-page-node-id="iKLXBWLiYxHWMZQboHjBD9">
+    <span class="num" data-page-node-id="qa8pnT0ZB59a78Xb07XeXc">§05</span>
+    <h2 data-page-node-id="YRKVqTVCqdhR6tP4BITP6A">Path C 深度解：MicroLED 如何進軍光互連 / CPO</h2>
+    <span class="tag" data-page-node-id="HuV04FEkUUndfpGoLKIsuE">CPO DEEP-DIVE</span>
+  </div>
+
+  <div class="cpo-hero" data-page-node-id="L1Fjcf3IXmxCmH7YIamYYK">
+    <span class="badge" data-page-node-id="c2hV90Eg0codESxI5Psmtc">SECTION · CPO 技術縱深</span>
+    <h3 data-page-node-id="3KWBrl2S4IaHzxnItC2Ze5">從顯示器光源 → 資料中心光引擎：MicroLED 的橫向擴張路徑</h3>
+    <div class="lede" data-page-node-id="2KY49GLJMQaeIDpKDIRGxR">
+      AI 資料中心的 scale-up 網路同時受到<b data-page-node-id="Mku8DTykZJmgdVULDUihbp">頻寬密度與能耗</b>限制。CPO（Co-Packaged Optics）把光引擎靠近 switch ASIC；MicroLED 陣列式光互連則是 TrendForce 列出的三種短距高速候選方案之一，與 AEC、VCSEL NPO 並列。
+    </div>
+    <div class="lede" data-page-node-id="BfluRZHPWLFCEenLxwt59z">
+      錼創與 Brillink 公布的方案使用<b data-page-node-id="I0lAmhKIj8DUNLoCmGAA7I">綠光 MicroLED</b>搭配 GeSi APD、meta-optics 與 2D-AVC。合作方主張綠光相較藍光在標準光纖中有較低損耗與色散；這是產品目標，仍需以鏈路測試、客戶驗證與量產良率確認。
+    </div>
+    <div class="lede" data-page-node-id="8IxUxONpKdvTFGTnPhQWsW">
+      TrendForce 2026/05 預估：<b data-page-node-id="eP68TdFsTTotBXucsGwdEy">MicroLED CPO Optical Transceiver 市場 2030 達 $848M</b>，並預期 2028 下半年起明顯放量。這是第三方市場情境，不能直接換算成錼創訂單或營收。
+    </div>
+
+    <div class="cpo-metrics" data-page-node-id="PaC2vuC98ZCKEXsY6QvvGu">
+      <div data-page-node-id="ExIX3D4O2zdiTJc8wLZxVZ">MicroLED CPO 市場 (2030E)<b data-page-node-id="S2NjJcDNMwjJ93hurSW3Hm">$848M</b><span data-page-node-id="IfziemOUbDJLqlyvFQGTUJ">TrendForce 2026/05</span></div>
+      <div data-page-node-id="DDhtetrgFW4pvrvm8glOuC">頻寬密度<b data-page-node-id="kXUBQRV5CGLN6QNDuZlfDA">2 Tbps/mm²</b><span data-page-node-id="R6582sAAQT63236cVZTGs1">TrendForce 指標</span></div>
+      <div data-page-node-id="NGtkGlRXbf3GX2LuMQmfEh">能耗目標<b data-page-node-id="xBlI1CxgAUUP6wwNNsCvcy">1–2 pJ/bit</b><span data-page-node-id="YnhUWpmMwBWjBFjMlsOkK1">產業研究值</span></div>
+      <div data-page-node-id="B7mATF2XhY5Q2f0maB2ipR">預估放量<b data-page-node-id="VTofTXmqojVAaNXTqH2MpH">2H28</b><span data-page-node-id="NfIVsyS7FInG8gx08J1KqC">仍待規格與驗證</span></div>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:14px;border-left:2px solid var(--purple);padding-left:14px" data-page-node-id="brillink-block">
+    <h4 data-page-node-id="brillink-h"><span class="dot" style="background:var(--purple)" data-page-node-id="brillink-dot"></span>2026/01 實質進展：PlayNitride × Brillink 陣列式光子互連</h4>
+    <div class="desc" data-page-node-id="brillink-desc">
+      2026/01/12 錼創宣布與 <b data-page-node-id="brillink-b1">Brillink</b>（2025 年成立，獲 <b data-page-node-id="brillink-b2">Alchip 世芯</b> 與 <b data-page-node-id="brillink-b3">Artilux</b> 支持）戰略合作，
+      共同開發<b data-page-node-id="brillink-b4">陣列式光子互連（array-based photonic interconnect）</b>，目標取代短距 AEC 主動電纜，
+      用於 AI 加速器、HPC 與高密度資料中心的 scale-up 互連。
+    </div>
+
+    <div class="cpo-metrics" style="margin-top:12px" data-page-node-id="brillink-metrics">
+      <div data-page-node-id="br-m1"><span>傳輸距離</span><b data-page-node-id="br-m1b">&lt;50 m</b><span>短距互連</span></div>
+      <div data-page-node-id="br-m2"><span>鏈路功耗</span><b data-page-node-id="br-m2b">&lt;1 pJ/bit</b><span>目標值</span></div>
+      <div data-page-node-id="br-m3"><span>頻寬密度</span><b data-page-node-id="br-m3b">Tbps/mm²</b><span>2D 陣列耦合</span></div>
+      <div data-page-node-id="br-m4"><span>光源</span><b data-page-node-id="br-m4b" style="color:var(--green)">綠光</b><span>MicroLED</span></div>
+    </div>
+
+    <div style="margin-top:12px" data-page-node-id="brillink-split">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" data-page-node-id="brillink-grid">
+        <div style="border:1px solid var(--line);padding:10px 12px" data-page-node-id="brillink-pn">
+          <div style="font-size:10px;letter-spacing:1.5px;color:var(--cyan)" data-page-node-id="brillink-pn-t">PLAYNITRIDE 負責</div>
+          <ul style="margin:8px 0 0 16px;font-size:11.5px;color:var(--fg-dim);line-height:1.85" data-page-node-id="brillink-pn-ul">
+            <li data-page-node-id="br-pn-1">高效率<b>綠光 MicroLED emitter</b> 陣列</li>
+            <li data-page-node-id="br-pn-2">綠光在標準光纖中<b>損耗與色散低於藍光</b>，可達更長距離、更低功耗</li>
+            <li data-page-node-id="br-pn-3">這是 GaN 材料的既有強項，非新開發技術</li>
+          </ul>
+        </div>
+        <div style="border:1px solid var(--line);padding:10px 12px" data-page-node-id="brillink-bk">
+          <div style="font-size:10px;letter-spacing:1.5px;color:var(--purple)" data-page-node-id="brillink-bk-t">BRILLINK 負責</div>
+          <ul style="margin:8px 0 0 16px;font-size:11.5px;color:var(--fg-dim);line-height:1.85" data-page-node-id="brillink-bk-ul">
+            <li data-page-node-id="br-bk-1">超靈敏 <b>GeSi APD</b>（鍺矽雪崩光電二極體）陣列</li>
+            <li data-page-node-id="br-bk-2">專有 <b>meta-optics</b>（超構光學）+ <b>2D-AVC</b> 二維陣列垂直耦合平台</li>
+            <li data-page-node-id="br-bk-3">GeSi APD 大幅降低閉鏈所需發射功率 → 通道數減少 → 成本下降</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout green" style="margin-top:12px" data-page-node-id="brillink-insight">
+      <b data-page-node-id="brillink-insight-b">關鍵解讀 — 這條路徑比想像中近：</b>
+      Brillink 合作明確採用 <b data-page-node-id="brillink-i1">綠光 MicroLED</b>，但新聞稿沒有公開基板、晶圓尺寸、供樣數量或量產良率，因此只能確認技術合作，不能推論 emitter 端已無產能障礙。<br data-page-node-id="brillink-i-br">
+      <b style="color:var(--amber)">但要用詞精確：</b>這是「<b>陣列式光子互連 / AEC 替代</b>」（機櫃間、&lt;50 m），
+      與 switch 端的 <b>CPO 光電共封裝</b>（晶片級、公分級）是<b>相鄰但不同</b>的市場。
+      兩者共用光源技術，但封裝形態、客戶與認證路徑不同——不宜混為一談。
+    </div>
+  </div>
+
+  <div class="svg-wrap" data-page-node-id="GMfyjRGLE7UZsypjPQ1wWo">
+<svg viewBox="0 0 1180 360" xmlns="http://www.w3.org/2000/svg" data-page-node-id="40X5dEuY9rwGzLGBlajgIo">
+  <defs data-page-node-id="U0hbrn8uKG3CLUSy2IB5TA">
+    <filter id="ledGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="beamGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b1"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto" data-page-node-id="ki7J3G4ALtSWXoK2QNwLEt">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a855f7" data-page-node-id="kpu7J80HQds7G8XBwGaooR"/>
+    </marker>
+    <linearGradient id="g_chip" x1="0" x2="1" data-page-node-id="LNt0IqA0l0sxQ4XVpX9PAK">
+      <stop offset="0%" stop-color="#1c1626" data-page-node-id="57ta4hDArknzZ3zMDBGKaP"/>
+      <stop offset="100%" stop-color="#0f141b" data-page-node-id="5DAo6GltpAjcAhhIp1tir2"/>
+    </linearGradient>
+  </defs>
+
+  <text x="20" y="30" font-family="JetBrains Mono,monospace" font-size="12" fill="#a855f7" data-page-node-id="V6eMP3qRsbVT6OiGjZ3FCO">圖 1 · CPO 光引擎內部結構（錼創 MicroLED 切入路徑）</text>
+
+  <rect x="56" y="66" width="188" height="228" rx="5" fill="none" stroke="#a855f7" stroke-width="0.8" opacity="0.4" class="pulse-glow" data-page-node-id="mled-glow"/>
+<rect x="60" y="70" width="180" height="220" rx="4" fill="url(#g_chip)" stroke="#a855f7" stroke-width="1.5" data-page-node-id="VwYPvcIs9oUABD1BKu8Ihk"/>
+  <text x="150" y="92" font-family="JetBrains Mono,monospace" font-size="11" fill="#a855f7" text-anchor="middle" data-page-node-id="hHTIj6UcmQ32ir5wSE6r8R">MicroLED 陣列</text>
+  <text x="150" y="106" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="8DZfcnNOhdFPGwoPysZawX">光源層</text>
+
+  <g transform="translate(80,120)" filter="url(#ledGlow)" data-page-node-id="n2dYvIgzP82hxEcF3VxbpB">
+    <g data-page-node-id="wnHX9sK2tcQSgl1pI8NXMV">
+      <rect class="led-pulse led-r0" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="peKnIQSWNyHI9h3ty41nDu"/>
+      <rect class="led-pulse led-r0" x="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="MxI18oPAJqED8pBx2tBcf9"/>
+      <rect class="led-pulse led-r0" x="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="bucn1PsbLhjmrRa46fSiI3"/>
+      <rect class="led-pulse led-r0" x="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="Ks73XWRAqrMCQBAIC99UlY"/>
+      <rect class="led-pulse led-r0" x="104" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="mK8IA3Zf1gHRcE4MxegBzK"/>
+      <rect class="led-pulse led-r0" x="130" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="2pnI4sf5imHTXDIsfDfRkA"/>
+
+      <rect class="led-pulse led-r1" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="d6EX9UzHSZQBPu8HyoFJcF"/>
+      <rect class="led-pulse led-r1"x="26" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="4CDvdtbiYiZzxr4gtfYpRG"/>
+      <rect class="led-pulse led-r1"x="52" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="oTEqApAJKvGecBDSmQKLBM"/>
+      <rect class="led-pulse led-r1"x="78" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="h2EjQmg9x3G24siHzJZczH"/>
+      <rect class="led-pulse led-r1"x="104" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="dtT0Q4yAqtZojSrWk9rV2p"/>
+      <rect class="led-pulse led-r1"x="130" y="26" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="eCOlpbLC7ExcWRdo0y7h3T"/>
+
+      <rect class="led-pulse led-r2" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="HIlVIjoFrZINAh1WBUWGDB"/>
+      <rect class="led-pulse led-r2"x="26" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="oqsFsd0Gd7FkEG0smKjhXE"/>
+      <rect class="led-pulse led-r2"x="52" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="YxFRCDmCwyXoBF5uVwYLV1"/>
+      <rect class="led-pulse led-r2"x="78" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="K2iV7aaPq24AaewlwSjTvO"/>
+      <rect class="led-pulse led-r2"x="104" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="gqZk9XE8JcFfA2AyEFFYsC"/>
+      <rect class="led-pulse led-r2"x="130" y="52" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="Nn18CMbQRbIdnUE68kDBXI"/>
+
+      <rect class="led-pulse led-r3" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="lEx8ApLZ7FYBOpE886b7tl"/>
+      <rect class="led-pulse led-r3"x="26" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="xduxqYjnGBX7z4uOvZbykD"/>
+      <rect class="led-pulse led-r3"x="52" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="CmmDqNqswkgqt4kAl2C2wS"/>
+      <rect class="led-pulse led-r3"x="78" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="z1vs4vg4eOMDMyNfoIq0yT"/>
+      <rect class="led-pulse led-r3"x="104" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.6" data-page-node-id="4VUuhiZiQT7CdazEUyn8Zb"/>
+      <rect class="led-pulse led-r3"x="130" y="78" width="20" height="20" rx="2" fill="#a855f7" opacity="0.8" data-page-node-id="o4T8jEVzw0bBDPj2fs7OOQ"/>
+    </g>
+  </g>
+
+  <text x="150" y="250" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="hN52jGE5uHCz5sY0h2XlSW">2D array · green emitter</text>
+  <text x="150" y="265" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="Jq4cYYpFgWJ1jBUsdZF6oa">InGaN (Sapphire/Si)</text>
+  <text x="150" y="280" font-family="JetBrains Mono,monospace" font-size="9" fill="#5d6573" text-anchor="middle" data-page-node-id="FIesavR7MKWx0gZZYd7k3b">錼創提供（Si 開發中）</text>
+
+  <line class="flow beam-glow" x1="240" y1="180" x2="380" y2="180" stroke="#a855f7" stroke-width="1.5" marker-end="arr2" data-page-node-id="MQCQeAdIQo1cAX8fwyF6ix"/>
+  <text x="310" y="172" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" text-anchor="middle" data-page-node-id="G097MaF1sLu0Bwc8AzK4kp">光耦合</text>
+  <text x="310" y="194" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="UBF99rrdyk1DJf8QO2UAHK">grating coupler</text>
+
+  <rect x="380" y="70" width="240" height="220" rx="4" fill="url(#g_chip)" stroke="#00d4ff" stroke-width="1.5" data-page-node-id="DdiItP8xHcWaVFOD8eYjY7"/>
+  <text x="500" y="92" font-family="JetBrains Mono,monospace" font-size="11" fill="#00d4ff" text-anchor="middle" data-page-node-id="GvuwmOJhJAOyyEEFYf42eD">矽光子晶片 (SiPh)</text>
+  <text x="500" y="106" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="kBOys5cCuUR6pmKbwFnose">調變/波導層</text>
+
+  <g transform="translate(400,130)" data-page-node-id="ThBNML6NPkIVF4Cb6tGdoK">
+    <path d="M 0 20 L 100 20 L 100 60 L 0 60 Z" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.7" data-page-node-id="rSAQTEE0GSEXjtoieF2h73"/>
+    <path d="M 100 60 L 200 60 L 200 100 L 100 100 Z" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.7" data-page-node-id="Ja0pVtJJEzImAAHDGoYoDl"/>
+    <path d="M 0 20 L 0 60" stroke="#00d4ff" stroke-width="1" opacity="0.5" data-page-node-id="MMxx63zi7jmA6Y9BCHllj6"/>
+    <path d="M 200 60 L 200 100" stroke="#00d4ff" stroke-width="1" opacity="0.5" data-page-node-id="Ufiu1IucKnmLyCfwnmDI8Q"/>
+
+    <rect x="40" y="34" width="20" height="12" fill="#00d4ff" opacity="0.4" data-page-node-id="7xcOhwJHoA6bCEG4JrIihL"/>
+    <text x="50" y="56" font-family="JetBrains Mono,monospace" font-size="8" fill="#00d4ff" text-anchor="middle" data-page-node-id="SYwP3zJgcwIB3YvKKTjZ7B">MZM</text>
+
+    <rect x="140" y="74" width="20" height="12" fill="#00d4ff" opacity="0.4" data-page-node-id="7AtOTiTubF8FCKPqVAjfZ9"/>
+    <text x="150" y="96" font-family="JetBrains Mono,monospace" font-size="8" fill="#00d4ff" text-anchor="middle" data-page-node-id="DNv3bJPG8PwWWnCjpnZs3F">MZM</text>
+  </g>
+
+  <text x="500" y="250" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="hB53qcdewY3vD631RZ0Dkx">波導 + 環形調變器</text>
+  <text x="500" y="265" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="lzwvMumnIv9sIJLFfijYUk">200G/λ × 16 λ = 3.2T</text>
+  <text x="500" y="280" font-family="JetBrains Mono,monospace" font-size="9" fill="#5d6573" text-anchor="middle" data-page-node-id="j2b6JhUGlIMnVaUwCTpYSg">TSMC COUPE / Intel</text>
+
+  <line x1="620" y1="180" x2="760" y2="180" stroke="#fbbf24" stroke-width="1.5" marker-end="arr2" data-page-node-id="L13P9UTLzPZsuGhGCcm9Pb"/>
+  <text x="690" y="172" font-family="JetBrains Mono,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" data-page-node-id="CNe5eOM51nL9WkoNDE3mh3">電互連</text>
+  <text x="690" y="194" font-family="JetBrains Mono,monospace" font-size="8" fill="#5d6573" text-anchor="middle" data-page-node-id="HbPVMG0eD9D2thyXtF4ekH">substrate interposer</text>
+
+  <rect x="760" y="70" width="200" height="220" rx="4" fill="url(#g_chip)" stroke="#fbbf24" stroke-width="1.5" data-page-node-id="EqkMatAK8ydKJUPfNqZmCC"/>
+  <text x="860" y="92" font-family="JetBrains Mono,monospace" font-size="11" fill="#fbbf24" text-anchor="middle" data-page-node-id="9hmVyfjVFazPKuneuR7U14">Switch ASIC</text>
+  <text x="860" y="106" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="xYV7ByvhSqPTHtRnJsIJKo">運算/交換層</text>
+
+  <g transform="translate(780,130)" data-page-node-id="dgQhJgA4gDqURcSRDrFF9B">
+    <rect width="160" height="120" rx="2" fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.4" data-page-node-id="XIGM9gTMISnRrBpOsNBEWU"/>
+    <rect x="10" y="10" width="60" height="40" fill="#fbbf24" opacity="0.3" data-page-node-id="eOarwQJ5vF7YHqKh9Yq8Po"/>
+    <rect x="90" y="10" width="60" height="40" fill="#fbbf24" opacity="0.3" data-page-node-id="Auz0FUQdm7p2L7yT0HV36q"/>
+    <rect x="10" y="70" width="140" height="40" fill="#fbbf24" opacity="0.2" data-page-node-id="eGHyv4g7rOLTJrrO4VJtBa"/>
+    <text x="40" y="34" font-family="JetBrains Mono,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" data-page-node-id="NXZDEBWqGkKHafbYJe8pEu">Core</text>
+    <text x="120" y="34" font-family="JetBrains Mono,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" data-page-node-id="a9PbDy2pDxmKQyYe1MDU9u">SerDes</text>
+    <text x="80" y="94" font-family="JetBrains Mono,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" data-page-node-id="TyIZW7i3E7iGYOfVZdhsnd">Memory</text>
+  </g>
+
+  <text x="860" y="270" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="wMbYjYHzwaPr8NitkGP5Je">NVIDIA Spectrum-X</text>
+  <text x="860" y="282" font-family="JetBrains Mono,monospace" font-size="9" fill="#8b95a4" text-anchor="middle" data-page-node-id="lksZDGfUChDuAqg5pNMsQJ">Broadcom Tomahawk 5</text>
+
+  <line x1="60" y1="320" x2="960" y2="320" stroke="#30363d" stroke-dasharray="2,4" data-page-node-id="vuKvffz0eYmEHABQxzBYjf"/>
+  <text x="20" y="345" font-family="JetBrains Mono,monospace" font-size="10" fill="#5d6573" data-page-node-id="chxabi3Dw4TrxYDnk1bACL">資料來源：TSMC COUPE 技術白皮書 · Intel PowerVia · Broadcom CPO 平台規格 · TrendForce 2026/05 MicroLED CPO 預測</text>
+</svg>
+    <div class="svg-cap" data-page-node-id="EIrvQNuMqbZGKbcHd0raf4">↑ 圖中三層（紫/青/黃）對應 §02 雙軸地圖的 L2–L4 節點。光耦合介面（grating coupler）與電互連（substrate interposer）是技術瓶頸。</div>
+  </div>
+
+  <div class="block" data-page-node-id="0XXcMmpA3wgTfAVVuAs0qP">
+    <h4 data-page-node-id="dOgyxMxPRhEgXwgOBKMWEO"><span class="dot" style="background:var(--purple)" data-page-node-id="cIzSLUTJHpRrn81ETLBJRZ"></span>CPO 主要玩家 × 錼創切入定位</h4>
+    <div class="cmp-grid" data-page-node-id="oeMiJVm8sFsTHOhSQc0Fei">
+      <div class="cmp-item" data-page-node-id="g5O7CppHrorZVySSMHhicR">
+        <h5 data-page-node-id="ZhmTX6XyBPAAu9pN5WnHsr">Intel <span class="scope" data-page-node-id="AY2HuQbNvAkN7RS4staVwP">PowerVia + SiPh</span></h5>
+        <ul data-page-node-id="Iyf31vXv5kzwUNrqwWczm5">
+          <li data-page-node-id="TqcNaZsadAMdsyQZ7ISZUz">2024 推出 1.6T CPO 平台</li>
+          <li data-page-node-id="rmBnpIyULnCbu7msp4Cmpn">內建 VCSEL 自有磊晶</li>
+          <li data-page-node-id="UmtJs9qPofk6wjICuvnahE">鎖定 hyperscaler（AWS/Meta）</li>
+          <li data-page-node-id="L1klXDx3xmsQMVxduoG6Nf">強項：完整 SiPh 製程整合</li>
+        </ul>
+      </div>
+      <div class="cmp-item" data-page-node-id="CUrL9PC5QEXcYEqsMrsytV">
+        <h5 data-page-node-id="oM3SGzAo4Kf2BuVz4cUbbF">TSMC <span class="scope" data-page-node-id="6OFZuBQaMet9Xk1qRvIOAI">COUPE 平台</span></h5>
+        <ul data-page-node-id="iIYHH2fhYJmUqDMAQb5nvj">
+          <li data-page-node-id="wdltPnCTIeTTgfXxokuhFO">2026 量產 3.2T 矽光子引擎</li>
+          <li data-page-node-id="B0wTI6YrioTkAMLvpFOZgl">外部光源（光源仍外購）</li>
+          <li data-page-node-id="jmh67v1hHmbMShOKJF5dfd">目標客戶：NVIDIA / Broadcom</li>
+          <li data-page-node-id="Hahot3PCPDBS83ysACi2YA"><b data-page-node-id="5vz1ZGFS92BKbtSdf6Gfpe">錼創機會：提供 MicroLED 光源</b></li>
+        </ul>
+      </div>
+      <div class="cmp-item" data-page-node-id="SYe3WqwSBu0tZbqesIGFEQ">
+        <h5 data-page-node-id="kSiblz1Ki1rdjsfh15EJZL">Broadcom <span class="scope" data-page-node-id="u40kU9MHcdAZkoB5S1MPOR">Tomahawk 5</span></h5>
+        <ul data-page-node-id="gwlCCdMriPDV5lNoBfbdWa">
+          <li data-page-node-id="ig5zQLsijRUqdGW4uG0BQ9">2024 發表 51.2T CPO switch</li>
+          <li data-page-node-id="4vBvnUGdJohwtE6n0pUIL1">與 Lumentum / Coherent 合作 VCSEL</li>
+          <li data-page-node-id="VB8crNbSJE2do0eRMzFBwB">強項：switch ASIC + DSP</li>
+          <li data-page-node-id="Tv57cQpPH3ijJkXzbSly6z">威脅：VCSEL 陣列專利護城河</li>
+        </ul>
+      </div>
+      <div class="cmp-item cpo" data-page-node-id="kMzLEY5mbrSJBIIbDxvaeU">
+        <h5 data-page-node-id="3Ay9FMIwZ8aITLRdQK2zux">PlayNitride <span class="scope" data-page-node-id="Dxh8gdpQE2wn9ufrhfS7mx">MicroLED 光源 (GaN)</span></h5>
+        <ul data-page-node-id="yFVdwZvNA0ChaNxQxobpc5">
+          <li data-page-node-id="jDj55U09YwcpBkRdO0Hzzh">合作採綠光 MicroLED；是否達量產供貨條件尚未揭露</li>
+          <li data-page-node-id="br-pn-cmp-1"><b style="color:var(--green)">2026/01 與 Brillink 合作陣列式光互連</b></li>
+          <li data-page-node-id="QtwjPs9xJbH3gypDSvxsIk">Brillink：GeSi APD + meta-optics + 2D-AVC</li>
+          <li data-page-node-id="kDrKSAB8sFPLAlEFEis7D3">Lumiode 主要補 Active TFT／近眼顯示專利</li>
+          <li data-page-node-id="rlQ9DSY9zO9DiGWOcg7Gvg">研究情境：未來切入 CPO 光源供應鏈</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" data-page-node-id="4JulHHGpKv0VD596t1KTJ7">
+    <b data-page-node-id="pQxSkxlHHzOMybAvG0nLcG">查證後的切入邏輯：</b>Brillink 聯合新聞稿確認錼創提供高效率綠光 MicroLED，Brillink 負責 GeSi APD、meta-optics 與 2D-AVC，合作目標為 &lt;50 m、&lt;1 pJ/bit 的短距互連。這足以證明錼創已進入「共同開發」，但還不能證明已有 design-win、量產訂單或已通過 hyperscaler 驗證。<br data-page-node-id="cpo-logic-br">
+    <b data-page-node-id="FSEzlBWvGwP1un1sVImA4x">關鍵修正：</b>2025 法說的原文是 8"/12" Epi、COW、CoC 設備，沒有指明 GaN-on-Si；InGaN 也不應直接寫成 850/940 nm 光源。TrendForce 預估 MicroLED CPO 光收發器 2028 下半年起放量、2030 市值 $848M，屬產業預測而非錼創營收指引。
+  </div>
+</sec>
+
+<!-- ============ §6 時程甘特圖 ============ -->
+<sec id="sec6" data-page-node-id="K4hUAJYFUegX7JkXV1XcLb">
+  <div class="sec-h" data-page-node-id="nhELZ0dplX4ER8DyvZmHQG">
+    <span class="num" data-page-node-id="MxhOe2QANLaxHlc40rc57F">§06</span>
+    <h2 data-page-node-id="Auv6CreWQhyVn9ZrINfJeD">時程與里程碑（2024–2030）</h2>
+    <span class="tag" data-page-node-id="ZBEX4IhBLGdxH8pVaSNCx2">TIMELINE</span>
+  </div>
+
+  <div class="timeline" data-page-node-id="HPeePsnO3R70Ds6BX0svbu">
+<svg viewBox="0 0 1180 360" xmlns="http://www.w3.org/2000/svg" data-page-node-id="DQgSkn4IqFIc4eoFCo3GrM">
+  <text x="20" y="30" font-family="JetBrains Mono,monospace" font-size="12" fill="#e6edf3" data-page-node-id="HENJ4aNxtt310825TJvEtA">圖 2 · 錼創三條路徑的量產時程對照</text>
+
+  <g stroke="#21262d" stroke-width="1" data-page-node-id="Y5L5WieK9xmZgTLN769HQY">
+    <line x1="120" y1="60" x2="1140" y2="60" data-page-node-id="jmonM892dtyXziIgMvIpQJ"/>
+    <line x1="120" y1="100" x2="1140" y2="100" data-page-node-id="zQTzAcjFsB3G4GyHmUTffd"/>
+    <line x1="120" y1="140" x2="1140" y2="140" data-page-node-id="V7sMiFgB7nl2OHllvBKDPI"/>
+    <line x1="120" y1="180" x2="1140" y2="180" data-page-node-id="OK2vBZCbSuiZyOChiUlVUU"/>
+    <line x1="120" y1="220" x2="1140" y2="220" data-page-node-id="SdqeZvE6KkDkNKEJAbBbkH"/>
+    <line x1="120" y1="260" x2="1140" y2="260" data-page-node-id="kkuTrOY5dHN2mqXGiynC3O"/>
+  </g>
+
+  <g font-family="JetBrains Mono,monospace" font-size="10" fill="#5d6573" data-page-node-id="GE8MTLVARkUr98dXS6CSl6">
+    <text x="120" y="332" text-anchor="middle" data-page-node-id="1v3GAydOtmLAnVe00QdH3D">2024</text>
+    <text x="270" y="332" text-anchor="middle" data-page-node-id="3Zc0xilhe575N7eOHgyNEE">2025</text>
+    <text x="420" y="332" text-anchor="middle" data-page-node-id="d5kjTf9YPBbbNhW8GvtenL">2026</text>
+    <text x="570" y="332" text-anchor="middle" data-page-node-id="a5C4lk5qjRZteTB5rdS9CX">2027</text>
+    <text x="720" y="332" text-anchor="middle" data-page-node-id="DGgNweaV0Xn3NV9UF4vKGW">2028</text>
+    <text x="870" y="332" text-anchor="middle" data-page-node-id="VIi5sh5KfTuA6EyWYDwHP8">2029</text>
+    <text x="1020" y="332" text-anchor="middle" data-page-node-id="vylMKdRaTeHY7zgbhs1vNj">2030</text>
+    <text x="1140" y="332" text-anchor="middle" data-page-node-id="7xpe1jia8djyHkx2walC00">→</text>
+  </g>
+
+  <text x="60" y="80" font-family="JetBrains Mono,monospace" font-size="11" fill="#00d4ff" data-page-node-id="7P8S8okXljxpcgvw7gpdVO">A · AR</text>
+  <rect x="120" y="70" width="180" height="20" rx="2" fill="#00d4ff" opacity="0.25" stroke="#00d4ff" data-page-node-id="3ZSFevzrqaqEviARAyQTVA"/>
+  <text x="210" y="84" font-family="JetBrains Mono,monospace" font-size="9" fill="#00d4ff" text-anchor="middle" data-page-node-id="zujw5FtpcgZKAC4pmwILtS">Apple Watch (取消)</text>
+  <rect x="330" y="70" width="240" height="20" rx="2" fill="#00d4ff" opacity="0.5" stroke="#00d4ff" data-page-node-id="kBFpgXdSQGHSce77bLHdhY"/>
+  <text x="450" y="84" font-family="JetBrains Mono,monospace" font-size="9" fill="#00d4ff" text-anchor="middle" data-page-node-id="H9IKmpGaOANH6NRwXQz8dj">AR 眼鏡樣品 / 抬頭顯示</text>
+  <rect x="600" y="70" width="540" height="20" rx="2" fill="#00d4ff" opacity="0.7" stroke="#00d4ff" data-page-node-id="4421Ejspq2IGXl28rdiCMQ"/>
+  <text x="870" y="84" font-family="JetBrains Mono,monospace" font-size="9" fill="#0a0e14" text-anchor="middle" data-page-node-id="ou9ux6LUB96eiLhxujOQ6f">小量量產 → 主流 AR 顯示</text>
+
+  <text x="60" y="160" font-family="JetBrains Mono,monospace" font-size="11" fill="#fbbf24" data-page-node-id="T39wSHKqP4n2hgChzWp48w">B · TV/車載</text>
+  <rect x="120" y="150" width="660" height="20" rx="2" fill="#fbbf24" opacity="0.7" stroke="#fbbf24" data-page-node-id="VhUM4BRW7huzAh1r4DWEke"/>
+  <text x="450" y="164" font-family="JetBrains Mono,monospace" font-size="9" fill="#0a0e14" text-anchor="middle" data-page-node-id="hvtJNP97Kv37aKgwDLhqjq">89"–140" 三星 MicroLED TV 量產中</text>
+  <rect x="420" y="180" width="360" height="20" rx="2" fill="#fbbf24" opacity="0.5" stroke="#fbbf24" data-page-node-id="yHheJ7KwQBsjUCBTWZbcPB"/>
+  <text x="600" y="194" font-family="JetBrains Mono,monospace" font-size="9" fill="#fbbf24" text-anchor="middle" data-page-node-id="36RHZX5Uc0IqMl1jqQ0xvv">友達車用透明顯示導入</text>
+
+  <text x="60" y="240" font-family="JetBrains Mono,monospace" font-size="11" fill="#a855f7" data-page-node-id="E7mwwf8T0LUCZ1FCcSiK82">C · CPO</text>
+  <rect x="420" y="230" width="180" height="20" rx="2" fill="#a855f7" opacity="0.25" stroke="#a855f7" stroke-dasharray="3,3" data-page-node-id="sqI3QUsFZVL9gF4ARTz7ew"/>
+  <text x="510" y="244" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" text-anchor="middle" data-page-node-id="JTIfK8HUYvwRiGWlBFuRaR">共同開發／規格與驗證</text>
+  <rect x="660" y="230" width="270" height="20" rx="2" fill="#a855f7" opacity="0.5" stroke="#a855f7" data-page-node-id="Ci9s76xWWz5CAyrkAUyYAx"/>
+  <text x="795" y="244" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" text-anchor="middle" data-page-node-id="2FIUFboGt6ZMVwG955HMYc">SiPh hybrid bonding 試樣</text>
+  <rect x="960" y="230" width="150" height="20" rx="2" fill="#a855f7" opacity="0.7" stroke="#a855f7" data-page-node-id="HqHqinZRobSFUJPu8bhVtb"/>
+  <text x="1035" y="244" font-family="JetBrains Mono,monospace" font-size="9" fill="#0a0e14" text-anchor="middle" data-page-node-id="rogfZQlejxeJJbJ4J8IFLh">3.2T 光引擎量產</text>
+
+  <text x="60" y="284" font-family="JetBrains Mono,monospace" font-size="10" fill="#a855f7" opacity="0.75" data-page-node-id="tl-c2-label">C·2 光互連</text>
+  <rect x="420" y="270" width="270" height="20" rx="2" fill="#a855f7" opacity="0.35" stroke="#a855f7" stroke-dasharray="3,3" data-page-node-id="tl-c2-1"/>
+  <text x="555" y="284" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" text-anchor="middle" data-page-node-id="tl-c2-1t">Brillink 陣列光互連共同開發（綠光 emitter）</text>
+  <rect x="690" y="270" width="360" height="20" rx="2" fill="#a855f7" opacity="0.6" stroke="#a855f7" data-page-node-id="tl-c2-2"/>
+  <text x="870" y="284" font-family="JetBrains Mono,monospace" font-size="9" fill="#0a0e14" text-anchor="middle" data-page-node-id="tl-c2-2t">AEC 替代導入（&lt;50 m / &lt;1 pJ per bit）</text>
+
+  <g data-page-node-id="xFRueZvsAR7013WULWK1ka">
+    <line x1="420" y1="50" x2="420" y2="310" stroke="#f85149" stroke-dasharray="2,3" opacity="0.5" data-page-node-id="5SqdMCfZfxD3ctmVeEtu4u"/>
+    <text x="425" y="42" font-family="JetBrains Mono,monospace" font-size="9" fill="#f85149" data-page-node-id="PllBRPoOCfH2y4ku094AEk">★ 2026/01 Brillink 合作</text>
+
+    <line x1="345" y1="50" x2="345" y2="310" stroke="#a855f7" stroke-dasharray="2,3" opacity="0.5" data-page-node-id="ODIfFx2wEJV5sK5zMm0J1Z"/>
+    <text x="350" y="42" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" data-page-node-id="oq3W6ExlvAdSvH24PiFXId">★ 2025/12 Lumiode 收購</text>
+
+    <line x1="270" y1="50" x2="270" y2="310" stroke="#3fb950" stroke-dasharray="2,3" opacity="0.5" data-page-node-id="BAo59i88pFjo33cCp7MkPh"/>
+    <text x="275" y="42" font-family="JetBrains Mono,monospace" font-size="9" fill="#3fb950" data-page-node-id="FCyLTImC9HhCArFugceAxP">★ 2025/05 揭露 8"/12" 設備投資</text>
+
+    <line x1="382" y1="50" x2="382" y2="310" stroke="#a855f7" stroke-width="1.4" stroke-dasharray="4,2" opacity="0.9" data-page-node-id="tl-brillink"/>
+    <text x="388" y="24" font-family="JetBrains Mono,monospace" font-size="9" fill="#a855f7" data-page-node-id="tl-brillink-t">★ 2026/01 Brillink 光互連合作</text>
+  </g>
+</svg>
+  </div>
+</sec>
+
+<!-- ============ §7 風險與觀察 ============ -->
+<sec id="sec7" data-page-node-id="C3f4cOWBsqGDQIKkARGLzs">
+  <div class="sec-h" data-page-node-id="j8dVTTC8M8C5zOBrRONLkp">
+    <span class="num" data-page-node-id="H9DI0JGcvc2LRKpvIKVN0k">§07</span>
+    <h2 data-page-node-id="Y2x0weOvsZwS9DnB3MMl1g">風險 × 觀察清單</h2>
+    <span class="tag" data-page-node-id="9xPyO963MpDEhwgpc6f2dw">RISKS / WATCH</span>
+  </div>
+
+  <div class="risks" data-page-node-id="jxeZJdtLzk3zo8pRlKf1bz">
+    <div class="risk high" data-page-node-id="U99FjKh7emMnOGusGxHqFj">
+      <div class="lv" data-page-node-id="h0wImGLDofKahL2Ec6IkHZ">HIGH RISK</div>
+      <h5 data-page-node-id="adYUSrjDDkh7rmatLlKm5G">合作案的量產證據尚缺</h5>
+      <p data-page-node-id="1xTxdBXtkuhWUH0g7C26QS">目前僅確認共同開發與性能目標，尚無 design-win、客戶驗證、量產良率、供樣數量或訂單金額。</p>
+    </div>
+    <div class="risk high" data-page-node-id="3QiDHVPoKFtBZ2sQ8j86U7">
+      <div class="lv" data-page-node-id="1zD6ikj7z0ToQhD6YcxwOQ">HIGH RISK</div>
+      <h5 data-page-node-id="4fJ61GfmNHApEuB9JORwwN">VCSEL 專利護城河</h5>
+      <p data-page-node-id="dPD3RlIZ2p4ZV5s6HIj5l8">成熟 VCSEL／矽光子供應商已有深厚元件與封裝專利。錼創若進一步走向 CPO，仍需獨立的 FTO 與權利項比對；單看家族數不能判定侵權風險。</p>
+    </div>
+    <div class="risk med" data-page-node-id="JacNj4S10cA2lL1lHhhLqg">
+      <div class="lv" data-page-node-id="fx1yj37ZQxeBw7epwFZ9uR">MED RISK</div>
+      <h5 data-page-node-id="CfjbGy0N3cXXWhKownPZfU">TSMC COUPE 採購標準</h5>
+      <p data-page-node-id="qAWkD7fVdOMcAonDJpdsKI">目前沒有公開資料證明錼創已進入 TSMC COUPE 認證。是否有客戶端送樣、可靠度測試與供應資格，應列為後續查證點。</p>
+    </div>
+    <div class="risk med" data-page-node-id="r91n3aQcm5It4LqNMlj9SX">
+      <div class="lv" data-page-node-id="HI5qpgp9QGcqyC8OP2RiXl">MED RISK</div>
+      <h5 data-page-node-id="ZDQFVvsU9PJYDFDzwhCQow">AR 顯示器化延後</h5>
+      <p data-page-node-id="n6WUbNm1uJVPRrlLzwpK3w">Apple Watch MicroLED 取消後，AR 眼鏡量產時程延後至 2027+；短期營收依賴 TV/車載。</p>
+    </div>
+    <div class="risk low" data-page-node-id="139V3C6sMj6IrHmYhYDayp">
+      <div class="lv" data-page-node-id="bdkIMGBfKo6YUS5a8D2R2H">LOW RISK</div>
+      <h5 data-page-node-id="q4gU8uupTFVpeik2Hvr0TX">地緣風險</h5>
+      <p data-page-node-id="Aqp991VFVPPXx9OUI4OyAh">2025 法說確認規劃中國子公司並採「In China for China」方向，美國直接營收占比低於 3%；特定昆山廠投產日期仍需一手公告佐證。</p>
+    </div>
+    <div class="risk high" data-page-node-id="risk-patent-mom">
+      <div class="lv" data-page-node-id="risk-patent-mom-lv">HIGH RISK</div>
+      <h5 data-page-node-id="risk-patent-mom-h">專利申請動能 -52%</h5>
+      <p data-page-node-id="risk-patent-mom-p">存量 345 族仍排全球第 6，但近三年僅 90 族、動能 -52% 為全表最弱（三星顯示 +164%、LG Display 4.7×）。若研發資源因財務壓力收縮，將直接侵蝕 2028 年後的技術議價力。</p>
+    </div>
+    <div class="risk med" data-page-node-id="risk-brillink">
+      <div class="lv" data-page-node-id="risk-brillink-lv">MED RISK</div>
+      <h5 data-page-node-id="risk-brillink-h">Brillink 合作未能轉為訂單</h5>
+      <p data-page-node-id="risk-brillink-p">2026/01 合作目前仍是「共同開發」階段，無揭露量產時程與訂單金額。對手是成熟的 AEC 主動電纜供應鏈，且 Brillink 為 2025 年新創、2D-AVC 平台尚未經量產驗證。需觀察是否出現設計導入（design-win）或客戶端驗證消息。</p>
+    </div>
+    <div class="risk low" data-page-node-id="DjLwUMm8VZR5srJmVGdrcx">
+      <div class="lv" data-page-node-id="DSQ2X9sh60aTgzgf9n5WAe">LOW RISK</div>
+      <h5 data-page-node-id="HfFqSdDwqAXSXSBAiwfDpO">專利地理覆蓋</h5>
+      <p data-page-node-id="HNJD8XLC8LAWasHTVkvdZx">PatSnap 公開頁確認 345 個家族與全球第 6，但沒有提供錼創逐國密度明細；若要判斷 US/KR/JP 防禦力，仍需逐族法律狀態與權利項分析。</p>
+    </div>
+  </div>
+
+  <div class="callout amber" data-page-node-id="0KqJrFI6yxyP8MqkMjIhaT">
+    <b data-page-node-id="zae2Aef2wT5fI5IFCLrAPw">觀察清單（每季更新）：</b>
+    ① <b>Brillink 合作進度</b>——是否從共同開發走到設計導入 / 量產訂單（最快、最具體的 Path C 指標）；
+    ② <b>專利申請動能是否回升</b>——若光通訊布局成立，2027–2028 應見相關申請反彈；
+    ③ 8"/12" Epi/COW/CoC 設備實際導入與基板材料；
+    ④ 是否出現 SiPh/CPO 客戶送樣或平台認證的一手公告；
+    ⑤ Lumiode 整合與主動式驅動專利產出；
+    ⑥ 友達車用 MicroLED 量產出貨時程。
+  </div>
+</sec>
+
+<!-- ============ 股市分析入口 ============ -->
+<div class="stock-portal">
+  <div>
+    <div class="eyebrow">NEW · INVESTMENT RESEARCH</div>
+    <h2>股市分析</h2>
+    <p>把本頁的技術路徑、專利動能與財務指標整合成基本面儀表板、三情境估值、催化劑時間軸、假設失效點與部位管理工具。</p>
+  </div>
+  <a href="stock-analysis.html" target="_blank" rel="noopener">另開分頁查看 →</a>
+</div>
+
+<!-- ============ 研究筆記入口 ============ -->
+<div class="stock-portal">
+  <div>
+    <div class="eyebrow">TEAM HANDOFF · RESEARCH NOTES</div>
+    <h2>研究筆記首頁</h2>
+    <p>把技術、專利、同業與財務頁串成閱讀路徑，附事實／推論邊界、待查問題，以及可保存在瀏覽器的會議筆記欄位。</p>
+  </div>
+  <a href="research-notes.html">開始整理筆記 →</a>
+</div>
+
+<!-- ============ 頁尾 ============ -->
+<div style="margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--fg-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px" data-page-node-id="bOZwSdwtqu6SJ3OsxjnzOi">
+  <div data-page-node-id="jOGFeTqzWOMF8jD9DOQywv">核心查證來源（資料截至 2026/09/06）
+    <div class="source-links">
+      <a href="https://www.patsnap.com/resources/blog/rd-blog/microled-displays-patent-landscape/" target="_blank" rel="noopener">PatSnap 專利地景</a>
+      <a href="https://www.playnitride.com/wp-content/uploads/2024/12/%E6%B3%95%E8%AA%AA%E6%9C%83-20250529-%E4%B8%AD.pdf" target="_blank" rel="noopener">錼創 2025/05 法說</a>
+      <a href="https://www.prnewswire.com/news-releases/playnitride-and-brillink-announce-strategic-collaboration-to-advance-array-based-photonic-interconnects-302658329.html" target="_blank" rel="noopener">Brillink 合作新聞稿</a>
+      <a href="https://www.trendforce.com/presscenter/news/20260511-13039.html" target="_blank" rel="noopener">TrendForce CPO 預估</a>
+    </div>
+  </div>
+  <div data-page-node-id="E2ObGrKd8jfvorToQ5m1IF">© INTERACTIVE TECHNOTE · v2026.09 (REV.2) · 不構成投資建議</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  'use strict';
+  var $ = function(s,el){return (el||document).querySelector(s);};
+  var $$ = function(s,el){return Array.prototype.slice.call((el||document).querySelectorAll(s));};
+
+  // ---- Node content lookup (12 nodes) ----
+  var NODES = {
+    A1:{id:'①',c:'A',layer:'L1 封裝級',title:'GaN-on-Sapphire 磊晶 MOCVD',path:'A · AR',
+        detail:'藍綠光 InGaN，藍寶石基板；錼創主力，USPTO 9,670,592 專利原文確認 InGaN 磊晶結構。',
+        vs:'對手：JBD、上海顯耀同採 Sapphire，但 0.13"/0.18" 尺寸段；錼創佔 4"/6" 量產經濟。',
+        feat:'US 9,670,592（磊晶）/ 法說會 2025/05'},
+    A2:{id:'②',c:'A',layer:'L2 模組級',title:'巨量轉移 — Laser LIFT（自研設備）',path:'A · AR',
+        detail:'雷射誘導前向轉移（LIFT），非接觸、不受晶片微縮限制。2025/09 SEMICON Taiwan 展出自研設備（約 10 噸），75 μm 晶片轉移良率 >99.95%。<b>全雷射，無 stamp、無流體自組裝路線。</b>',
+        vs:'對手：X-Celeprint µTP（凡德比）、eLux（流體自組裝、夏普）—— 走的是不同物理路線；錼創押 LIFT 的物理上限最高且唯一自研設備。',
+        feat:'SEMICON Taiwan 2025 / 自研設備展示'},
+    A3:{id:'③',c:'A',layer:'L3 系統級',title:'CMOS 鍵合（Hybrid Bonding）',path:'A · AR',
+        detail:'0.18" 5644 PPI 全彩樣品；TSV 互連、單片化。C²W / Cu-Cu 直接鍵合，相較傳統 flip-chip 像素密度可推升 10×。',
+        vs:'對手：JBD 也用 CMOS 鍵合。錼創與 Lumiode 整合後，2026 主動式驅動矩陣（Active TFT）路線已就位。',
+        feat:'vs JBD / Lumiode 整合'},
+    A4:{id:'④',c:'A',layer:'L4 終端',title:'AR 眼鏡 / 光波導',path:'A · AR',
+        detail:'搭配 Birdbath / 陣列光波導，PPI >3000 才能做 AR；Apple Watch MicroLED 2024 取消後，2027+ 眼鏡時程成主要應用場景。',
+        vs:'對手：Sony（OLED on Si 早期）、JBD、Porotech。',
+        feat:'Apple / Meta / Sony 客戶群'},
+
+    B1:{id:'⑤',c:'B',layer:'L1 封裝級',title:'GaN-on-Sapphire 磊晶 4"/6"',path:'B · 大尺寸 / 車載',
+        detail:'與 Path A 共用產線；低成本、缺陷密度容忍度高。Sapphire 基板易於 6" 化，滿足 89"–140" TV 的產量需求。',
+        vs:'對手：三星 SDC、LG Display、友達皆採 Sapphire 主流；BOE 同時投資 Si 路線。',
+        feat:'年報 / 三星 SDC 89" 量產線'},
+    B2:{id:'⑥',c:'B',layer:'L2 模組級',title:'巨量轉移 — Laser LIFT（共用）',path:'B · 大尺寸 / 車載',
+        detail:'與 Path A 同一套雷射轉移平台：自 6 吋晶圓將 RGB MicroLED 轉移至各種尺寸背板；精度對標半導體設備。TV 量產關鍵。',
+        vs:'對手：Samsung 用雷射，但友達部分用 μTP 與 ALD 封裝組合。',
+        feat:'SEMICON Taiwan 2025'},
+    B3:{id:'⑦',c:'B',layer:'L3 系統級',title:'LTPS 背板（PM 驅動）',path:'B · 大尺寸 / 車載',
+        detail:'友達供應、被動矩陣（PM）驅動，簡化製程；TV 用 LTPS 已成熟，無需 LTPO。',
+        vs:'對手：JBD 採 CMOS；對大尺寸 TV 而言 PM-LTPS 性價比最高。',
+        feat:'友達 / JBD'},
+    B4:{id:'⑧',c:'B',layer:'L4 終端',title:'89"–140" TV / 車載 HUD',path:'B · 大尺寸 / 車載',
+        detail:'三星 MicroLED TV 量產中、友達車用透明顯示 2025 導入。',
+        vs:'對手：Samsung The Wall、LG、BOE。',
+        feat:'Samsung / LG / BOE / 友達'},
+
+    C1:{id:'⑨',c:'C',layer:'L1 元件級',title:'高效率綠光 MicroLED',path:'C · 陣列式光互連',
+        detail:'錼創負責綠光 MicroLED emitter。公開資料未說明基板、晶圓尺寸、供樣數量與量產良率。',
+        vs:'合作方主張綠光在標準光纖中的損耗與色散低於藍光；仍需鏈路量測與客戶驗證。',
+        feat:'PlayNitride × Brillink 聯合新聞稿（2026/01/12）'},
+    C2:{id:'⑩',c:'C',layer:'L2 模組級',title:'MicroLED 陣列 + 2D-AVC',path:'C · 陣列式光互連',
+        detail:'Brillink 將綠光 MicroLED 與 GeSi APD 陣列、meta-optics、2D-AVC 整合，目標是 <50 m、<1 pJ/bit。',
+        vs:'定位為短距 AEC 替代候選；並非已證明取代所有 VCSEL、DFB 或可插拔光模組。',
+        feat:'合作方性能目標，尚待量產驗證'},
+    C3:{id:'⑪',c:'C',layer:'L3 系統級',title:'GeSi APD + meta-optics',path:'C · 陣列式光互連',
+        detail:'已揭露架構聚焦發射、接收與垂直耦合；目前沒有一手資料證明已整合 TSMC COUPE 或 Intel SiPh。',
+        vs:'SiPh/CPO 整合可列為研究情境，但應與已宣布合作分開。',
+        feat:'Brillink 2D-AVC 架構／證據邊界'},
+    C4:{id:'⑫',c:'C',layer:'L4 終端',title:'AI scale-up 短距互連',path:'C · 陣列式光互連',
+        detail:'合作目標是 AI accelerator、HPC 與高密度資料中心的 <50 m 互連。直接共封 switch ASIC 尚非已宣布產品。',
+        vs:'AEC、VCSEL NPO 與 MicroLED optical interconnect 是競合方案。',
+        feat:'Brillink 2026/01／TrendForce 2026/05'}
+  };
+
+  // ---- Modal: 點節點彈詳細資訊 ----
+  var modal = $('#modal'), modalCard = $('#modalCard'), modalBg = $('#modalBg'), modalClose = $('#modalClose');
+  var mMid = $('#mMid'), mTtl = $('#mTtl'), mPtag = $('#mPtag'),
+      mDetail = $('#mDetail'), mVs = $('#mVs'), mFeat = $('#mFeat');
+  var curNode = null;
+  var nodeOrder = ['A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','C4'];
+  function openModal(nodeId){
+    var n = NODES[nodeId]; if(!n) return;
+    curNode = nodeId;
+    modalCard.setAttribute('data-c', n.c);
+    mMid.textContent = n.id;
+    mTtl.textContent = n.title;
+    mPtag.textContent = n.path + ' · ' + n.layer;
+    mDetail.innerHTML = n.detail;
+    mVs.innerHTML = n.vs;
+    mFeat.innerHTML = n.feat;
+    modal.classList.add('on');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ modalClose && modalClose.focus && modalClose.focus(); }, 50);
+  }
+  function closeModal(){
+    modal.classList.remove('on');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    curNode = null;
+  }
+  if(modalBg) modalBg.addEventListener('click', closeModal);
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+
+  // ESC to close + arrow keys to navigate nodes
+  document.addEventListener('keydown', function(e){
+    if(modal.classList.contains('on')){
+      if(e.key==='Escape'){ closeModal(); e.preventDefault(); return; }
+      if(e.key==='ArrowLeft' || e.key==='ArrowRight'){
+        var idx = nodeOrder.indexOf(curNode);
+        if(idx<0) return;
+        var ndir = e.key==='ArrowRight' ? 1 : -1;
+        var nx = nodeOrder[(idx + ndir + nodeOrder.length) % nodeOrder.length];
+        openModal(nx);
+        // 同時讓對應的 SVG rect 發光 0.6 秒
+        var r = document.querySelector('.dual-map rect[data-node="'+nx+'"]');
+        if(r){
+          r.classList.add('node-flash');
+          setTimeout(function(){ r.classList.remove('node-flash'); }, 600);
+        }
+        e.preventDefault();
+      }
+      return;  // 不要往下跑其他快捷鍵
+    }
+  });
+
+  // ---- Init: progress bar + reveal on scroll ----
+  var prog = $('#prog');
+  function updateProg(){
+    var h = document.documentElement;
+    var scrolled = h.scrollTop || document.body.scrollTop;
+    var height = (h.scrollHeight - h.clientHeight) || 1;
+    if(prog) prog.style.width = ((scrolled/height)*100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', updateProg, {passive:true});
+  updateProg();
+
+  // ---- Path filter ----
+  var pathChips = $$('#nav .fchip');
+  pathChips.forEach(function(b){
+    b.addEventListener('click', function(){
+      pathChips.forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      document.body.setAttribute('data-p', b.getAttribute('data-p'));
+      jump(b.getAttribute('data-jump'));
+    });
+  });
+
+  // ---- Section keyboard nav ----
+  function jump(secId){
+    var el = document.getElementById(secId);
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  $$('.jumpchip').forEach(function(btn){
+    btn.addEventListener('click',function(){ jump(btn.getAttribute('data-target')); });
+  });
+  if('IntersectionObserver' in window){
+    var navIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        $$('.jumpchip').forEach(function(x){x.classList.toggle('active',x.getAttribute('data-target')===entry.target.id);});
+      });
+    },{rootMargin:'-20% 0px -68% 0px',threshold:0});
+    $$('sec[id]').forEach(function(sec){navIO.observe(sec);});
+  }
+
+  // ---- Floating actions ----
+  var btnTop = $('#btnTop');
+  if(btnTop) btnTop.addEventListener('click', function(){window.scrollTo({top:0,behavior:'smooth'});});
+  function toggleMotion(){
+    var on = document.body.getAttribute('data-motion') !== 'off';
+    document.body.setAttribute('data-motion', on ? 'off' : 'on');
+    toast(on ? '動畫已關閉' : '動畫已開啟');
+  }
+  var btnMotion = $('#btnMotion'), btnMotion2 = $('#btnMotion2'), btnNavMotion = $('#btnMotion');
+  [btnMotion, btnMotion2].forEach(function(b){ if(b) b.addEventListener('click', toggleMotion); });
+
+  var btnCopy = $('#btnCopy');
+  if(btnCopy) btnCopy.addEventListener('click', function(){
+    var txt = 'PlayNitride 錼創 (6854.TWO) · MicroLED × ABC 全解 — Interactive Technote v2026.09\n' +
+              '資料來源：PatSnap Eureka《MicroLED Displays Patent Landscape 2026》(2026/07/09)；\n' +
+              'PRNewswire「PlayNitride × Brillink 戰略合作」(2026/01/12)；\n' +
+              '錼創 2024 年報 / 2025/05/29 法說會簡報；SEMICON Taiwan 2025；USPTO 9,670,592。';
+    var ok = false;
+    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(function(){ toast('引用資訊已複製'); }, function(){ fallback(txt); });
+    else fallback(txt);
+    function fallback(t){ try{ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast('引用資訊已複製'); }catch(e){ toast('複製失敗'); } }
+  });
+
+  // ---- Toast ----
+  var toastEl = $('#toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 1800);
+  }
+
+  // ---- Keyboard shortcuts ----
+  document.addEventListener('keydown', function(e){
+    if(e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA') return;
+    var k = e.key;
+    if(k>='1' && k<='7'){ jump('sec'+k); e.preventDefault(); return; }
+    if(k==='a' || k==='A'){ $('#nav .fchip[data-p="A"]').click(); return; }
+    if(k==='b' || k==='B'){ $('#nav .fchip[data-p="B"]').click(); return; }
+    if(k==='c' || k==='C'){ $('#nav .fchip[data-p="C"]').click(); return; }
+    if(k==='0'){ $('#nav .fchip[data-p="all"]').click(); return; }
+    if(k==='t' || k==='T'){ window.scrollTo({top:0,behavior:'smooth'}); return; }
+    if(k==='m' || k==='M'){ toggleMotion(); return; }
+  });
+
+  // ---- Hover info panel: §02 SVG ⇄ §04 table cross-link ----
+  var ni = document.getElementById('nodeinfo');
+  function showNode(nodeId){
+    var n = NODES[nodeId];
+    if(!n || !ni) return;
+    ni.setAttribute('data-c', n.c);
+    ni.innerHTML =
+      '<div class="ni-title">'
+      + '<span class="ni-id">'+n.id+'</span>'
+      + '<span>'+n.title+'</span>'
+      + '<span class="ni-tag">'+n.path+' · '+n.layer+'</span>'
+      + '</div>'
+      + '<div>'+n.detail+'</div>'
+      + '<div class="ni-feat"><b>對手/對照：</b> '+n.vs+'</div>'
+      + '<div class="ni-feat"><b>關鍵證據：</b> '+n.feat+'</div>';
+  }
+  function clearNode(){
+    if(!ni) return;
+    ni.removeAttribute('data-c');
+    ni.innerHTML = '<div class="ni-empty">滑過或點擊上方任一個<b>節點方塊</b>（也可以滑 §04 對照表的任一列），這裡會顯示該製程節點的技術細節與競爭對照。</div>';
+  }
+  // SVG rect hover
+  $$('.dual-map rect[data-node]').forEach(function(r){
+    r.addEventListener('mouseenter', function(){ showNode(r.getAttribute('data-node')); });
+    r.addEventListener('mouseleave', clearNode);
+  });
+  var dualMap = $('.dual-map');
+  if(dualMap) dualMap.addEventListener('click', function(e){
+    var target = e.target.closest && e.target.closest('rect[data-node]');
+    if(!target) return;
+    var nid = target.getAttribute('data-node');
+    showNode(nid);
+    openModal(nid);
+  });
+  // Table row hover & click highlight
+  $$('.nodes tbody tr').forEach(function(tr){
+    tr.addEventListener('mouseenter', function(){
+      var n = tr.getAttribute('data-node'); if(!n) return;
+      showNode(n);
+      $$('.nodes tr.hi').forEach(function(x){x.classList.remove('hi');});
+      tr.classList.add('hi');
+    });
+    tr.addEventListener('mouseleave', function(){
+      clearNode();
+      tr.classList.remove('hi');
+    });
+    tr.addEventListener('click', function(){
+      var n = tr.getAttribute('data-node'); if(!n) return;
+      showNode(n);
+      openModal(n);
+      $$('.nodes tr.hi').forEach(function(x){x.classList.remove('hi');});
+      tr.classList.add('hi');
+      var svgRect = document.querySelector('.dual-map rect[data-node="'+n+'"]');
+      if(svgRect){
+        document.getElementById('sec2').scrollIntoView({behavior:'smooth', block:'start'});
+        setTimeout(function(){
+          svgRect.style.transition='stroke-width .25s,filter .25s';
+          svgRect.style.strokeWidth='3';
+          svgRect.style.filter='drop-shadow(0 0 12px currentColor)';
+          setTimeout(function(){ svgRect.style.strokeWidth=''; svgRect.style.filter=''; }, 1200);
+        }, 600);
+      }
+    });
+  });
+
+  // ---- Patent table: sort + pin highlight ----
+  var patTable = document.querySelector('.pat-table') || $('table.nodes-patent') || (function(){
+    // find the first table whose header row has 「專利家族」 text
+    var ts = $$('table'); for(var i=0;i<ts.length;i++){ if(/專利家族|專利/.test(ts[i].textContent)) return ts[i]; } return null;
+  })();
+  if(patTable){
+    var ths = $$('thead th', patTable);
+    var tbody = $('tbody', patTable);
+    ths.forEach(function(th, idx){
+      th.style.cursor='pointer';
+      th.title='點擊排序';
+      th.addEventListener('click', function(){
+        var dir = th.getAttribute('data-dir') === 'asc' ? 'desc' : 'asc';
+        ths.forEach(function(x){x.removeAttribute('data-dir');});
+        th.setAttribute('data-dir', dir);
+        var rows = $$('tr', tbody).filter(function(r){return r.parentNode===tbody;});
+        rows.sort(function(a,b){
+          var ca = (a.children[idx]||{}).textContent || '';
+          var cb = (b.children[idx]||{}).textContent || '';
+          var na = parseFloat(ca.replace(/[^\d.\-]/g,''));
+          var nb = parseFloat(cb.replace(/[^\d.\-]/g,''));
+          var va = isNaN(na) ? ca : na;
+          var vb = isNaN(nb) ? cb : nb;
+          if(va < vb) return dir==='asc' ? -1 : 1;
+          if(va > vb) return dir==='asc' ? 1 : -1;
+          return 0;
+        });
+        rows.forEach(function(r){ tbody.appendChild(r); });
+      });
+    });
+  }
+
+  // ---- Pin playnitride row in §01 patent table ----
+  var playRow = document.querySelector('tr[data-page-node-id="pat-tr-06"]');
+  if(playRow){
+    playRow.style.cursor='pointer';
+    playRow.addEventListener('click', function(){
+      $$('.pat-table tr.hi, table tr.hi').forEach(function(x){x.classList.remove('hi');});
+      playRow.classList.add('hi');
+      jump('sec2');
+    });
+  }
+
+  // ---- Interactive patent lens: portfolio size vs filing momentum ----
+  var patentData = [
+    {name:'Samsung Display',families:1331,momentum:164,momentumLabel:'+164%'},
+    {name:'BOE',families:1208,momentum:2,momentumLabel:'+2%'},
+    {name:'LG Display',families:520,momentum:370,momentumLabel:'4.7×'},
+    {name:'Innolux',families:474,momentum:-7,momentumLabel:'-7%'},
+    {name:'Lumileds',families:351,momentum:56,momentumLabel:'+56%'},
+    {name:'PlayNitride',families:345,momentum:-52,momentumLabel:'-52%',play:true}
+  ];
+  var patentBars = $('.patent-bars');
+  function renderPatentLens(mode){
+    if(!patentBars) return;
+    var max = mode === 'families' ? 1331 : 370;
+    patentBars.innerHTML = patentData.map(function(d){
+      var raw = mode === 'families' ? d.families : d.momentum;
+      var width = Math.max(3, Math.abs(raw) / max * 100);
+      var label = mode === 'families' ? d.families.toLocaleString('en-US') : d.momentumLabel;
+      var cls = (d.play ? ' play' : '') + (mode === 'momentum' ? (raw < 0 ? ' neg' : ' pos') : '');
+      return '<div class="patent-bar'+cls+'"><span>'+d.name+'</span><span class="track"><i class="fill" data-width="'+width.toFixed(1)+'%"></i></span><span class="value">'+label+'</span></div>';
+    }).join('');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ $$('.patent-bar .fill',patentBars).forEach(function(x){x.style.width=x.getAttribute('data-width');}); });
+    });
+    var lensExplain = $('#lensExplain');
+    if(lensExplain) lensExplain.textContent = mode === 'families'
+      ? '專利家族＝累積布局規模；錼創 345 族，排名第 6。'
+      : '近三年動能＝近期申請速度；錼創 -52%，且資料受公開延遲影響。';
+  }
+  $$('.lens-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      $$('.lens-btn').forEach(function(x){x.classList.remove('on');});
+      $$('.lens-btn').forEach(function(x){x.setAttribute('aria-pressed','false');});
+      btn.classList.add('on');
+      btn.setAttribute('aria-pressed','true');
+      renderPatentLens(btn.getAttribute('data-lens'));
+    });
+  });
+  renderPatentLens('families');
+
+  // ---- Default motion state ----
+  document.body.setAttribute('data-motion', 'on');
+
+  // ---- Reveal on scroll ----
+  // mark sections & path cards as rv for fade-up
+  $$('sec[id], .path-card, .block, .cpo-hero, .risks .risk, .callout').forEach(function(el){ el.classList.add('rv'); });
+  var rvIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rvIO.unobserve(e.target); } });
+  },{threshold:0.12}) : null;
+  if(rvIO){ $$('.rv').forEach(function(el){ rvIO.observe(el); }); }
+  else { $$('.rv').forEach(function(el){ el.classList.add('in'); }); }
+});
+</script>
+
+<!-- Modal: 點節點或表格列觸發 -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mTtl">
+  <div class="modal-bg" id="modalBg"></div>
+  <div class="modal-card" id="modalCard">
+    <button class="modal-close" id="modalClose" aria-label="關閉">×</button>
+    <div class="modal-h">
+      <span class="mid" id="mMid">—</span>
+      <span class="ttl" id="mTtl">—</span>
+      <span class="ptag" id="mPtag">—</span>
+    </div>
+    <div class="m-section">
+      <div class="lbl">技術細節</div>
+      <div class="val" id="mDetail">—</div>
+    </div>
+    <div class="m-section">
+      <div class="lbl">對手 / 對照</div>
+      <div class="val" id="mVs">—</div>
+    </div>
+    <div class="m-section">
+      <div class="lbl">關鍵證據</div>
+      <div class="m-evidence" id="mFeat">—</div>
+    </div>
+    <div class="m-foot">
+      <span>點外部或按 <span class="kbd">ESC</span> 關閉</span>
+      <span><span class="kbd">←</span> <span class="kbd">→</span> 切換節點</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

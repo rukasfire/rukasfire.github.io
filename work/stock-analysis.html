@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="錼創科技 6854 技術、專利、財務與估值情境整合分析">
+<title>錼創科技｜股市分析 × 技術專利</title>
+<style>
+:root{--bg:#f1f5fb;--card:#fff;--ink:#14213d;--sub:#5c6d84;--muted:#7d8ba0;--line:#d9e2ef;--blue:#087ea4;--purple:#7047c8;--amber:#b86b00;--green:#16835c;--red:#c83f4d;--shadow:0 16px 44px rgba(39,58,88,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Inter,"Noto Sans TC","PingFang TC",sans-serif;background:radial-gradient(circle at 10% 0,rgba(8,126,164,.13),transparent 28rem),radial-gradient(circle at 90% 8%,rgba(112,71,200,.1),transparent 30rem),var(--bg);line-height:1.65}
+a{color:var(--blue)}button,input{font:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.top{position:sticky;top:0;z-index:20;background:rgba(248,251,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.top-in{height:58px;display:flex;align-items:center;gap:8px;overflow:auto}.brand{font-weight:900;margin-right:auto;white-space:nowrap}.chip,.back{white-space:nowrap;text-decoration:none;border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:999px;padding:7px 11px;font-size:12px;cursor:pointer}.chip:hover,.back:hover{border-color:var(--blue);color:var(--blue)}
+.hero{margin-top:34px;padding:44px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(125deg,rgba(255,255,255,.98),rgba(235,245,255,.94));box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-160px;top:-210px;background:repeating-radial-gradient(circle,rgba(8,126,164,.12) 0 2px,transparent 2px 19px)}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--blue);font-weight:800}.hero h1{font-size:clamp(32px,5vw,62px);line-height:1.03;letter-spacing:-2px;margin:12px 0;max-width:780px}.hero p{max-width:790px;color:var(--sub);margin:0}.stamp{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:12px}.stamp b{color:var(--ink)}
+section{scroll-margin-top:78px;margin-top:54px}.sec-h{display:flex;align-items:end;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}.sec-h span{font-size:11px;color:var(--blue);font-weight:900;letter-spacing:1.5px}.sec-h h2{font-size:21px;margin:0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:20px;box-shadow:var(--shadow)}.metric .label{font-size:11px;color:var(--muted)}.metric b{display:block;font-size:27px;margin:5px 0 2px}.metric small{color:var(--sub)}.bad{color:var(--red)}.good{color:var(--green)}.warn{color:var(--amber)}
+.thesis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.thesis h3{margin:0 0 8px;font-size:15px}.thesis p{font-size:12px;color:var(--sub);margin:0}.tag{display:inline-block;font-size:10px;border-radius:999px;padding:3px 8px;margin-bottom:10px}.tag.fact{background:#e4f5ed;color:var(--green)}.tag.signal{background:#fff2dc;color:var(--amber)}.tag.scenario{background:#f0eafd;color:var(--purple)}
+.bars{display:grid;gap:13px}.bar-row{display:grid;grid-template-columns:170px 1fr 90px;gap:12px;align-items:center;font-size:12px}.track{height:11px;background:#e9eef5;border-radius:99px;overflow:hidden}.fill{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--blue),#40bfd2);transition:width .8s cubic-bezier(.2,.8,.2,1)}.bar-row.neg .fill{background:linear-gradient(90deg,#ef8590,var(--red))}.bar-row .value{text-align:right;font-weight:800}.note{font-size:11px;color:var(--muted);margin-top:14px}
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.scenario-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:20px}.scenario-card.base{border-color:var(--blue);box-shadow:0 16px 40px rgba(8,126,164,.12)}.scenario-card h3{margin:0 0 14px}.field{display:grid;grid-template-columns:1fr 110px;gap:10px;align-items:center;margin:10px 0;font-size:12px;color:var(--sub)}.field input{width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 9px;color:var(--ink);background:#f9fbfe}.fair{border-top:1px solid var(--line);margin-top:15px;padding-top:14px}.fair b{font-size:28px;color:var(--purple)}
+.price-box{margin-top:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.price-box input{width:150px;border:1px solid var(--line);border-radius:10px;padding:10px}.signal-box{flex:1;min-width:240px;border-radius:12px;padding:12px 14px;background:#eef5fb;color:var(--sub);font-size:12px}.signal-box b{color:var(--ink)}
+.timeline{display:grid;gap:10px}.event{display:grid;grid-template-columns:110px 24px 1fr auto;gap:12px;align-items:start;border:1px solid var(--line);border-radius:14px;background:#fff;padding:15px}.event .date{font-size:11px;color:var(--purple);font-weight:800}.dot{width:12px;height:12px;border-radius:50%;background:var(--amber);margin-top:5px;box-shadow:0 0 0 5px rgba(184,107,0,.12)}.event.done .dot{background:var(--green);box-shadow:0 0 0 5px rgba(22,131,92,.12)}.event h3{font-size:13px;margin:0}.event p{font-size:11px;color:var(--sub);margin:4px 0 0}.event input{accent-color:var(--green)}
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.list{margin:0;padding-left:20px;color:var(--sub);font-size:12px}.list li{margin:9px 0}.position{display:grid;grid-template-columns:1fr 1fr;gap:18px}.calc-result{border-radius:14px;background:linear-gradient(135deg,#152746,#213d68);padding:22px;color:#fff}.calc-result b{display:block;font-size:32px}.calc-result small{color:#b9c8dc}.tranches{display:flex;gap:7px;margin-top:15px}.tranches i{height:10px;flex:1;border-radius:10px;background:#4fb7d2;animation:pulse 2s ease-in-out infinite}.tranches i:nth-child(2){animation-delay:.2s}.tranches i:nth-child(3){animation-delay:.4s}
+.sources{font-size:11px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}.sources a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 9px;text-decoration:none}.footer{margin:60px 0 30px;border-top:1px solid var(--line);padding-top:20px;font-size:11px;color:var(--muted)}
+@keyframes pulse{50%{opacity:.35}}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.thesis,.scenario-grid{grid-template-columns:1fr}.risk-grid,.position{grid-template-columns:1fr}}@media(max-width:560px){.wrap{width:min(100% - 24px,1180px)}.hero{padding:28px 22px}.grid{grid-template-columns:1fr}.bar-row{grid-template-columns:110px 1fr 62px;gap:8px}.event{grid-template-columns:72px 18px 1fr}.event input{grid-column:3}.sec-h h2{font-size:18px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.fill,.tranches i{transition:none;animation:none}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap top-in"><a class="back" href="index.html">← 技術專利分析</a><b class="brand">股市分析</b><button class="chip" data-go="fund">基本面</button><button class="chip" data-go="valuation">估值</button><button class="chip" data-go="catalyst">催化劑</button><button class="chip" data-go="risk">風險</button><button class="chip" data-go="position">部位</button></div></nav>
+<main class="wrap">
+  <header class="hero">
+    <div class="eyebrow">PLAYNITRIDE · 6854 · DECISION DASHBOARD</div>
+    <h1>股市分析 ×<br>技術專利訊號</h1>
+    <p>把財務數字、專利動能、AR／大尺寸顯示／光互連路徑放在同一個決策框架。所有估值皆可調整，並明確區分已公布資料、合作目標與研究情境。</p>
+    <div class="stamp"><span><b>財務基準</b> 2026 Q2／7 月營收</span><span><b>資料更新</b> 2026/09/06</span><span><b>用途</b> 研究框架，非個人化投資建議</span></div>
+  </header>
+
+  <section id="fund"><div class="sec-h"><span>01</span><h2>基本面儀表板</h2></div>
+    <div class="grid">
+      <div class="card metric"><span class="label">2026 上半年營收</span><b>NT$286.9M</b><small class="bad">年減 43.1%</small></div>
+      <div class="card metric"><span class="label">2026 上半年毛利率</span><b class="bad">-30.35%</b><small class="bad">由去年同期 +29.98% 轉負</small></div>
+      <div class="card metric"><span class="label">上半年營業損失</span><b class="bad">-NT$552.1M</b><small>營業費用 NT$465.0M</small></div>
+      <div class="card metric"><span class="label">上半年營業現金流</span><b class="bad">-NT$57.7M</b><small>自由現金流約 -NT$507.5M</small></div>
+      <div class="card metric"><span class="label">2026 Q2 期末現金</span><b class="good">NT$2.27B</b><small>仍須對照借款與可轉債</small></div>
+      <div class="card metric"><span class="label">2026 Q2 存貨</span><b>NT$625M</b><small class="warn">較 2025 年底約 +6.7%</small></div>
+      <div class="card metric"><span class="label">上半年研發費用</span><b>NT$218.4M</b><small>占營收約 76.1%</small></div>
+      <div class="card metric"><span class="label">2026 上半年 EPS</span><b class="bad">-4.13</b><small>Q2 單季 EPS -1.99</small></div>
+      <div class="card metric"><span class="label">2026 年 7 月營收</span><b>NT$56.9M</b><small class="bad">前 7 月累計年減 43.7%</small></div>
+    </div>
+    <p class="note">解讀：最新申報已不是 2025 Q3。2026 上半年營收顯著下滑、毛利轉負且虧損擴大；7 月營收雖較 6 月回升 16.5%，但年減仍達 46.7%。在恢復正毛利與營收成長前，估值應提高折價與現金消耗假設。</p>
+  </section>
+
+  <section id="tech"><div class="sec-h"><span>02</span><h2>技術與專利如何進入投資論點</h2></div>
+    <div class="thesis">
+      <article class="card"><span class="tag fact">已確認</span><h3>專利存量有位置</h3><p>PatSnap 統計錼創 345 個 MicroLED 專利家族、全球第 6。這代表布局規模，不等於專利品質、FTO 或可變現價值。</p></article>
+      <article class="card"><span class="tag signal">警戒訊號</span><h3>近期申請動能 -52%</h3><p>近期動能落後主要競爭者，但最近 18–24 個月存在公開延遲，應等待後續資料回補。</p></article>
+      <article class="card"><span class="tag scenario">選擇權</span><h3>光互連仍是共同開發</h3><p>Brillink 合作確認綠光 MicroLED 路徑；design-win、可靠度驗證、量產良率與訂單仍未公開。</p></article>
+    </div>
+  </section>
+
+  <section id="valuation"><div class="sec-h"><span>03</span><h2>三情境估值沙盒</h2></div>
+    <div class="scenario-grid">
+      <article class="scenario-card" data-scenario="bear"><h3>保守情境</h3><label class="field">2028E 營收（億元）<input type="number" min="0" step="1" data-k="revenue" value="18"></label><label class="field">P/S 倍數<input type="number" min="0" step="0.5" data-k="multiple" value="3"></label><label class="field">淨現金（億元）<input type="number" step="1" data-k="cash" value="15"></label><div class="fair">情境價格約 <b data-out>—</b><small>元／股</small></div></article>
+      <article class="scenario-card base" data-scenario="base"><h3>基準情境</h3><label class="field">2028E 營收（億元）<input type="number" min="0" step="1" data-k="revenue" value="30"></label><label class="field">P/S 倍數<input type="number" min="0" step="0.5" data-k="multiple" value="5"></label><label class="field">淨現金（億元）<input type="number" step="1" data-k="cash" value="15"></label><div class="fair">情境價格約 <b data-out>—</b><small>元／股</small></div></article>
+      <article class="scenario-card" data-scenario="bull"><h3>樂觀情境</h3><label class="field">2028E 營收（億元）<input type="number" min="0" step="1" data-k="revenue" value="45"></label><label class="field">P/S 倍數<input type="number" min="0" step="0.5" data-k="multiple" value="7"></label><label class="field">淨現金（億元）<input type="number" step="1" data-k="cash" value="15"></label><div class="fair">情境價格約 <b data-out>—</b><small>元／股</small></div></article>
+    </div>
+    <div class="card price-box"><label>自行輸入目前股價 <input id="marketPrice" type="number" min="0" step="0.1" placeholder="例如 100"></label><div class="signal-box" id="valuationSignal"><b>尚未輸入股價</b><br>此處只比較市場價格與你的情境假設，不會自動下達買賣結論。</div></div>
+    <p class="note">公式：（2028E 營收 × P/S + 淨現金）÷ 估計流通股數 1.1768 億股。未納入未來稀釋、可轉債轉換、增資、匯率及執行風險，請自行修改假設。</p>
+  </section>
+
+  <section id="catalyst"><div class="sec-h"><span>04</span><h2>催化劑時間軸</h2></div><div class="timeline">
+    <article class="event done"><span class="date">2025/12</span><i class="dot"></i><div><h3>Lumiode 併購</h3><p>補強 Active TFT、近眼顯示與美國專利；不是 SiPh 能力的直接證據。</p></div><input type="checkbox" checked aria-label="Lumiode 已發生"></article>
+    <article class="event done"><span class="date">2026/01</span><i class="dot"></i><div><h3>Brillink 共同開發</h3><p>綠光 MicroLED + GeSi APD + meta-optics + 2D-AVC；目標 &lt;50 m、&lt;1 pJ/bit。</p></div><input type="checkbox" checked aria-label="Brillink 合作已公布"></article>
+    <article class="event"><span class="date">待確認</span><i class="dot"></i><div><h3>客戶送樣／design-win</h3><p>需要客戶驗證或公司公告，不以媒體推測代替。</p></div><input type="checkbox" aria-label="客戶送樣"></article>
+    <article class="event"><span class="date">待確認</span><i class="dot"></i><div><h3>8/12 吋設備實際導入</h3><p>法說僅確認 Epi、COW、CoC 設備規劃，基板材料與量產時程未公開。</p></div><input type="checkbox" aria-label="設備導入"></article>
+    <article class="event"><span class="date">2H28E</span><i class="dot"></i><div><h3>MicroLED CPO 產業放量</h3><p>TrendForce 預測，屬市場情境而非錼創營收承諾。</p></div><input type="checkbox" aria-label="產業放量"></article>
+  </div></section>
+
+  <section id="risk"><div class="sec-h"><span>05</span><h2>假設失效點與風險</h2></div><div class="risk-grid">
+    <article class="card"><h3>需要降低估值假設</h3><ul class="list"><li>營收未恢復成長，或毛利率回落至 30% 以下。</li><li>營業現金流持續大幅流出、存貨與應收同步攀升。</li><li>Brillink 合作長期停留在共同開發，沒有送樣或 design-win。</li><li>新增資本支出未轉化成產能利用率與收入。</li><li>專利動能持續下滑，且不是公開延遲造成。</li></ul></article>
+    <article class="card"><h3>支持提高估值假設</h3><ul class="list"><li>連續兩季營收年增、毛利率維持 40% 左右。</li><li>營業現金流改善且存貨週轉恢復。</li><li>AR 或車用產品進入可辨識的量產收入。</li><li>光互連出現客戶驗證、design-win 或訂單金額。</li><li>新應用專利申請回升且具清楚權利項。</li></ul></article>
+  </div></section>
+
+  <section id="position"><div class="sec-h"><span>06</span><h2>部位管理計算器</h2></div><div class="card position">
+    <div><label class="field">可投資資金（元）<input id="capital" type="number" min="0" step="1000" value="1000000"></label><label class="field">單一高風險股上限（%）<input id="allocation" type="number" min="0" max="100" step="1" value="5"></label><label class="field">分批次數<input id="trancheCount" type="number" min="1" max="10" step="1" value="3"></label><p class="note">範例規則：事件確認前只使用部分額度；確認 design-win 或財務轉折後再重新評估，不因價格下跌自動加碼。</p></div>
+    <div class="calc-result"><small>依輸入條件，單一標的最大部位</small><b id="maxPosition">—</b><small id="perTranche">—</small><div class="tranches" id="tranches"></div></div>
+  </div></section>
+
+  <section><div class="sec-h"><span>07</span><h2>原始資料</h2></div><div class="sources"><a href="https://openapi.twse.com.tw/" target="_blank" rel="noopener">證交所 OpenAPI（2026 Q2／7 月營收）</a><a href="https://mops.twse.com.tw/mops/web/index" target="_blank" rel="noopener">公開資訊觀測站</a><a href="https://www.patsnap.com/resources/blog/rd-blog/microled-displays-patent-landscape/" target="_blank" rel="noopener">PatSnap 2026 專利地景</a><a href="https://www.prnewswire.com/news-releases/playnitride-and-brillink-announce-strategic-collaboration-to-advance-array-based-photonic-interconnects-302658329.html" target="_blank" rel="noopener">Brillink 聯合新聞稿</a><a href="https://www.trendforce.com/presscenter/news/20260511-13039.html" target="_blank" rel="noopener">TrendForce CPO 預估</a><a href="microled-technology.html">返回技術專利分析</a></div><p class="note">財務數值以證交所 2026/09/06 出表資料為主；現金流細項取自同一期申報資料的市場彙整，投資決策前仍應回查 MOPS 原始財報。</p></section>
+  <footer class="footer">本頁為研究工具，不構成個人化投資建議、招攬或保證。估值結果高度依賴使用者輸入；投資前請核對最新財報、股本、可轉債條款、即時價格與個人風險承受度。</footer>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var q=function(s,e){return (e||document).querySelector(s)},qa=function(s,e){return Array.from((e||document).querySelectorAll(s))};
+  qa('[data-go]').forEach(function(b){b.addEventListener('click',function(){var el=document.getElementById(b.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})})});
+  var shares=1.176786;
+  function recalcValuation(){
+    var values={};
+    qa('.scenario-card').forEach(function(card){
+      var revenue=Number(q('[data-k="revenue"]',card).value)||0,multiple=Number(q('[data-k="multiple"]',card).value)||0,cash=Number(q('[data-k="cash"]',card).value)||0;
+      var fair=(revenue*multiple+cash)/shares;
+      values[card.dataset.scenario]=fair;q('[data-out]',card).textContent=fair.toFixed(1);
+    });
+    var price=Number(q('#marketPrice').value),box=q('#valuationSignal');
+    if(!price){box.innerHTML='<b>尚未輸入股價</b><br>此處只比較市場價格與你的情境假設，不會自動下達買賣結論。';return}
+    var title,text;
+    if(price<values.bear){title='低於保守情境';text='價格低於你設定的保守估值；先確認是否有尚未反映的財務或執行風險。'}
+    else if(price<values.base){title='保守至基準區間';text='市場價格已反映部分成長，需要用後續營收、毛利與催化劑逐季驗證。'}
+    else if(price<values.bull){title='基準至樂觀區間';text='價格依賴較高成長假設，部位上限與假設失效點會更重要。'}
+    else{title='高於樂觀情境';text='價格高於目前三組假設；除非提高營收或估值倍數，否則風險報酬偏緊。'}
+    box.innerHTML='<b>'+title+'</b><br>'+text;
+  }
+  qa('#valuation input').forEach(function(i){i.addEventListener('input',recalcValuation)});recalcValuation();
+  function recalcPosition(){var capital=Number(q('#capital').value)||0,pct=Number(q('#allocation').value)||0,count=Math.max(1,Number(q('#trancheCount').value)||1),max=capital*pct/100;q('#maxPosition').textContent='NT$'+Math.round(max).toLocaleString('zh-TW');q('#perTranche').textContent='分 '+count+' 批，每批約 NT$'+Math.round(max/count).toLocaleString('zh-TW');q('#tranches').innerHTML=Array.from({length:count},function(){return '<i></i>'}).join('')}
+  ['#capital','#allocation','#trancheCount'].forEach(function(s){q(s).addEventListener('input',recalcPosition)});recalcPosition();
+  qa('.event input').forEach(function(c){c.addEventListener('change',function(){c.closest('.event').classList.toggle('done',c.checked)})});
+  var barObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){qa('.fill',e.target).forEach(function(f){f.style.width=f.dataset.width});barObs.unobserve(e.target)}})},{threshold:.2});qa('.bars').forEach(function(b){barObs.observe(b)});
+});
+</script>
+</body>
+</html>
