@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>同業評比</title>
+<style>
+  :root{
+    --bg:#f5f7fa;--card:#fff;--ink:#1f2a37;--muted:#6b7280;--line:#e5e9f0;
+    --accent:#2563eb;--accent2:#0e7490;--accent3:#7c3aed;
+    --good:#0f9d58;--warn:#d97706;--bad:#dc2626;
+    --shadow:0 1px 3px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.05);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:15px}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 64px}
+  header.hero{background:linear-gradient(135deg,#5b21b6,#0e7490);color:#fff;border-radius:18px;padding:34px 32px;box-shadow:var(--shadow)}
+  header.hero h1{margin:0 0 6px;font-size:25px}
+  header.hero .sub{opacity:.92;font-size:14px}
+  header.hero .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:4px 11px;border-radius:999px;font-size:12.5px}
+  h2{font-size:19px;margin:42px 0 6px;padding-left:12px;border-left:4px solid var(--accent3)}
+  h2 .en{color:var(--muted);font-size:13px;font-weight:400;margin-left:8px}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin:14px 0}
+  .chart-box{position:relative;height:380px}
+  .chart-box.tall{height:440px}
+  .chart-box svg{display:block;width:100%;height:100%}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .note{font-size:12.5px;color:var(--muted);background:#f0f4ff;border:1px solid #dbe6ff;border-radius:10px;padding:12px 14px;margin-top:12px}
+  .note.warn{background:#fff7ed;border-color:#fed7aa}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f8fafc;color:var(--muted);font-weight:600;position:sticky;top:0}
+  tr:hover td{background:#fafbff}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600}
+  .pill.g{background:#e7f7ee;color:var(--good)}
+  .pill.w{background:#fdf0dc;color:var(--warn)}
+  .pill.b{background:#fdeaea;color:var(--bad)}
+  .pill.n{background:#eef2ff;color:var(--accent)}
+  .pill.p{background:#f3e8ff;color:var(--accent3)}
+  .pill.o{background:#fef3c7;color:#b45309}
+  .anchor{background:#faf5ff}
+  .anchor td{font-weight:600}
+  footer{margin-top:46px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  footer b{color:var(--ink)}
+  .src{font-size:11.5px;color:#9aa3b2;margin-top:6px}
+  .lane{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 14px}
+  .lane span{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line)}
+  .lane .s{border-color:#c4b5fd;background:#f5f0ff;color:#6d28d9}
+  .lane .f{border-color:#fdba74;background:#fff7ed;color:#b45309}
+  @media(max-width:780px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>同業評比</h1>
+  <div class="sub">以公開披露資料為基礎的多公司技術與商業化比較 · 數據截至 2026-09-11</div>
+  <div class="tags">
+    <span class="tag">川湖 2059.TW 為錨點</span>
+    <span class="tag">對標 5 家：南俊 / 富世達 / Accuride / Hettich / Blum</span>
+    <span class="tag">台廠伺服器滑軌派 vs 歐美家具五金派</span>
+    <span class="tag">量 + 質 雙維度</span>
+  </div>
+</header>
+
+<div class="lane">
+  <span class="s">伺服器滑軌 / 機構件派：川湖 · 南俊國際 · 富世達</span>
+  <span class="f">家具五金派：Accuride · Hettich · Blum</span>
+</div>
+
+<h2>一、專利披露值參考 <span class="en">Reported Portfolio Reference</span></h2>
+<p class="lead">以下僅整理各公司最新可查的官方披露值。由於「有效專利、累計獲准、全球專利、商標及專利合計」定義不同，本圖用來呈現披露規模，不作專利實力名次。</p>
+<div class="card">
+  <div class="chart-box tall">
+    <svg viewBox="0 0 900 440" role="img" aria-labelledby="scale-title scale-desc">
+      <title id="scale-title">同業專利規模比較</title>
+      <desc id="scale-desc">川湖累計獲准3641件、Blum全球專利超過2100件、富世達有效商標及專利合計544件、南俊累計取得304件；Hettich與Accuride未找到相同口徑的官方總數。</desc>
+      <g stroke="#e5e9f0" stroke-width="1">
+        <path d="M170 24V382M300 24V382M430 24V382M560 24V382M690 24V382M820 24V382"/>
+      </g>
+      <g fill="#6b7280" font-size="12" text-anchor="end">
+        <text x="158" y="58">Hettich 海蒂詩</text><text x="158" y="116">King Slide 川湖</text>
+        <text x="158" y="174">Blum 百隆</text><text x="158" y="232">Fositek 富世達</text>
+        <text x="158" y="290">Accuride</text><text x="158" y="348">Nan Juen 南俊</text>
+      </g>
+      <g>
+        <rect x="170" y="38" width="32" height="28" rx="4" fill="#94a3b8" opacity=".55"/>
+        <rect x="170" y="96" width="473" height="28" rx="4" fill="#7c3aed" opacity=".92"/>
+        <rect x="170" y="154" width="273" height="28" rx="4" fill="#db2777" opacity=".78"/>
+        <rect x="170" y="212" width="71" height="28" rx="4" fill="#0e7490" opacity=".84"/>
+        <rect x="170" y="270" width="32" height="28" rx="4" fill="#94a3b8" opacity=".55"/>
+        <rect x="170" y="328" width="40" height="28" rx="4" fill="#2563eb" opacity=".84"/>
+      </g>
+      <g fill="#1f2a37" font-size="12">
+        <text x="210" y="58">N/D</text><text x="651" y="116">3,641</text><text x="451" y="174">2,100+</text>
+        <text x="249" y="232">544*</text><text x="210" y="290">N/D</text><text x="218" y="348">304</text>
+      </g>
+      <g fill="#6b7280" font-size="11" text-anchor="middle">
+        <text x="170" y="402">0</text><text x="300" y="402">1,000</text><text x="430" y="402">2,000</text>
+        <text x="560" y="402">3,000</text><text x="690" y="402">4,000</text><text x="820" y="402">5,000</text>
+        <text x="495" y="428" font-size="12">官方披露值（件，口徑見註；N/D＝未找到可比披露）</text>
+      </g>
+    </svg>
+  </div>
+  <div class="note warn"><b>口徑差異（重要）：</b>各公司披露方式不同，<u>不可直接橫向排名</u>。
+  • 川湖：截至 2026-02-24，累計申請 3,744 件、獲准 3,641 件，獲准率逾 90%。
+  • Blum：截至 2025-07，全球專利超過 2,100 件。
+  • 富世達：2024 年報披露有效商標及專利權合計 544 件，另有約 323 件申請中；星號表示包含商標，並非純專利數。
+  • 南俊：截至 2025 Q1 累計取得 304 件，其中發明 105 件、新型 171 件、設計 28 件。
+  • Hettich、Accuride：未找到相同口徑的最新官方總數，因此不採用第三方資料庫數字。</div>
+</div>
+
+<h2>二、商業化定性雷達 <span class="en">Qualitative Commercialization Radar</span></h2>
+<p class="lead">六維度評分（0–100）是依公開資料製作的定性相對分級，不是公司披露的客觀指標，也不適合用於估值。<b>本雷達呈現商業模式差異，而非同賽道勝負</b>——川湖／南俊／富世達偏伺服器機構件，Accuride／Hettich／Blum 偏家具與工業五金。</p>
+<div class="grid2">
+  <div class="card"><div class="chart-box">
+    <svg viewBox="0 0 520 380" role="img" aria-labelledby="radar-title radar-desc">
+      <title id="radar-title">商業化強度雷達比較</title>
+      <desc id="radar-desc">比較六家公司在專利規模、技術專精度、商業化實證、地理可執行、授權聯盟與成長動能六個面向的相對評分。</desc>
+      <g font-size="10.5" fill="#1f2a37">
+        <circle cx="18" cy="14" r="4" fill="#7c3aed"/><text x="27" y="18">川湖</text>
+        <circle cx="82" cy="14" r="4" fill="#2563eb"/><text x="91" y="18">南俊</text>
+        <circle cx="146" cy="14" r="4" fill="#0e7490"/><text x="155" y="18">富世達</text>
+        <circle cx="226" cy="14" r="4" fill="#d97706"/><text x="235" y="18">Accuride</text>
+        <circle cx="322" cy="14" r="4" fill="#0f9d58"/><text x="331" y="18">Hettich</text>
+        <circle cx="408" cy="14" r="4" fill="#db2777"/><text x="417" y="18">Blum</text>
+      </g>
+      <g transform="translate(0 18)" stroke="#e5e9f0" fill="none">
+        <path d="M260 163L296 184L296 226L260 247L224 226L224 184Z"/>
+        <path d="M260 139L318 172L318 238L260 271L202 238L202 172Z"/>
+        <path d="M260 115L339 160L339 250L260 295L181 250L181 160Z"/>
+        <path d="M260 91L360 148L360 262L260 319L160 262L160 148Z"/>
+        <path d="M260 67L364 127L364 247L260 307L156 247L156 127Z"/>
+        <path d="M260 67V307M156 127L364 247M364 127L156 247"/>
+      </g>
+      <g transform="translate(0 18)" fill-opacity=".07" stroke-width="2">
+        <polygon points="260,97 364,127 364,247 260,277 172,238 156,127" fill="#7c3aed" stroke="#7c3aed"/>
+        <polygon points="260,157 317,154 317,220 260,235 224,208 177,139" fill="#2563eb" stroke="#2563eb"/>
+        <polygon points="260,145 333,145 322,223 260,253 192,226 161,130" fill="#0e7490" stroke="#0e7490"/>
+        <polygon points="260,115 317,154 312,217 260,271 218,211 229,169" fill="#d97706" stroke="#d97706"/>
+        <polygon points="260,73 348,136 343,235 260,307 187,229 208,157" fill="#0f9d58" stroke="#0f9d58"/>
+        <polygon points="260,79 359,130 354,241 260,307 177,235 208,157" fill="#db2777" stroke="#db2777"/>
+      </g>
+      <g fill="#1f2a37" font-size="11.5" text-anchor="middle">
+        <text x="260" y="72">專利規模</text><text x="411" y="137">技術專精度</text>
+        <text x="417" y="274">商業化實證</text><text x="260" y="348">地理可執行</text>
+        <text x="103" y="274">授權／聯盟</text><text x="105" y="137">成長動能</text>
+      </g>
+    </svg>
+  </div></div>
+  <div class="card">
+    <h3 style="margin:0 0 10px; font-size:15px">讀圖重點</h3>
+    <p style="font-size:13px; margin:0 0 8px"><b>川湖 (紫)</b>：技術專精度與商業化實證突出；2026 Q2 單季毛利率為 87.4%（2026 H1 為 84.2%），並已列入 NVIDIA MGX 生態系。公司未正式披露整體 AI 滑軌市佔率。</p>
+    <p style="font-size:13px; margin:0 0 8px"><b>南俊 (藍) / 富世達 (青)</b>：同屬伺服器機構件供應鏈。南俊具備伺服器導軌與越南產能；富世達以「轉軸＋液冷快接頭＋滑軌」跨界整合，成長動能較強。</p>
+    <p style="font-size:13px; margin:0 0 8px"><b>Accuride (橙)</b>：老牌工業／家具滑軌廠，官方資料列有美、德、日、墨、英、中等製造與工程據點；與川湖的直接訴訟關係未獲可靠公開資料證實。</p>
+    <p style="font-size:13px; margin:0"><b>Hettich (綠) / Blum (粉)</b>：成熟家具五金體系，產品廣度、通路與地理覆蓋較強，成長模式相對穩定；現階段與伺服器滑軌廠並非直接同賽道競爭。</p>
+  </div>
+</div>
+
+<h2>三、技術路線分化 <span class="en">Technology Route Differentiation</span></h2>
+<div class="card">
+  <table>
+    <tr><th>公司</th><th>核心技術路線</th><th>主攻賽道</th><th>差異化護城河</th></tr>
+    <tr class="anchor"><td>川湖<br>King Slide</td><td>伺服器滑軌：薄型高荷重、快拆免工具、緩衝自鎖、力矩平衡、理線 CMA；供應多世代 AI 平台</td><td>導軌產品（2024 年營收占比約 96%）</td><td>專利網、共同開發能力與高附加價值製造</td></tr>
+    <tr><td>南俊國際<br>Nan Juen 6584</td><td>伺服器導軌：快拆、安全鎖定與水冷需求對應；產品線另涵蓋 180kg 級超重型導軌</td><td>伺服器與工業滑軌</td><td>NPI 速度、垂直整合與越南產能</td></tr>
+    <tr><td>富世達<br>Fositek 6805</td><td>折疊手機轉軸 + AI 液冷快接頭 (UQD) + 伺服器滑軌</td><td>機構件跨界（折疊機 + 伺服器）</td><td>「滑軌＋水冷接頭」產品組合與精密機構能力</td></tr>
+    <tr><td>Accuride</td><td>家具/工業/商用抽屜滑軌、線性軌道、電子鎖 (Senseon)</td><td>家具 / 工業滑軌</td><td>承重建具廣譜（35–1,323 磅）、多國製造</td></tr>
+    <tr><td>Hettich 海蒂詩</td><td>家具鉸鏈、滑軌、抽屜系統 (Actro 5D)、滑動門</td><td>家具五金（全面）</td><td>完整產品系統、全球通路與德國製造能力</td></tr>
+    <tr><td>Blum 百隆</td><td>家具鉸鏈、抽屜系統、上翻門、伺服驅動 (BLUMOTION / SERVO-DRIVE)</td><td>家具五金（全面）</td><td>阻尼/電動開合標準制定者、品牌授權</td></tr>
+  </table>
+  <div class="note">關鍵分化：滑軌／機構件可分為<b>「伺服器機構件」</b>（川湖、南俊、富世達）與<b>「家具／工業五金」</b>（Accuride、Hettich、Blum）兩類。前者受 AI 基礎建設需求帶動，後者以產品廣度、品牌與全球通路見長；兩類公司的專利數與財務結構不宜直接視為同一賽道排名。</div>
+</div>
+
+<h2>四、同業對標總表 <span class="en">Master Comparison</span></h2>
+<div class="card" style="overflow-x:auto">
+  <table>
+    <tr><th>公司</th><th>專利總量*</th><th>定位</th><th>地理佈局</th><th>商業化 / 授權態勢</th><th>備註</th></tr>
+    <tr class="anchor"><td>川湖<br>King Slide</td><td><b>3,641</b><br><span class="src">累計獲准（2026-02-24）</span></td><td>伺服器滑軌主要供應商</td><td>專利布局涵蓋 TW/CN/US/JP/EU 等</td><td>2026 Q2 單季毛利率 87.4%；聯德中國最高法侵權案勝訴</td><td>2025 營收 175.01 億、年增 72.77%；EPS 103.23 元</td></tr>
+    <tr><td>南俊國際<br>Nan Juen 6584</td><td><b>304</b><br><span class="src">累計取得（2025 Q1）</span></td><td>伺服器／工業滑軌供應商</td><td>TW（雲林／桃園）+ 越南</td><td>伺服器導軌、垂直整合與海外產能</td><td>2025 營收 24.32 億、年增 26%；毛利率 34.99%</td></tr>
+    <tr><td>富世達<br>Fositek 6805</td><td><b>544*</b><br><span class="src">有效商標及專利合計（2024）</span></td><td>機構件跨界（轉軸+快接頭+滑軌）</td><td>亞洲為主，並拓展美洲／歐洲</td><td>折疊轉軸、伺服器滑軌與液冷快接頭組合</td><td>2025 營收 124.14 億、年增 51.61%；伺服器占比 36.29%</td></tr>
+    <tr><td>Accuride</td><td>N/D<br><span class="src">無可比官方總數</span></td><td>家具／工業滑軌老牌</td><td>US/DE/JP/MX/UK/CN 等據點</td><td>滑軌、線性軌道與 Senseon 電子鎖</td><td>成立於 1962 年</td></tr>
+    <tr><td>Hettich 海蒂詩</td><td>N/D<br><span class="src">無可比官方總數</span></td><td>家具五金全面供應商</td><td>業務遍及 100+ 國</td><td>多品牌家具五金與全球通路</td><td>2025 營收約 €14 億；約 8,200 名員工</td></tr>
+    <tr><td>Blum 百隆</td><td><b>2,100+</b><br><span class="src">全球專利（2025-07）</span></td><td>家具鉸鏈／阻尼／驅動系統</td><td>全球 12 個生產基地、30+ 子公司及代表處、120+ 市場</td><td>BLUMOTION／SERVO-DRIVE 品牌與產品系統</td><td>2024/25 營收 €24.41 億</td></tr>
+  </table>
+  <div class="src">＊富世達 544 件包含有效商標與專利權，並非純專利數。各家披露口徑不同，不可直接加總或排名；詳見第一節圖注。</div>
+</div>
+
+<h2>五、川湖的相對位置與策略含義 <span class="en">Strategic Read</span></h2>
+<div class="card">
+  <p style="margin-top:0"><b>1. 護城河型態不同。</b>川湖以高階伺服器導軌、共同開發與專利布局創造高附加價值；2026 Q2 單季毛利率達 87.4%，但這不是 2025 全年數字。Hettich／Blum 則以家具五金產品廣度、品牌與全球通路競爭，兩者獲利邏輯不同。</p>
+  <p><b>2. 同賽道競爭主要來自台系機構件廠。</b>南俊具備伺服器導軌與越南產能，富世達則結合滑軌、轉軸與液冷快接頭。後者 2025 年伺服器產品占比已由 5.31% 升至 36.29%，顯示跨產品整合正快速放大。</p>
+  <p><b>3. 專利維權已有可查實績。</b>川湖在聯德／昆山聯德滑軌案取得中國最高人民法院終審勝訴，法院認定三項專利侵權並命停止製造、銷售相關產品及賠償。其他案件應逐案列出案號與進度，不宜概括為全面勝訴。</p>
+  <p><b>4. 家具五金廠屬潛在跨界者，而非目前直接同業。</b>Hettich／Blum 擁有精密機構研發與全球製造能力；若資料中心高荷重滑軌需求外溢，理論上具備跨界條件，但目前仍以家具五金為核心。這一段屬策略推論，並非公司已宣布的計畫。</p>
+  <p style="margin-bottom:0"><b>5. 成長與風險需分開看。</b>川湖 2025 營收 175.01 億元、年增 72.77%，專利與產品能力已轉化為財務成果；後續仍需追蹤 AI 資本支出循環、匯率、客戶集中度與新增產能利用率。</p>
+</div>
+
+<footer>
+  <b>主要資料來源：</b>
+  <a href="https://www.kingslide.com/media/wysiwyg/company/investor/document/205920260224E001.pdf" target="_blank" rel="noopener">川湖 2025 Q4 法說簡報</a>、
+  <a href="https://www.kingslide.com/media/wysiwyg/company/investor/document/205920260807E001.pdf" target="_blank" rel="noopener">川湖 2026 Q2 法說簡報</a>、
+  <a href="https://www.kingslide.com/investor_manage_ipmp?___store=taiwan" target="_blank" rel="noopener">川湖智慧財產管理計畫</a>、
+  <a href="https://repon.com.tw/_upload/files/20250826.pdf" target="_blank" rel="noopener">南俊 2024 永續報告</a>、
+  <a href="https://www.fositek.com/Portals/0/FileUpload/Shareholders/2025/2025AnnualReport.pdf" target="_blank" rel="noopener">富世達 2024 年報</a>、
+  <a href="https://financialfilings.com/filings/fositek-6805/annual-report/2026/46124258/" target="_blank" rel="noopener">富世達 2025 年報</a>、
+  <a href="https://www.accuride.com/media/amasty/amfile/attach/cf30432b84b4b29bf0fc1c4fd1d9b0b2.pdf" target="_blank" rel="noopener">Accuride 公司資料</a>、
+  <a href="https://www.hettich.com/en-us/press/detail/hettich-group-demonstrates-stability-and-looks-to-the-future" target="_blank" rel="noopener">Hettich 2025 營運公告</a>、
+  <a href="https://d2.blum.com/services/BEC003/box0038-fo-114_fo_dok_bau_$spt_$aof_$v9.pdf" target="_blank" rel="noopener">Blum 公司資料</a>、
+  <a href="https://moneydj.emega.com.tw/z/zf/zfz/zfz_A521CB78-1269-4107-84B9-7C13B12E8CE7.djhtm" target="_blank" rel="noopener">聯德專利案重大訊息</a>。
+  雷達圖評分為依公開資料給定的相對分級，非官方指標。
+  <div class="src">免責聲明：本儀表板由公開資訊彙整，僅供研究參考，非投資建議亦非法律意見；專利數據因資料庫滯後與口徑差異（件數 vs 家族 vs 全球保護權）可能與官方登記略有出入，最終權利狀態以各國專利主管機關公告為準。整理日期：2026-09-11。</div>
+</footer>
+
+</div>
+
+</body>
+</html>
