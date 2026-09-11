@@ -1,221 +1,256 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>同業評比</title>
+<html lang="zh-Hant" data-page-node-id="bbJG1rmNqx1YXz6bpgoC6e">
+<head data-page-node-id="AYznuWuTvFVIPqWFKPwk67">
+<meta charset="UTF-8" data-page-node-id="a2M2E6nNj22D581GFRXYDX">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="qtxR7ynB4ycF8kGKsunez5">
+<title>川湖科技 (King Slide, 2059.TW) 專利分析報告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
-    --bg:#f5f7fa;--card:#fff;--ink:#1f2a37;--muted:#6b7280;--line:#e5e9f0;
-    --accent:#2563eb;--accent2:#0e7490;--accent3:#7c3aed;
-    --good:#0f9d58;--warn:#d97706;--bad:#dc2626;
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1f2a37; --muted:#6b7280;
+    --line:#e5e9f0; --accent:#0f766e; --accent2:#1e3a8a; --accent3:#b45309;
+    --good:#0f9d58; --warn:#d97706; --bad:#dc2626;
     --shadow:0 1px 3px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.05);
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;font-size:15px}
-  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 64px}
-  header.hero{background:linear-gradient(135deg,#5b21b6,#0e7490);color:#fff;border-radius:18px;padding:34px 32px;box-shadow:var(--shadow)}
-  header.hero h1{margin:0 0 6px;font-size:25px}
+    line-height:1.65;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+  header.hero{background:linear-gradient(135deg,#0f766e,#1e3a8a);color:#fff;border-radius:18px;padding:34px 32px;box-shadow:var(--shadow)}
+  header.hero h1{margin:0 0 6px;font-size:26px;letter-spacing:.5px}
   header.hero .sub{opacity:.92;font-size:14px}
   header.hero .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
-  .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:4px 11px;border-radius:999px;font-size:12.5px}
-  h2{font-size:19px;margin:42px 0 6px;padding-left:12px;border-left:4px solid var(--accent3)}
+  .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);
+    padding:4px 11px;border-radius:999px;font-size:12.5px}
+  h2{font-size:19px;margin:42px 0 6px;padding-left:12px;border-left:4px solid var(--accent)}
   h2 .en{color:var(--muted);font-size:13px;font-weight:400;margin-left:8px}
-  .lead{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 18px}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:22px 0 8px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 14px;text-align:center;box-shadow:var(--shadow)}
+  .kpi .v{font-size:25px;font-weight:700;color:var(--accent)}
+  .kpi .l{font-size:12px;color:var(--muted);margin-top:4px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin:14px 0}
-  .chart-box{position:relative;height:380px}
-  .chart-box.tall{height:440px}
-  .chart-box svg{display:block;width:100%;height:100%}
+  .chart-box{position:relative;height:340px}
+  .chart-box.tall{height:420px}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .note{font-size:12.5px;color:var(--muted);background:#f0f4ff;border:1px solid #dbe6ff;border-radius:10px;padding:12px 14px;margin-top:12px}
-  .note.warn{background:#fff7ed;border-color:#fed7aa}
-  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
-  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-  th{background:#f8fafc;color:var(--muted);font-weight:600;position:sticky;top:0}
+  .note{font-size:12.5px;color:var(--muted);background:#eefaf7;border:1px solid #cdeae3;border-radius:10px;padding:12px 14px;margin-top:12px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#f8fafc;color:var(--muted);font-weight:600}
   tr:hover td{background:#fafbff}
-  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
   .pill.g{background:#e7f7ee;color:var(--good)}
   .pill.w{background:#fdf0dc;color:var(--warn)}
   .pill.b{background:#fdeaea;color:var(--bad)}
-  .pill.n{background:#eef2ff;color:var(--accent)}
-  .pill.p{background:#f3e8ff;color:var(--accent3)}
-  .pill.o{background:#fef3c7;color:#b45309}
-  .anchor{background:#faf5ff}
-  .anchor td{font-weight:600}
+  .pill.n{background:#e6f4f1;color:var(--accent)}
+  .sig{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .sig .item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .sig .item h4{margin:0 0 4px;font-size:14.5px}
+  .sig .item p{margin:0;font-size:13px;color:var(--muted)}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}
+  .bar-row .name{width:130px;flex:none;color:var(--ink)}
+  .bar-track{flex:1;background:#eef2f7;border-radius:8px;height:18px;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#0f766e,#1e3a8a);border-radius:8px}
+  .bar-fill.hl{background:linear-gradient(90deg,#b45309,#db2777)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{background:#eefaf7;border:1px solid #cdeae3;color:var(--accent);padding:5px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
   footer{margin-top:46px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
   footer b{color:var(--ink)}
   .src{font-size:11.5px;color:#9aa3b2;margin-top:6px}
-  .lane{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 14px}
-  .lane span{font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid var(--line)}
-  .lane .s{border-color:#c4b5fd;background:#f5f0ff;color:#6d28d9}
-  .lane .f{border-color:#fdba74;background:#fff7ed;color:#b45309}
-  @media(max-width:780px){.grid2{grid-template-columns:1fr}}
+  @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.sig{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
-<div class="wrap">
+<body data-page-node-id="ZRykmN76pvLEj9ydJ9WYwb">
+<div class="wrap" data-page-node-id="X7G1LuZ4IP7IQc82mAia8o">
 
-<header class="hero">
-  <h1>同業評比</h1>
-  <div class="sub">以公開披露資料為基礎的多公司技術與商業化比較 · 數據截至 2026-09-11</div>
-  <div class="tags">
-    <span class="tag">川湖 2059.TW 為錨點</span>
-    <span class="tag">對標 5 家：南俊 / 富世達 / Accuride / Hettich / Blum</span>
-    <span class="tag">台廠伺服器滑軌派 vs 歐美家具五金派</span>
-    <span class="tag">量 + 質 雙維度</span>
+<header class="hero" data-page-node-id="5i3MOOp4VZj6z7idfwuHDj">
+  <h1 data-page-node-id="3DMF9hff5saNYM8ZZIpGGQ">川湖科技 (King Slide, 2059.TW) 專利分析報告</h1>
+  <div class="sub" data-page-node-id="t3qELW6mIj44UvjXWgxnoP">伺服器滑軌專利組合 · 數據分析與視覺化 · 聚焦「商業化訊號」強度評估</div>
+  <div class="tags" data-page-node-id="SnmnhH067zpg7aPPsf4Qk3">
+    <span class="tag" data-page-node-id="cURFC6bTLB4sU1nCecftvw">成立 1986（高雄路竹）</span>
+    <span class="tag" data-page-node-id="n4guvWFoFXsekBvUSjBrW9">台灣證交所 2059</span>
+    <span class="tag" data-page-node-id="sPPefBu91wsTuJuKB4KNQk">亞洲伺服器滑軌龍頭 #1</span>
+    <span class="tag" data-page-node-id="DxfHJw0vPFfScivn6fL1YF">數據截至 2026-08 / 2026-09 整理</span>
   </div>
 </header>
 
-<div class="lane">
-  <span class="s">伺服器滑軌 / 機構件派：川湖 · 南俊國際 · 富世達</span>
-  <span class="f">家具五金派：Accuride · Hettich · Blum</span>
+<div class="kpis" data-page-node-id="eBzArf4ZhZBAvZmDXFH7RW">
+  <div class="kpi" data-page-node-id="3vSAOCYeOHlYSjKPXGiyEg"><div class="v" data-page-node-id="rsoarPUQLWwRF5KRxyoLPH">3,752</div><div class="l" data-page-node-id="8eB1EBvwQFybanE8b4U1UI">累計專利核准 (件, 2026/08)</div></div>
+  <div class="kpi" data-page-node-id="MrIUECHGPMxUEpPLy9Xyk1"><div class="v" data-page-node-id="aEciXrCjEJxdbxSL168Ea3">&gt;70%</div><div class="l" data-page-node-id="xnNA7xHS8HR1y3zSnyF1rq">全球伺服器滑軌市佔</div></div>
+  <div class="kpi" data-page-node-id="pIUAOpRH9KXOXELBWZUxE0"><div class="v" data-page-node-id="D6EjQNWT7gyOjocOCfLEyk">87.4%</div><div class="l" data-page-node-id="N8nB1gH284mSxBoPse6AB6">毛利率 (2026 Q2, 商業化實證)</div></div>
+  <div class="kpi" data-page-node-id="stZoAN3zzULMlf8KpBRHAW"><div class="v" data-page-node-id="VD8Uza495stqIOH0Mek8av">#1</div><div class="l" data-page-node-id="VD5ulDkJ8fdlT1D7ZhHRLI">亞洲伺服器滑軌龍頭</div></div>
+  <div class="kpi" data-page-node-id="4OPNyRCUA8xZXVFOSbJd9b"><div class="v" data-page-node-id="fVl2YRpqTsdxyptbunpAjU">8</div><div class="l" data-page-node-id="mlH7v3Gd1oDuZHDSk0Pylc">專利佈局司法管轄區</div></div>
 </div>
 
-<h2>一、專利披露值參考 <span class="en">Reported Portfolio Reference</span></h2>
-<p class="lead">以下僅整理各公司最新可查的官方披露值。由於「有效專利、累計獲准、全球專利、商標及專利合計」定義不同，本圖用來呈現披露規模，不作專利實力名次。</p>
-<div class="card">
-  <div class="chart-box tall">
-    <svg viewBox="0 0 900 440" role="img" aria-labelledby="scale-title scale-desc">
-      <title id="scale-title">同業專利規模比較</title>
-      <desc id="scale-desc">川湖累計獲准3641件、Blum全球專利超過2100件、富世達有效商標及專利合計544件、南俊累計取得304件；Hettich與Accuride未找到相同口徑的官方總數。</desc>
-      <g stroke="#e5e9f0" stroke-width="1">
-        <path d="M170 24V382M300 24V382M430 24V382M560 24V382M690 24V382M820 24V382"/>
-      </g>
-      <g fill="#6b7280" font-size="12" text-anchor="end">
-        <text x="158" y="58">Hettich 海蒂詩</text><text x="158" y="116">King Slide 川湖</text>
-        <text x="158" y="174">Blum 百隆</text><text x="158" y="232">Fositek 富世達</text>
-        <text x="158" y="290">Accuride</text><text x="158" y="348">Nan Juen 南俊</text>
-      </g>
-      <g>
-        <rect x="170" y="38" width="32" height="28" rx="4" fill="#94a3b8" opacity=".55"/>
-        <rect x="170" y="96" width="473" height="28" rx="4" fill="#7c3aed" opacity=".92"/>
-        <rect x="170" y="154" width="273" height="28" rx="4" fill="#db2777" opacity=".78"/>
-        <rect x="170" y="212" width="71" height="28" rx="4" fill="#0e7490" opacity=".84"/>
-        <rect x="170" y="270" width="32" height="28" rx="4" fill="#94a3b8" opacity=".55"/>
-        <rect x="170" y="328" width="40" height="28" rx="4" fill="#2563eb" opacity=".84"/>
-      </g>
-      <g fill="#1f2a37" font-size="12">
-        <text x="210" y="58">N/D</text><text x="651" y="116">3,641</text><text x="451" y="174">2,100+</text>
-        <text x="249" y="232">544*</text><text x="210" y="290">N/D</text><text x="218" y="348">304</text>
-      </g>
-      <g fill="#6b7280" font-size="11" text-anchor="middle">
-        <text x="170" y="402">0</text><text x="300" y="402">1,000</text><text x="430" y="402">2,000</text>
-        <text x="560" y="402">3,000</text><text x="690" y="402">4,000</text><text x="820" y="402">5,000</text>
-        <text x="495" y="428" font-size="12">官方披露值（件，口徑見註；N/D＝未找到可比披露）</text>
-      </g>
-    </svg>
+<h2 data-page-node-id="GTKwt7fKBy3dI7985o1C3z">一、專利累計趨勢 <span class="en" data-page-node-id="OPdsEB7KR6cJ1A9GvxJQ7U">Cumulative Granted Patents</span></h2>
+<p class="lead" data-page-node-id="I1rHcxwCtzMx388LeftHCx">川湖自 2000 年從家具滑軌轉進伺服器滑軌，專利隨「共同設計規格」模式滾雪球成長。累計核准專利從 2019 年的 1,750 件，翻倍至 2026/08 的 3,752 件；近 7 年年均新增約 286 件，且幾乎「申請即核准」（申請 3,825 / 核准 3,752，落差僅 73 件）。</p>
+<div class="card" data-page-node-id="2Gmij3X0rQ9dcv0NgGbVoC">
+  <div class="chart-box" data-page-node-id="xMSpB3GjiCT0tMEZh7yyQF"><canvas id="trend" data-page-node-id="yd80vt9HqMyQDUX9BU3PGT"></canvas></div>
+  <div class="note" data-page-node-id="aC2gSTJ9IMLQGfaXN3oCBY">資料來源與口徑：2019 年 1,750 件（2019 年公司法人說明書「已核准 Issued」）；2025/02 達 3,415 件（富果法說備忘錄）；2026/08 達 3,752 件（工商時報 / 中時 / 鏡週刊等多家報導）。2020–2024 年間數值為依「年增專利」公開片段（2020 年核准 388 件、2023 年核准 183 件，見公司 CSR 報告）與首尾錨點推算之<b data-page-node-id="7r4Ep1lbdeH5TRp9GXcLNV">估計值</b>，僅 2019 / 2025 / 2026 三點為公開確數。2025* 為 2025 年 2 月數、2026* 為 2026 年 8 月數。</div>
+</div>
+
+<h2 data-page-node-id="LibNKM8lVgZgzLDqTpeOjT">二、技術佈局結構 <span class="en" data-page-node-id="oIcmELzKmkjSJOEo7l0iAX">Technology Portfolio Mix</span></h2>
+<p class="lead" data-page-node-id="52WBU4BdSbb71XLbDbvQtd">川湖專利高度聚焦伺服器滑軌（佔營收 96%+），並以「快拆免工具、薄型高荷重、緩衝自鎖」等解決資料中心維運痛點的實用設計構成護城河。下圖為依產品線與公開專利敘述之<b data-page-node-id="PIN3oM8hUKUH8rutfFJD7p">推估佔比</b>（非官方統計）。</p>
+<div class="grid2" data-page-node-id="LKsFoQ96smwjEmGiQbrvF8">
+  <div class="card" data-page-node-id="lhyWcmdgaMHmwmJNxu7Gcz">
+    <div class="chart-box" data-page-node-id="roy9zIs8kZS72vciBZgx79"><canvas id="tech" data-page-node-id="T1UbFc18UcRVJVv4vtu52b"></canvas></div>
   </div>
-  <div class="note warn"><b>口徑差異（重要）：</b>各公司披露方式不同，<u>不可直接橫向排名</u>。
-  • 川湖：截至 2026-02-24，累計申請 3,744 件、獲准 3,641 件，獲准率逾 90%。
-  • Blum：截至 2025-07，全球專利超過 2,100 件。
-  • 富世達：2024 年報披露有效商標及專利權合計 544 件，另有約 323 件申請中；星號表示包含商標，並非純專利數。
-  • 南俊：截至 2025 Q1 累計取得 304 件，其中發明 105 件、新型 171 件、設計 28 件。
-  • Hettich、Accuride：未找到相同口徑的最新官方總數，因此不採用第三方資料庫數字。</div>
-</div>
-
-<h2>二、商業化定性雷達 <span class="en">Qualitative Commercialization Radar</span></h2>
-<p class="lead">六維度評分（0–100）是依公開資料製作的定性相對分級，不是公司披露的客觀指標，也不適合用於估值。<b>本雷達呈現商業模式差異，而非同賽道勝負</b>——川湖／南俊／富世達偏伺服器機構件，Accuride／Hettich／Blum 偏家具與工業五金。</p>
-<div class="grid2">
-  <div class="card"><div class="chart-box">
-    <svg viewBox="0 0 520 380" role="img" aria-labelledby="radar-title radar-desc">
-      <title id="radar-title">商業化強度雷達比較</title>
-      <desc id="radar-desc">比較六家公司在專利規模、技術專精度、商業化實證、地理可執行、授權聯盟與成長動能六個面向的相對評分。</desc>
-      <g font-size="10.5" fill="#1f2a37">
-        <circle cx="18" cy="14" r="4" fill="#7c3aed"/><text x="27" y="18">川湖</text>
-        <circle cx="82" cy="14" r="4" fill="#2563eb"/><text x="91" y="18">南俊</text>
-        <circle cx="146" cy="14" r="4" fill="#0e7490"/><text x="155" y="18">富世達</text>
-        <circle cx="226" cy="14" r="4" fill="#d97706"/><text x="235" y="18">Accuride</text>
-        <circle cx="322" cy="14" r="4" fill="#0f9d58"/><text x="331" y="18">Hettich</text>
-        <circle cx="408" cy="14" r="4" fill="#db2777"/><text x="417" y="18">Blum</text>
-      </g>
-      <g transform="translate(0 18)" stroke="#e5e9f0" fill="none">
-        <path d="M260 163L296 184L296 226L260 247L224 226L224 184Z"/>
-        <path d="M260 139L318 172L318 238L260 271L202 238L202 172Z"/>
-        <path d="M260 115L339 160L339 250L260 295L181 250L181 160Z"/>
-        <path d="M260 91L360 148L360 262L260 319L160 262L160 148Z"/>
-        <path d="M260 67L364 127L364 247L260 307L156 247L156 127Z"/>
-        <path d="M260 67V307M156 127L364 247M364 127L156 247"/>
-      </g>
-      <g transform="translate(0 18)" fill-opacity=".07" stroke-width="2">
-        <polygon points="260,97 364,127 364,247 260,277 172,238 156,127" fill="#7c3aed" stroke="#7c3aed"/>
-        <polygon points="260,157 317,154 317,220 260,235 224,208 177,139" fill="#2563eb" stroke="#2563eb"/>
-        <polygon points="260,145 333,145 322,223 260,253 192,226 161,130" fill="#0e7490" stroke="#0e7490"/>
-        <polygon points="260,115 317,154 312,217 260,271 218,211 229,169" fill="#d97706" stroke="#d97706"/>
-        <polygon points="260,73 348,136 343,235 260,307 187,229 208,157" fill="#0f9d58" stroke="#0f9d58"/>
-        <polygon points="260,79 359,130 354,241 260,307 177,235 208,157" fill="#db2777" stroke="#db2777"/>
-      </g>
-      <g fill="#1f2a37" font-size="11.5" text-anchor="middle">
-        <text x="260" y="72">專利規模</text><text x="411" y="137">技術專精度</text>
-        <text x="417" y="274">商業化實證</text><text x="260" y="348">地理可執行</text>
-        <text x="103" y="274">授權／聯盟</text><text x="105" y="137">成長動能</text>
-      </g>
-    </svg>
-  </div></div>
-  <div class="card">
-    <h3 style="margin:0 0 10px; font-size:15px">讀圖重點</h3>
-    <p style="font-size:13px; margin:0 0 8px"><b>川湖 (紫)</b>：技術專精度與商業化實證突出；2026 Q2 單季毛利率為 87.4%（2026 H1 為 84.2%），並已列入 NVIDIA MGX 生態系。公司未正式披露整體 AI 滑軌市佔率。</p>
-    <p style="font-size:13px; margin:0 0 8px"><b>南俊 (藍) / 富世達 (青)</b>：同屬伺服器機構件供應鏈。南俊具備伺服器導軌與越南產能；富世達以「轉軸＋液冷快接頭＋滑軌」跨界整合，成長動能較強。</p>
-    <p style="font-size:13px; margin:0 0 8px"><b>Accuride (橙)</b>：老牌工業／家具滑軌廠，官方資料列有美、德、日、墨、英、中等製造與工程據點；與川湖的直接訴訟關係未獲可靠公開資料證實。</p>
-    <p style="font-size:13px; margin:0"><b>Hettich (綠) / Blum (粉)</b>：成熟家具五金體系，產品廣度、通路與地理覆蓋較強，成長模式相對穩定；現階段與伺服器滑軌廠並非直接同賽道競爭。</p>
+  <div class="card" data-page-node-id="WYsRGZAILxFggwu1hWObQH">
+    <h3 style="margin:0 0 10px;font-size:15px" data-page-node-id="rpSASUuwjiUNwAKTWOXwKr">核心差異化技術（護城河來源）</h3>
+    <div class="bar-row" data-page-node-id="Cr9CJzvs4xwJlnPsXWTQc3"><span class="name" data-page-node-id="ae2ommRysBAa7MXzdqWf3p">快拆 / 免工具</span><div class="bar-track" data-page-node-id="GBaIS5TL5cSe3IJxRPBGft"><div class="bar-fill" style="width:92%" data-page-node-id="isNLJe0DPtajbJY0DSoT4b"></div></div><span data-page-node-id="Hahsgeomlw0NMuLkSLubMn">一鍵卡榫・前端按鈕</span></div>
+    <div class="bar-row" data-page-node-id="aIBeJgewZY5GwH3Hzw5O1q"><span class="name" data-page-node-id="IAZB3c5bFUzopFNHdAEpBa">薄型高荷重</span><div class="bar-track" data-page-node-id="Tv9iKGaohWATRHQid7BEIx"><div class="bar-fill" style="width:85%" data-page-node-id="FbG6FG6QN9IKNcmPBwPH0l"></div></div><span data-page-node-id="uCSykvC6cfeRUJkOZz3IrI">液冷空間・承重 2 噸</span></div>
+    <div class="bar-row" data-page-node-id="XQS6siYlBCDYZQODOWzKZN"><span class="name" data-page-node-id="Nw7xyruckvVegYCFen23ma">緩衝自鎖</span><div class="bar-track" data-page-node-id="Jry89Wx25gzYJJG7hlXjt3"><div class="bar-fill" style="width:78%" data-page-node-id="jcoV0th5dW3aCqlRj2wevK"></div></div><span data-page-node-id="p2PSN1pbdA0iWvkUfz9aC5">防撞防震</span></div>
+    <div class="bar-row" data-page-node-id="GitxGQQs0uB8D3NqfNXJjC"><span class="name" data-page-node-id="GBDEyghFCRyvhM86V5hVFc">力矩平衡</span><div class="bar-track" data-page-node-id="1FRmzPwpABtCpAv9FMTOnq"><div class="bar-fill" style="width:70%" data-page-node-id="bnHyMQUtNyr52F2z54pQEa"></div></div><span data-page-node-id="ZbAdLV7t976kZUV1KgPpgt">沈重機箱省力</span></div>
+    <div class="bar-row" data-page-node-id="SVQ5vCMFATJYhI33swVm93"><span class="name" data-page-node-id="nUCz0bIvwLmjv6d7phdaqd">理線 CMA</span><div class="bar-track" data-page-node-id="lq6AZ9wKp6p1y7UBSGxjIz"><div class="bar-fill" style="width:60%" data-page-node-id="iAmV2jgDs4haENxDeNbX3e"></div></div><span data-page-node-id="s2YrKVLa7oBuHaG3CqZDg2">收納纜線・散熱</span></div>
+    <div class="bar-row" data-page-node-id="B03j1oXfEfU7xgkPYiTDlB"><span class="name" data-page-node-id="1OuApABS3p8x8W85yDWcmr">規格共定</span><div class="bar-track" data-page-node-id="MulW41Ez8ox0l4LjsUwpyd"><div class="bar-fill hl" style="width:95%" data-page-node-id="d92xM4drpTTTj7dhpbQn0u"></div></div><span data-page-node-id="y10knR0wf7JBF7vVzunxBi">與 NVIDIA/CSP 共研</span></div>
+    <p class="src" style="margin-top:14px" data-page-node-id="GUFYmjxqbVV9jEod71fhpz">「快拆免工具」與「薄型高荷重」是 AI 伺服器（GPU 數十公斤、液冷）最關鍵的兩道門檻；川湖更從零件供應商升級為「與客戶共同定義規格」的夥伴，使專利成為市場進入障礙而非僅防禦工具。</p>
   </div>
 </div>
 
-<h2>三、技術路線分化 <span class="en">Technology Route Differentiation</span></h2>
-<div class="card">
-  <table>
-    <tr><th>公司</th><th>核心技術路線</th><th>主攻賽道</th><th>差異化護城河</th></tr>
-    <tr class="anchor"><td>川湖<br>King Slide</td><td>伺服器滑軌：薄型高荷重、快拆免工具、緩衝自鎖、力矩平衡、理線 CMA；供應多世代 AI 平台</td><td>導軌產品（2024 年營收占比約 96%）</td><td>專利網、共同開發能力與高附加價值製造</td></tr>
-    <tr><td>南俊國際<br>Nan Juen 6584</td><td>伺服器導軌：快拆、安全鎖定與水冷需求對應；產品線另涵蓋 180kg 級超重型導軌</td><td>伺服器與工業滑軌</td><td>NPI 速度、垂直整合與越南產能</td></tr>
-    <tr><td>富世達<br>Fositek 6805</td><td>折疊手機轉軸 + AI 液冷快接頭 (UQD) + 伺服器滑軌</td><td>機構件跨界（折疊機 + 伺服器）</td><td>「滑軌＋水冷接頭」產品組合與精密機構能力</td></tr>
-    <tr><td>Accuride</td><td>家具/工業/商用抽屜滑軌、線性軌道、電子鎖 (Senseon)</td><td>家具 / 工業滑軌</td><td>承重建具廣譜（35–1,323 磅）、多國製造</td></tr>
-    <tr><td>Hettich 海蒂詩</td><td>家具鉸鏈、滑軌、抽屜系統 (Actro 5D)、滑動門</td><td>家具五金（全面）</td><td>完整產品系統、全球通路與德國製造能力</td></tr>
-    <tr><td>Blum 百隆</td><td>家具鉸鏈、抽屜系統、上翻門、伺服驅動 (BLUMOTION / SERVO-DRIVE)</td><td>家具五金（全面）</td><td>阻尼/電動開合標準制定者、品牌授權</td></tr>
+<h2 data-page-node-id="8AgsZhbdiEgMLOSBuEqRhO">三、競爭地位 <span class="en" data-page-node-id="hAgNTXcEpzPQ181Gh9hmRg">Market Leadership in AI Server Rail</span></h2>
+<p class="lead" data-page-node-id="Lu3MfiYzMbDkFBnPSpIPgT">在成長最快、利潤最厚的 AI 伺服器滑軌市場，川湖市佔率逾 80%，遠高於第二供應商南俊國際（10–15%）。下圖為依公開報導推估之 AI 伺服器滑軌市佔（2025/2026）。</p>
+<div class="card" data-page-node-id="zbbaECrWrYsb9AAMnIrZYK">
+  <div class="chart-box" data-page-node-id="WwMk8iGaxmAzcKFxIwxyk7"><canvas id="share" data-page-node-id="PKummDczTNdY1Fhw9QJqNm"></canvas></div>
+  <div class="note" data-page-node-id="yHVhDLOmi3Zsc3AJciieOp">資料來源：sinotrade 產業熱話（川湖 AI 伺服器市佔 80%+、南俊 10–15%）；工商時報、Cheers 專訪（全球伺服器滑軌市佔約 30%、AI 領域逾 70–80%）。圖中「其他」含富世達、Accuride、Sugatsune 及中國低價業者。市佔為推估值，隨 GB200/GB300/VR200 放量時程浮動。</div>
+</div>
+
+<h2 data-page-node-id="BxtLsdz3Yh3CUByMOzoe1M">四、地理與集團佈局 <span class="en" data-page-node-id="jFJ46MOXC9oEjTzC6L64XD">Entity & Geographic Footprint</span></h2>
+<p class="lead" data-page-node-id="uDxcy783ybEyDG4BKQCpYb">專利權橫跨 8 個司法管轄區，形成「美國（營收與訴訟主戰場）+ 台灣（研發與申請母體）」雙核心的可執行範圍，呼應地緣政治下的在地化佈局。</p>
+<div class="grid2" data-page-node-id="W5CGF7xDfaEcbQkwMi10sw">
+  <div class="card" data-page-node-id="IKZzfnPsTEpgvxyaQkNFsg">
+    <h3 style="margin:0 0 6px;font-size:15px" data-page-node-id="3QlYflxavqi0Ub4WyJ1rDx">專利佈局司法管轄區（8 區）</h3>
+    <div class="chips" data-page-node-id="RtzGal2Hf84dbr3S4Q2Ff7">
+      <span class="chip" data-page-node-id="cfIwDwOaVc0BLCmkzjcqXb">🇹🇼 台灣 TW</span>
+      <span class="chip" data-page-node-id="0nTRwahlTsgxTXSXLGE3jQ">🇺🇸 美國 US</span>
+      <span class="chip" data-page-node-id="mjgysBcKRgAWk8UYfrjFGS">🇨🇳 中國 CN</span>
+      <span class="chip" data-page-node-id="wwLIWXmdM2DjS1p57y0jMr">🇯🇵 日本 JP</span>
+      <span class="chip" data-page-node-id="VoepRjly96GnAM5WBLhZQM">🇩🇪 德國 DE</span>
+      <span class="chip" data-page-node-id="xFBLT48QgU0KnopAXoN8jQ">🇬🇧 英國 UK</span>
+      <span class="chip" data-page-node-id="7DD0KfBEfay2e1w1ncKsTt">🇪🇺 歐洲 EU</span>
+      <span class="chip" data-page-node-id="QfMEU8NBgmpSPpfQRg9OPs">🇨🇦 加拿大 CA</span>
+    </div>
+    <p class="src" style="margin-top:12px" data-page-node-id="PXoMbLbjyFRDsd9RxvCwgq">依 2019 年公司法人說明書，專利佈局涵蓋 Canada / USA / Europe / UK / Germany / Japan / Taiwan / China 等 8 區。美國為最大營收來源（PitchBook：營收多數來自 USA）與主要維權戰場；台灣為研發與申請母體。各國精確專利件數未公開揭露，故以「管轄區覆蓋」呈現。</p>
+  </div>
+  <div class="card" data-page-node-id="nD5irHbNkiIuGlMLQr2nyN">
+    <h3 style="margin:0 0 10px;font-size:15px" data-page-node-id="N6Gbk9nq2an1CSn13l7DGA">關鍵實體與據點</h3>
+    <table data-page-node-id="tIlJ3kpbe4IWsGgikDHmhS">
+      <tr data-page-node-id="AMuKFgM8FIdEMbbF8sKNeO"><th data-page-node-id="N5XvAmfAOYP0IGyce4aHqz">實體 / 據點</th><th data-page-node-id="wl1qaQYr7yABITCHXdSysF">角色</th><th data-page-node-id="AXkbkGZ25yw2IlERdXSKPR">專利 / 策略意義</th></tr>
+      <tr data-page-node-id="bUMXQqZjGBPmUcnzdC4aK0"><td data-page-node-id="iaBjZE1Dsm4YiWIg3EK5jb">川湖科技 (TW 總部)</td><td data-page-node-id="Fgzt0NjIAi6ZFlHRfkOgOt">研發 / 申請母體</td><td data-page-node-id="l80oDN5EaGrrZaVeboNir6">高雄路竹；450+ 工程師，約每週誕生新 IP</td></tr>
+      <tr data-page-node-id="GNnaLBb5UJEbpVWL89inWB"><td data-page-node-id="gF26PxWCOUsxib3DTR42ER">川益科技 (TW 高科)</td><td data-page-node-id="gz4fIVc7r0cJCq5fa7VLIG">伺服器導軌生產</td><td data-page-node-id="23WFrXBY2jUpDtjWsX80xd">46 公頃廠區；二廠擴產中</td></tr>
+      <tr data-page-node-id="5wsCGLwhk7BY49nOLPuqbV"><td data-page-node-id="dNKpujFFggdlnZN6ieOBWJ">美國休士頓廠</td><td data-page-node-id="KBcWK9VCCxx4NB3cs3mnEE">在地化生產 (2026 Q3)</td><td data-page-node-id="eCE8wRGPGYDj7zESwwLZE6">貼近 NVIDIA / CSP，避地緣風險</td></tr>
+      <tr data-page-node-id="JFJa4fHbf6sIN33WUn6hkX"><td data-page-node-id="SloTAztjzeDRyDRsWpZR7b">歐洲 (規劃中)</td><td data-page-node-id="pvy1RpHjXBoLYCLetTNk7z">下一站設廠</td><td data-page-node-id="VejeyupOuZX0KG3sAuMryR">切入高階廚具滑軌（歐廠主導市場）</td></tr>
+    </table>
+  </div>
+</div>
+
+<h2 data-page-node-id="B56CCjRU0cS3EUDDZRvMl8">五、專利強度 — 商業化維度 <span class="en" data-page-node-id="3GzzoKXTyh4cHK5vHVNFHL">Commercialization Signal Scorecard</span></h2>
+<p class="lead" data-page-node-id="wXyKEtENe46Mf9qPFfcMHC">相較純引用指標，本報告以「商業化訊號」評估專利強度：剩餘年限、授權與規格綁定、訴訟維權紀錄、可執行地理範圍、量產獲利實證與第三方評級。</p>
+<div class="sig" data-page-node-id="SWLu15yyGjjs2TLBfUB30w">
+  <div class="item" data-page-node-id="78Pd6LNwr2XPYaBWiMl1Es"><h4 data-page-node-id="IFEUth2VtdtCPIbmqcBHP3">剩餘年限 <span class="pill g" data-page-node-id="pKNlcFVZcZDKnxlAMy5VjY">強</span></h4><p data-page-node-id="TJ8TS2mlvpFUoKiVVojghT">伺服器滑軌專利多自 2000 年後申請（20 年任期）；2019 年起密集核准者距屆期尚遠，核心族多存續至 2039+。PitchBook 顯示極少數專利將於 12 個月內屆期，整體存續期健康。</p></div>
+  <div class="item" data-page-node-id="FqLfxcSYY2hF198UPOGYZc"><h4 data-page-node-id="Bw2PcGDA3Lk8dvgcP2LxIz">授權與規格綁定 <span class="pill g" data-page-node-id="GZrHAE7q2KoNrqFgM6QMS4">極強</span></h4><p data-page-node-id="2c3pAjtmyCaoLU7asBFoib">非單純零件供應商，而是與 NVIDIA（MGX / RVL 推薦供應商）、Meta、Google、AMD（Helios ORW）共同定義新平台規格。「買 King Slide = 買保險」，產品生命週期與客戶研發緊密綁定。</p></div>
+  <div class="item" data-page-node-id="BaO9WeNLF1j3GCoMQzzE2Z"><h4 data-page-node-id="VUakvEnkznS4eBFN9cz6Kr">訴訟維權紀錄 <span class="pill g" data-page-node-id="grBaiWMrj0uUA9TakDbelN">主動勝訴</span></h4><p data-page-node-id="VAUpA6qbARxMx7tBK9FJdd">積極維權：2023 年中國最高人民法院終審判決川湖勝訴（聯德侵權 3 項專利，賠償 RMB 300 萬 + 費用）；另對利安特、泛亞電子（無錫）、南京創瑞豐、南京迪盛提告；歷史上亦對 Accuride（美）、Sugatsune（日）防禦。專利「敢告、能贏」。</p></div>
+  <div class="item" data-page-node-id="fYRdFsgtYMnHoOOBUu4tFb"><h4 data-page-node-id="CE1iOUJxYLD3kN6txpiq3h">可執行地理範圍 <span class="pill g" data-page-node-id="SJHJtQkEOfH0JEPihJuYDw">廣</span></h4><p data-page-node-id="SDIFCHAMZyEorKEzrbUhTn">橫跨 TW / US / CN / JP / DE / UK / EU / CA 等 8 區，美、中兩大製造與訴訟市場均有落地專利，可執行性高於多數同業。</p></div>
+  <div class="item" data-page-node-id="6nm0mziOLxrCWKcuNWuCXW"><h4 data-page-node-id="5XamXYpNAqHRbcFuugvuJ9">量產 / 獲利實證 <span class="pill g" data-page-node-id="QCpPevyYyW4GiJxri0F555">極強</span></h4><p data-page-node-id="yqKK62Aw21sFplBaVa4Ojy">2026 Q2 毛利率 87.42%（高於台積電 67.7%）、EPS 74.38 元；上半年 EPS 110.96 元。高毛利 = 專利「可實施且被付費」的最強證明，而非紙上權利。</p></div>
+  <div class="item" data-page-node-id="ak0UaPBOGxxqXUay9BYckb"><h4 data-page-node-id="uOYEHLyIaMfK55lCQA2Ite">第三方評級 <span class="pill n" data-page-node-id="S6dle9XZRfls7lSBbaZG0h">龍頭</span></h4><p data-page-node-id="zmMDs7OYtAB2CIRuKTdcgv">市場譽為「滑軌界台積電」；亞洲 #1 伺服器滑軌廠、全球市佔逾 70%。法人普遍認定其為 AI 伺服器滑軌不可撼動之霸主，評價遠高於一般零組件廠。</p></div>
+</div>
+
+<div class="card" style="margin-top:16px" data-page-node-id="h5GFopLOEUHCbIFTv9ZIs6">
+  <h3 style="margin:0 0 8px;font-size:15px" data-page-node-id="eWVAbNLb3UEZdYxJnwWuwQ">重大專利維權紀錄（公開）</h3>
+  <table data-page-node-id="DmvHTeIjSYtC1HcEu1ke47">
+    <tr data-page-node-id="rQkudu6mvUS5K93n0yZOGy"><th data-page-node-id="dybe74zMD5wcTdrDi4H1Oy">年度</th><th data-page-node-id="InGXipaxvhWNO0kgspjQwr">對造</th><th data-page-node-id="rK10PDO20bfekJPc9o3e1K">管轄</th><th data-page-node-id="qt3qzwmaWSVDvgg1Ug4Fht">結果</th><th data-page-node-id="eQ6Mep98RkZP5RqHAPB5FH">意義</th></tr>
+    <tr data-page-node-id="Cn9PcQia3A4LqtvrnYEZb6"><td data-page-node-id="3vUhVwzK9AfbT4vxUgn4Yz">2018–2023</td><td data-page-node-id="hnMFULbL8ImyTHkxYND1Wg">聯德精密材料 / 昆山聯德滑軌</td><td data-page-node-id="OGz5Z1OLlzvdtdN29HIjm2">中國江蘇高院 → 最高人民法院</td><td data-page-node-id="6ard4x38QXrttZJmmdNLY2"><span class="pill g" data-page-node-id="gijtkEW5TDqobegdTI1hed">勝訴</span> 停止製造銷售 + 賠償 RMB 300 萬 + 費用</td><td data-page-node-id="ncVydHzyP32faKtjkixoh5">3 項專利侵權成立，終審定讞</td></tr>
+    <tr data-page-node-id="DUGFbalLzgl5E6lZvUpXj6"><td data-page-node-id="at5VB0izEiZcl9rGRR3BNE">2025–2026</td><td data-page-node-id="PZfDyMtZCc70ovANGAEH5G">利安特精密 / 泛亞電子（無錫）/ 南京創瑞豐 / 南京迪盛</td><td data-page-node-id="UWUHREKQCxuDBhiA7SbVT9">中國</td><td data-page-node-id="EyUaNtHhowgrfoxnQhHpbx"><span class="pill n" data-page-node-id="t1panvSO8X3YKYE3hafcxR">進行中</span> 提起侵權訴訟</td><td data-page-node-id="H4rKMYwZWsDa58tUa5pl7q">防堵中國低價競爭者抄襲</td></tr>
+    <tr data-page-node-id="MZGTvWXfFAQzl0G32XBGsU"><td data-page-node-id="jFuBwFwYlyyFfT9Hfw2oNC">歷史</td><td data-page-node-id="YeEydm36B2mshKE3pUXHNF">Accuride（美）/ Sugatsune（日）</td><td data-page-node-id="XeXwt1uxl9prI6fmYHzkIT">美 / 日</td><td data-page-node-id="w3toZ5vBbEVnIVdQmqlpNc"><span class="pill g" data-page-node-id="2kSRJSwFsAxI9PWNGxaE6o">防禦成功</span></td><td data-page-node-id="jlCDwttWB88kN01CcMReNI">維持定價權與領先地位</td></tr>
   </table>
-  <div class="note">關鍵分化：滑軌／機構件可分為<b>「伺服器機構件」</b>（川湖、南俊、富世達）與<b>「家具／工業五金」</b>（Accuride、Hettich、Blum）兩類。前者受 AI 基礎建設需求帶動，後者以產品廣度、品牌與全球通路見長；兩類公司的專利數與財務結構不宜直接視為同一賽道排名。</div>
 </div>
 
-<h2>四、同業對標總表 <span class="en">Master Comparison</span></h2>
-<div class="card" style="overflow-x:auto">
-  <table>
-    <tr><th>公司</th><th>專利總量*</th><th>定位</th><th>地理佈局</th><th>商業化 / 授權態勢</th><th>備註</th></tr>
-    <tr class="anchor"><td>川湖<br>King Slide</td><td><b>3,641</b><br><span class="src">累計獲准（2026-02-24）</span></td><td>伺服器滑軌主要供應商</td><td>專利布局涵蓋 TW/CN/US/JP/EU 等</td><td>2026 Q2 單季毛利率 87.4%；聯德中國最高法侵權案勝訴</td><td>2025 營收 175.01 億、年增 72.77%；EPS 103.23 元</td></tr>
-    <tr><td>南俊國際<br>Nan Juen 6584</td><td><b>304</b><br><span class="src">累計取得（2025 Q1）</span></td><td>伺服器／工業滑軌供應商</td><td>TW（雲林／桃園）+ 越南</td><td>伺服器導軌、垂直整合與海外產能</td><td>2025 營收 24.32 億、年增 26%；毛利率 34.99%</td></tr>
-    <tr><td>富世達<br>Fositek 6805</td><td><b>544*</b><br><span class="src">有效商標及專利合計（2024）</span></td><td>機構件跨界（轉軸+快接頭+滑軌）</td><td>亞洲為主，並拓展美洲／歐洲</td><td>折疊轉軸、伺服器滑軌與液冷快接頭組合</td><td>2025 營收 124.14 億、年增 51.61%；伺服器占比 36.29%</td></tr>
-    <tr><td>Accuride</td><td>N/D<br><span class="src">無可比官方總數</span></td><td>家具／工業滑軌老牌</td><td>US/DE/JP/MX/UK/CN 等據點</td><td>滑軌、線性軌道與 Senseon 電子鎖</td><td>成立於 1962 年</td></tr>
-    <tr><td>Hettich 海蒂詩</td><td>N/D<br><span class="src">無可比官方總數</span></td><td>家具五金全面供應商</td><td>業務遍及 100+ 國</td><td>多品牌家具五金與全球通路</td><td>2025 營收約 €14 億；約 8,200 名員工</td></tr>
-    <tr><td>Blum 百隆</td><td><b>2,100+</b><br><span class="src">全球專利（2025-07）</span></td><td>家具鉸鏈／阻尼／驅動系統</td><td>全球 12 個生產基地、30+ 子公司及代表處、120+ 市場</td><td>BLUMOTION／SERVO-DRIVE 品牌與產品系統</td><td>2024/25 營收 €24.41 億</td></tr>
+<h2 data-page-node-id="2wEgfhM66PcpbNNgPOwIqG">六、同業對標總表 <span class="en" data-page-node-id="JrFKlNafMKRFp52zdzRybw">Peer Comparison</span></h2>
+<div class="card" data-page-node-id="pwrJVJ6Hhw83u5W96hiL1z">
+  <table data-page-node-id="9WPpos1FZA5NunvB5lIPQO">
+    <tr data-page-node-id="mtKRIJIHRFOurPo3dfEKeW"><th data-page-node-id="Pp9D40ZGTvrYG9bzo0Y807">維度</th><th data-page-node-id="BKu6W8bZp6iWzlcuA054qo">川湖 King Slide</th><th data-page-node-id="19QuelmnCYnjSKHrtrZpjt">南俊國際 (6584)</th><th data-page-node-id="wZJ3O6Sk8Myq6fIQ7hLY9n">富世達 (6805)</th><th data-page-node-id="RZ9g7M3XuE1yjxMews2SS7">Accuride / Hettich / Blum</th></tr>
+    <tr data-page-node-id="J9MDH2qTMVrRCJxJGUGijI"><td data-page-node-id="u2A3hqE7TaIBKk0VMDRiN5">定位</td><td data-page-node-id="KsGAQa9jtpaagyZLh2YWCB">伺服器滑軌全球龍頭</td><td data-page-node-id="UiVN1JTsB2W0IkzdVBWxBp">第二供應商（性價比）</td><td data-page-node-id="XTSUPSDZq43CIJjhK2FjGa">散熱跨界整合黑馬</td><td data-page-node-id="GQNxKEnwTL40dOwwti8h3Y">美 / 德 / 奧傳統滑軌大廠</td></tr>
+    <tr data-page-node-id="VA5iO0InaK19BHIjqrqz4z"><td data-page-node-id="a5HF6SepaDpVMD7lYDJURA">專利規模</td><td data-page-node-id="C7c6sQmYcvpADlHPxVxEML"><b data-page-node-id="U0KHqvMuAlTBN8unO5aaHe">3,752 核准 / 3,825 申請</b></td><td data-page-node-id="MQnQ2bAkobYDIYM3rRoSYW">未公開（遠低於川湖）</td><td data-page-node-id="u2dplBmEaGwgOwnYOHs1GM">折疊轉軸為底，跨域申請中</td><td data-page-node-id="Wy33IumsjuQ0oIvrN73ORU">傳統五金專利厚，AI 伺服器弱</td></tr>
+    <tr data-page-node-id="eHROAiWr61Dvu30qQukP9U"><td data-page-node-id="ZrhUfFbxMfTt3pGeuaADru">AI 伺服器市佔</td><td data-page-node-id="fb4gDxJJyylukytoV0hrF3">&gt;80%</td><td data-page-node-id="U1DS8IwREuhwgokKvu3Jki">10–15%</td><td data-page-node-id="EAjdTwdSL85jfI76AAczEC">樣品 / 切入中</td><td data-page-node-id="aM3X9YsVrEhbk0dG8Aj3Qe">極低</td></tr>
+    <tr data-page-node-id="0K2gT1sMZVwLdBJTz1J0D8"><td data-page-node-id="G0N7sDGNY7cHFe94yyF0iW">毛利率</td><td data-page-node-id="3REdvD2PpZyvfkpNlPZ4an">75–87%</td><td data-page-node-id="fKtb90tWB8Ez8fLRWWpYwx">30–40%</td><td data-page-node-id="sMBH6Zoy9WUnZfCWd5rq2e">~25%</td><td data-page-node-id="cjGiR38bV7qC4MuK6NY2gu">傳統製造水準</td></tr>
+    <tr data-page-node-id="6ofDBdvHdu8GBD48I1ckM3"><td data-page-node-id="hu604kjkshdTfb3xilKUil">技術路線</td><td data-page-node-id="RThaD804YDE7bkgiWPKMYi">全自研・規格共定</td><td data-page-node-id="q3ewrNU1sEqfiFOgCDQ5O3">GB200/GB300 認證・ASIC</td><td data-page-node-id="0oD1GUB86SiYA9GbxhhJ68">液冷快接頭 + 滑軌統包</td><td data-page-node-id="p3gbPasCARtVsQRC0vD14m">通用高精度元件</td></tr>
+    <tr data-page-node-id="t72Q9nmmAgkgINHDjKlLzD"><td data-page-node-id="LPTk4oIR6zxKv53Tl7N7Lt">代表客戶</td><td data-page-node-id="bxtIi6caq8s1KoWF53MX1X">NVIDIA・Meta・Google・IBM・HP・DELL・AMD</td><td data-page-node-id="jeiwtUV6edcrKzGb7aZF7Q">美超微・微軟・AWS（ASIC）</td><td data-page-node-id="wfVe4QZ5VKx3cUJ9Bw7gSx">系統廠（液冷協同）</td><td data-page-node-id="uNKKtpzWWQFadhk0M2hmXf">家具 / 工業品牌</td></tr>
   </table>
-  <div class="src">＊富世達 544 件包含有效商標與專利權，並非純專利數。各家披露口徑不同，不可直接加總或排名；詳見第一節圖注。</div>
+  <div class="note" data-page-node-id="yoCrOie5qxt1QoiyNQzDgx">關鍵判讀：川湖的護城河不在「專利數量」本身，而在 <b data-page-node-id="azYToTDs6xiA8dXBLp7YPm">伺服器滑軌這一垂直場景的專精度 + 與 CSP / ODM 共同定義規格的能力 + 敢告能贏的維權紀錄</b>。南俊以性價比搶第二供應商位、富世達以液冷整合差異化，皆未動搖其「規格制定者」地位；傳統五金大廠（Accuride / Hettich / Blum）在 AI 伺服器這一極垂直市場難以繞過川湖專利網。</div>
 </div>
 
-<h2>五、川湖的相對位置與策略含義 <span class="en">Strategic Read</span></h2>
-<div class="card">
-  <p style="margin-top:0"><b>1. 護城河型態不同。</b>川湖以高階伺服器導軌、共同開發與專利布局創造高附加價值；2026 Q2 單季毛利率達 87.4%，但這不是 2025 全年數字。Hettich／Blum 則以家具五金產品廣度、品牌與全球通路競爭，兩者獲利邏輯不同。</p>
-  <p><b>2. 同賽道競爭主要來自台系機構件廠。</b>南俊具備伺服器導軌與越南產能，富世達則結合滑軌、轉軸與液冷快接頭。後者 2025 年伺服器產品占比已由 5.31% 升至 36.29%，顯示跨產品整合正快速放大。</p>
-  <p><b>3. 專利維權已有可查實績。</b>川湖在聯德／昆山聯德滑軌案取得中國最高人民法院終審勝訴，法院認定三項專利侵權並命停止製造、銷售相關產品及賠償。其他案件應逐案列出案號與進度，不宜概括為全面勝訴。</p>
-  <p><b>4. 家具五金廠屬潛在跨界者，而非目前直接同業。</b>Hettich／Blum 擁有精密機構研發與全球製造能力；若資料中心高荷重滑軌需求外溢，理論上具備跨界條件，但目前仍以家具五金為核心。這一段屬策略推論，並非公司已宣布的計畫。</p>
-  <p style="margin-bottom:0"><b>5. 成長與風險需分開看。</b>川湖 2025 營收 175.01 億元、年增 72.77%，專利與產品能力已轉化為財務成果；後續仍需追蹤 AI 資本支出循環、匯率、客戶集中度與新增產能利用率。</p>
+<h2 data-page-node-id="sXrmqWhWRGkNXciK1MZDHm">七、結論與風險提示 <span class="en" data-page-node-id="UFqVBHhWWBrnJ7CEqcl2J2">Conclusion & Risk</span></h2>
+<div class="card" data-page-node-id="mcaW49RZrXvCRyYwQPfU1c">
+  <p style="margin-top:0" data-page-node-id="Ma9JnPPJaTLqUruZb3qogC"><b data-page-node-id="cV8uAsOLCBBWaQJvDbjqPt">結論：</b>川湖在全球伺服器滑軌專利格局中穩居龍頭，其專利組合具備「數量（3,752 核准）+ 質（伺服器滑軌垂直專精）+ 商業化（87% 毛利率 / 規格制定者 / 主動維權勝訴）+ 地理（8 管轄區）+ 客戶綁定（NVIDIA / CSP）」五大特徵。與錼創（MicroLED）相比，川湖的專利「變現路徑」更直接——滑軌佔機櫃成本不到 1% 卻是安全件，客戶寧付高價買保險，使專利能即時轉化為超高毛利，而非等待產業放量。</p>
+  <p data-page-node-id="CeNLPLoqzFI9pIo2VaHiIA"><b data-page-node-id="l9FasXDvruyFlZPDRJLg3E">風險提示：</b></p>
+  <ul style="margin:6px 0 0;padding-left:20px;font-size:13.5px;color:var(--muted)" data-page-node-id="ajX6NgJVpVcp8ubAZRNNL8">
+    <li data-page-node-id="5C84a9unetSsc8SUV3bXQD">單一平台依賴：營收高度綁定 NVIDIA GB / VR200 等 AI 平台時程；若平台延後或客戶自建第二供應鏈，高成長將承壓。</li>
+    <li data-page-node-id="Wk1fq3jJd3weyUa171PZMA">第二供應鏈崛起：南俊（AWS ASIC 目標 30% 份額）、富世達（液冷統包）加速搶食；CSP 積極建立備援來源，長期市佔與毛利或緩降。</li>
+    <li data-page-node-id="rAxqFsJpR778O0h3FBgBi5">中國低價競爭與專利規避：雖積極在中國訴訟（聯德案勝訴），但本土業者繞道設計仍持續威脅家具 / 中低階滑軌市場。</li>
+    <li data-page-node-id="8P5W2A0E2eWaUV8vr62au3">數據口徑：公司自陳「核准 3,752 / 申請 3,825 件」與 PitchBook「專利家族 2,369 / 文件 2,793」差異顯著——後者為跨國同族去重後的家族數，一件發明多國申請計多件但屬同一族，二者不矛盾；2019 年說明書「pending 2,140 + issued 1,750」為舊口徑，跨年比較須標註。</li>
+    <li data-page-node-id="l3uM7SZlFMThGjfV6z2EmP">評價 / 股價高點風險：2026/08 股價突破萬元成台股第三檔萬金股，本益比與評價已反映高度樂觀預期，任何成長不及預期皆可能引發修正。</li>
+  </ul>
 </div>
 
-<footer>
-  <b>主要資料來源：</b>
-  <a href="https://www.kingslide.com/media/wysiwyg/company/investor/document/205920260224E001.pdf" target="_blank" rel="noopener">川湖 2025 Q4 法說簡報</a>、
-  <a href="https://www.kingslide.com/media/wysiwyg/company/investor/document/205920260807E001.pdf" target="_blank" rel="noopener">川湖 2026 Q2 法說簡報</a>、
-  <a href="https://www.kingslide.com/investor_manage_ipmp?___store=taiwan" target="_blank" rel="noopener">川湖智慧財產管理計畫</a>、
-  <a href="https://repon.com.tw/_upload/files/20250826.pdf" target="_blank" rel="noopener">南俊 2024 永續報告</a>、
-  <a href="https://www.fositek.com/Portals/0/FileUpload/Shareholders/2025/2025AnnualReport.pdf" target="_blank" rel="noopener">富世達 2024 年報</a>、
-  <a href="https://financialfilings.com/filings/fositek-6805/annual-report/2026/46124258/" target="_blank" rel="noopener">富世達 2025 年報</a>、
-  <a href="https://www.accuride.com/media/amasty/amfile/attach/cf30432b84b4b29bf0fc1c4fd1d9b0b2.pdf" target="_blank" rel="noopener">Accuride 公司資料</a>、
-  <a href="https://www.hettich.com/en-us/press/detail/hettich-group-demonstrates-stability-and-looks-to-the-future" target="_blank" rel="noopener">Hettich 2025 營運公告</a>、
-  <a href="https://d2.blum.com/services/BEC003/box0038-fo-114_fo_dok_bau_$spt_$aof_$v9.pdf" target="_blank" rel="noopener">Blum 公司資料</a>、
-  <a href="https://moneydj.emega.com.tw/z/zf/zfz/zfz_A521CB78-1269-4107-84B9-7C13B12E8CE7.djhtm" target="_blank" rel="noopener">聯德專利案重大訊息</a>。
-  雷達圖評分為依公開資料給定的相對分級，非官方指標。
-  <div class="src">免責聲明：本儀表板由公開資訊彙整，僅供研究參考，非投資建議亦非法律意見；專利數據因資料庫滯後與口徑差異（件數 vs 家族 vs 全球保護權）可能與官方登記略有出入，最終權利狀態以各國專利主管機關公告為準。整理日期：2026-09-11。</div>
+<footer data-page-node-id="hyjrufV1zPXjlGqaPX2wNO">
+  <b data-page-node-id="rnSHr9wP6gMHKpv6fYbD0P">資料來源：</b>川湖科技 2021 / 2023 CSR 報告、歷年法人說明書（TWSE 公開資訊觀測站，2019 / 2025 / 2026）、富果研究法說備忘錄（2025-02-21）、PitchBook (2026)、工商時報 / 中時新聞 / 鏡週刊 / Cheers / 天下 / sinotrade 產業熱話 / 中央社 / FTNN / CMoney 等公開報導、聯德控股-KY 重大訊息（cnyes）。
+  <div class="src" data-page-node-id="FueN8tYEtXSqwBkvkHSkxy">免責聲明：本報告由公開資訊彙整與視覺化，僅供研究參考，非投資建議，亦不構成法律意見。專利數據因資料庫更新滯後與口徑差異（件數 vs 家族數），數值可能與官方登記略有出入；最終權利狀態請以各國專利主管機關公告為準。推估值（技術佔比、市佔、年份插值）已於圖注標註。整理日期：2026-09-11。</div>
 </footer>
 
 </div>
 
+<script>
+const C={ink:'#1f2a37',muted:'#6b7280',line:'#e5e9f0',
+  teal:'#0f766e',navy:'#1e3a8a',amber:'#b45309',pink:'#db2777',
+  green:'#0f9d58',red:'#dc2626',blue:'#2563eb'};
+Chart.defaults.color=C.muted;Chart.defaults.font.family='-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif';
+Chart.defaults.font.size=12;
+
+// 1. Cumulative granted trend
+new Chart(document.getElementById('trend'),{
+  data:{labels:['2019','2020','2021','2022','2023','2024','2025*','2026*'],
+    datasets:[
+      {type:'line',label:'累計核准專利 (件)',
+       data:[1750,2138,2490,2780,2933,3180,3415,3752],
+       borderColor:C.teal,borderWidth:2.8,tension:.32,fill:true,
+       backgroundColor:'rgba(15,118,110,.10)',
+       pointRadius:4,pointBackgroundColor:C.teal,order:1}
+    ]},
+  options:{maintainAspectRatio:false,
+    plugins:{legend:{position:'top'},
+      tooltip:{callbacks:{label:c=>' '+c.parsed.y+' 件（累計核准）'}}},
+    scales:{
+      y:{title:{display:true,text:'累計核准 (件)'},grid:{color:C.line},beginAtZero:true},
+      x:{grid:{display:false}}}
+  }
+});
+
+// 2. Tech doughnut (estimated)
+new Chart(document.getElementById('tech'),{
+  type:'doughnut',
+  data:{labels:['伺服器導軌核心 40%','快拆/免工具 14%','薄型高荷重 13%','緩衝自鎖 12%','家具/廚具機構 13%','理線與模組化 8%'],
+    datasets:[{data:[40,14,13,12,13,8],
+      backgroundColor:[C.teal,C.navy,C.amber,C.green,C.pink,C.blue],borderColor:'#fff',borderWidth:2}]},
+  options:{maintainAspectRatio:false,cutout:'58%',
+    plugins:{legend:{position:'right',labels:{boxWidth:12,padding:8,font:{size:11.5}}},
+      title:{display:true,text:'技術分類佔比（推估，依產品線與公開專利敘述）',color:C.ink,font:{size:12.5}}}}
+});
+
+// 3. AI server rail share (estimated)
+new Chart(document.getElementById('share'),{
+  type:'bar',
+  data:{labels:['川湖 King Slide','南俊國際','其他 (富世達/Accuride/Sugatsune/中國業者)'],
+    datasets:[{label:'AI 伺服器滑軌市佔 (%)',
+      data:[82,13,5],
+      backgroundColor:['rgba(15,118,110,.92)','rgba(30,58,138,.78)','rgba(148,163,184,.7)'],
+      borderRadius:4}]},
+  options:{indexAxis:'y',maintainAspectRatio:false,
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>' '+c.parsed.x+'%'}}},
+    scales:{x:{title:{display:true,text:'市佔 (%)'},grid:{color:C.line},beginAtZero:true,max:100},
+      y:{grid:{display:false}}}
+  }
+});
+</script>
 </body>
 </html>
